@@ -42,7 +42,7 @@ public class BaseDao {
 			connection=DriverManager.getConnection("jdbc:mysql://192.168.43.43:3306/guobank","myuser","mypassword");
 			System.out.println(connection);
 		}
-		catch (Exception e) {
+		catch (Exception e)   {
 			e.printStackTrace();
 		}
 
