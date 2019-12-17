@@ -32,6 +32,7 @@ public class BaseDao {
     protected boolean execute(String sql, Object[] params) throws SQLException {
         PreparedStatement ps = conn.prepareStatement(sql);
         if (params != null) {
+
             for (int i = 0; i < params.length; i++) {
                 ps.setObject((i + 1), params[i]);
             }
