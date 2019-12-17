@@ -37,7 +37,7 @@ public class BaseDao {
 			//Class.forName(driver);
 			//connection = DriverManager.getConnection(url, username, password);
 
-			//调用数据源连接池，获取数据库连接
+			//调用数据源连接池，获取数据库连接aj
 			Class.forName("com.mysql.jdbc.Driver");
 			connection=DriverManager.getConnection("jdbc:mysql://192.168.43.43:3306/guobank","myuser","mypassword");
 			System.out.println(connection);
