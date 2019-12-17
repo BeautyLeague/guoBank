@@ -39,7 +39,7 @@ public class BaseDao {
 
 			//调用数据源连接池，获取数据库连接
 			Class.forName("com.mysql.jdbc.Driver");
-			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/guobank?useUnicode=true&characterEnc", "root", "123456");
+			connection=DriverManager.getConnection("jdbc:mysql://192.168.43.43:3306/guobank","myuser","mypassword");
 		}
 		catch (Exception e) {
 			e.printStackTrace();

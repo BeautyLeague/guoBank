@@ -23,7 +23,7 @@ public class BaseDao {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/guobank", "root", "123456");
+            conn = DriverManager.getConnection("jdbc:mysql://192.168.43.43:3306/guobank","myuser","mypassword");
         } catch (Exception e) {
             e.printStackTrace();
         }
