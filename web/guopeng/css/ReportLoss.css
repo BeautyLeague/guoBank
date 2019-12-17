@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+*{ 
+	margin:0; 
+	padding:0;
+	list-style:none;
+}
+.footer_div{
+	position:relative;
+}
+.bottom{
+	 margin:auto;
+	margin-top:50px;
+	 width: 80%;
+     height: 50px;
+    
+}
+ul {
+	 text-align: center; 
+}
+ul li{
+	   padding: 10px 5px;
+       display: inline-block;
+       margin:auto;
+}
+.span{
+	font-size:12px; 
+	color:orange;
+	width:0px;
+}
+.a{
+	font-size:12px; 
+	color:orange;
+	width:160px;
+}
+a{
+	text-decoration:none;
+	color:9a9a9a;
+}
+/*以上是底部css样式*/

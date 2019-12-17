@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <link href="css/checkdetails.css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.js"></script>
+    <title>查看明细</title>
+
+    <script>
+        queryType = '';
+        typeName = "";
+        startDate = "";
+        endDate = "";
+        $(document).ready(function () {
+            $('#start').val(getDateString("2001/8/7"));
+            $('#end').val(getDateString(new Date()));
+            $('#end').attr("max",getDateString(new Date()));
+
+            $.post("TransinfoServlet?action=query", function (result) {
+                showData(result);
+            });
+
+
+            $(".classification a").hover(function () {
+
+                if($(this).css("background-color")!=="rgb(255, 0, 0)") {
+                    $(this).css("background", "rgb(214, 211, 211)");
+                }
+            },function () {
+
+                if($(this).css("background-color")!=="rgb(255, 0, 0)") {
+                    $(this).css("background", "white");
+                }
+            });
+
+            $(".classification a").click(function () {
+                $(".classification a").css("background","white");
+                $(this).css("background","red");
+            })
+            $(".type ul li a").click(function () {
+
+                queryType = "type";
+                typeName = $(this).text();
+                $.post("TransinfoServlet?action=queryByType", 'typeName=' + $(this).text(), function (result) {
+                    showData(result);
+                });
+            });
+
+            $(".paging a").click(function () {
+                if(queryType==="type"){
+
+                    var json={
+                        'typeName':typeName,
+                        'pageNo':$(this).attr("data-pageNo")
+                    };
+                    $.post("TransinfoServlet?action=queryByType", json, function (result) {
+                        showData(result);
+                    });
+                }else if(queryType==="date"){
+
+                    var json = {
+                        'startDate': startDate,
+                        'endDate': endDate,
+                        'pageNo':$(this).attr("data-pageNo")
+                    };
+                    $.post("TransinfoServlet?action=queryByDate", json, function (result) {
+                        showData(result);
+                    });
+                }else{
+
+                    $.post("TransinfoServlet?action=query",'pageNo='+$(this).attr("data-pageNo"),function (result) {
+                        showData(result);
+                    });
+                }
+
+            })
+        });
+
+        //今天
+        function today() {
+            var date = new Date();
+            queryType = "date";
+            startDate = getDateString(date);
+            endDate = getDateString(date);
+            queryByDate(getDateString(date), getDateString(date))
+        }
+
+        //一个月
+        function oneMonth() {
+            var startDateMonth = new Date();
+            var endDateMonth = new Date();
+            startDateMonth.setMonth(startDateMonth.getMonth() - 1);
+            queryType = "date";
+            startDate = getDateString(startDateMonth);
+            endDate = getDateString(endDateMonth);
+            queryByDate(getDateString(startDateMonth), getDateString(endDateMonth));
+        }
+
+        //三个月
+        function threeMonth() {
+            var startDateMonth = new Date();
+            var endDateMonth = new Date();
+            startDateMonth.setMonth(startDateMonth.getMonth() - 3);
+            queryType = "date";
+            startDate = getDateString(startDateMonth);
+            endDate = getDateString(endDateMonth);
+            queryByDate(getDateString(startDateMonth), getDateString(endDateMonth));
+        }
+
+        //一年
+        function oneYear() {
+            var startDateYear = new Date();
+            var endDateYear = new Date();
+            startDateYear.setFullYear(startDateYear.getFullYear() - 1);
+            queryType = "date";
+            startDate = getDateString(startDateYear);
+            endDate = getDateString(endDateYear);
+            queryByDate(getDateString(startDateYear), getDateString(endDateYear));
+        }
+
+        function queryByDate(startDate, endDate) {
+            var json = {
+                'startDate': startDate,
+                'endDate': endDate
+            };
+            $.post("TransinfoServlet?action=queryByDate", json, function (result) {
+                showData(result);
+            });
+        }
+
+        function showWhole(obj){
+            $(obj).parent().text($(obj).parent().attr('data-text'));
+
+        }
+        function showData(json) {
+            json = JSON.parse(json);
+            $("#dates tr:gt(0)").remove();
+            for (var i = 0; i < json.resultList.length; i++) {
+                var typeName = json.resultList[i].trandstype.typeName;
+                var trandsmoney = json.resultList[i].trandsmoney;
+                var trandsdate = json.resultList[i].trandsdate;
+                var trandsinfos = json.resultList[i].trandsinfos;
+                var trandsinfosElement;
+                if(trandsinfos.length>8){
+                    trandsinfosElement = trandsinfos.substring(0,8)+"......";
+                    trandsinfosElement+="<a href='javascript:void(0)' onclick='showWhole(this)' style='font-size: 9px'>更多</a>"
+                }else{
+                    trandsinfosElement = trandsinfos;
+                }
+                var element = "<tr style='    height: 60px;\n" +
+                    "    border-bottom: 1px rgb(172, 170, 170) dashed;\n" +
+                    "    margin-bottom: 20px;'>\n" +
+                    "                        <td>" + typeName + "</td>" +
+                    "                        <td>" + trandsmoney + "</td>" +
+                    "                        <td>" + trandsdate + "</td>" +
+                    "                        <td data-text = '"+trandsinfos+"'>" + trandsinfosElement + "</td>" +
+                    "                    </tr>"
+                $("#dates").append(element);
+            }
+
+            //显示上一页,首页
+            if (json.pageNo === 1) {
+                $("#shang,#shou").hide();
+            } else {
+                $("#shang,#shou").show();
+                $("#shang").attr("data-pageNo", json.pageNo - 1);
+                $("#shou").attr("data-pageNo", 1);
+            }
+
+            //显示下一页,尾页
+            if (json.pageNo === json.totalPage || json.totalCount === 0) {
+                $("#xia,#wei").hide();
+            } else {
+                $("#xia,#wei").show();
+                $("#xia").attr("data-pageNo", json.pageNo + 1);
+                $("#wei").attr("data-pageNo", json.totalPage);
+            }
+            $("#number").text(((json.pageNo-1)*json.pageCount)+1+"-"+json.pageCount+"条");
+            $("#totalNumber").text("共:"+json.totalCount+"条");
+        }
+
+
+        function dateChange() {
+            $(".classification a").css("background","white");
+            var start = $("#start").val();
+            var end = $("#end").val();
+            //判断时间是否正确
+            if (Date.parse(start) && Date.parse(end)) {
+                queryType = "date";
+                startDate = getDateString(start);
+                endDate = getDateString(end);
+
+                queryByDate(start, end);
+            }
+        }
+        function getDateString(date) {
+            // 给input  date设置默认值
+            var now = new Date(date);
+            //格式化日，如果小于9，前面补0
+            var day = ("0" + now.getDate()).slice(-2);
+            //格式化月，如果小于9，前面补0
+            var month = ("0" + (now.getMonth() + 1)).slice(-2);
+            //拼装完整日期格式
+            var today = now.getFullYear() + "-" + (month) + "-" + (day);
+            return today;
+        }
+    </script>
+</head>
+
+<body>
+<header>
+    <div class="header_div">
+
+        <ul>
+            <li>
+                <a href="wanzehao/index.jsp">网站首页</a>
+            </li>
+            <li>
+                ｜
+            </li>
+            <li>
+                <a href="javascript:void(0)">网点查询</a>
+            </li>
+        </ul>
+        <div class="search">
+
+            <input type="text" placeholder="请输入关键字" size="15">
+            <input type="button">
+
+        </div>
+    </div>
+    </div>
+</header>
+
+
+<div class="title">
+    <ul>
+        <li>
+            <img src="img/guobank.png" width="198" height="50">
+        </li>
+        <li>
+            <p>|</p>
+        </li>
+        <li>
+            <p>个人网上银行——查看明细</p>
+        </li>
+    </ul>
+
+</div>
+<div class="contene">
+
+    <div class="classification">
+
+        <div class="time">
+            <ul>
+                <li>
+                    <p style="font-weight:bold;">时间:</p>
+                </li>
+                <li><input type="date" id="start" onchange="dateChange()"></li>
+                <li><input type="date" id="end" onchange="dateChange()"></li>
+                <li><a href="javascript:void(0)" onclick="today()">今天</a></li>
+                <li>|</li>
+                <li><a href="javascript:void(0)" onclick="oneMonth()">1个月</a></li>
+                <li><a href="javascript:void(0)" onclick="threeMonth()">3个月</a></li>
+                <li><a href="javascript:void(0)" onclick="oneYear()">1年</a></li>
+            </ul>
+        </div>
+
+        <div class="type">
+            <ul>
+                <li>
+                    <p style="font-weight:bold;">类型:</p>
+                </li>
+                <li><a href="javascript:void(0)">存款</a></li>
+                <li><a href="javascript:void(0)">取款</a></li>
+                <li><a href="javascript:void(0)">转入</a></li>
+                <li><a href="javascript:void(0)">转出</a></li>
+                <li><a href="javascript:void(0)">还款</a></li>
+                <li><a href="javascript:void(0)">贷款</a></li>
+                <li><a href="javascript:void(0)">其他</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="data">
+        <table style="border-collapse:collapse;" id="dates">
+            <tr style="border-bottom: 1px rgb(172, 170, 170) dashed;margin-bottom: 20px;">
+                <th style="width: 25%;" class="类型">类型</th>
+                <th style="width: 25%;" class="金额">金额</th>
+                <th style="width: 25%;" class="时间">时间</th>
+                <th style="width: 25%;" class="备注">备注</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="paging" style="text-align: right;font-size: 10px;margin-top: 15px">
+        <a id="shou" href="javascript:void(0)" data-pageNo=''>首页</a>
+        <a id="shang" href="javascript:void(0)" data-pageNo=''>上一页</a>
+        <span id="number">1 - 10条,</span>
+        <span id="totalNumber">共88条</span>
+        <a id="xia" href="javascript:void(0)" data-pageNo=''>下一页</a>
+        <a id="wei" href="javascript:void(0)" data-pageNo=''>尾页</a>
+    </div>
+</div>
+<footer>
+    <div class="footer_div">
+
+        <div class="service">
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">网站声明</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">|</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">网站地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">|</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"> 联系我们 </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">|</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">客服热线：<span>666666</span></a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">中国郭式银行版权所有</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">|</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><span>京ICP备01234567</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</footer>
+</body>
+
+</html>

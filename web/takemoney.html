@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <link href="css/takemoney.css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/overall.js"></script>
+    <script>
+        function inpfcous(obj) {
+
+            $(obj).prev().animate({rotate: "150deg", left: "120px"}, 'slow');
+
+        };
+
+        function inpblur(obj) {
+
+            if ($.trim($(obj).val()) === "") {
+
+                $(obj).prev().animate({rotate: "150deg", left: "156px"}, 'slow');
+            }
+
+        }
+
+        function cardBlur(obj) {
+            var $obj = $(obj);
+            if ($.trim($obj.val()).length === 0) {
+                $obj.next().attr("class", "error_span");
+                $obj.next().text("卡号不能为空");
+                $(obj).val("");
+                inpblur(obj);
+                return false;
+            } else if ($.trim($obj.val()).length !== 18) {
+                $obj.next().attr("class", "error_span");
+                $obj.next().text("卡号必须为18位");
+                return false;
+            } else {
+                $.post("/BankcardServlet?action=inspectBankcardId", 'bankCardId=' + $.trim($(obj).val()), function (result) {
+                    if (result === "true") {
+                        $obj.next().text("正确");
+                        $obj.next().attr("class", "correct_span");
+                        return true;
+                    } else {
+                        $obj.next().attr("class", "error_span");
+                        $obj.next().text("该卡号不存在");
+                        return false;
+                    }
+
+                });
+                return true;
+            }
+        }
+
+        function moneyBlur(obj) {
+            var $obj = $(obj);
+            if ($.trim($obj.val()).length === 0) {
+                $obj.next().text("金额不能为空");
+                inpblur(obj);
+
+            } else if (isNaN($.trim($obj.val()))) {
+                $obj.next().text("请输入数子");
+            } else if ($.trim($obj.val()) <= 0) {
+                $obj.next().text("金额必须大于0");
+            } else {
+                $obj.next().text("正确");
+                $obj.next().attr("class", "correct_span");
+                return true;
+            }
+            $obj.next().attr("class", "error_span");
+            return false;
+
+        }
+
+
+        function pwdBlur(obj) {
+            var $obj = $(obj);
+            if ($.trim($obj.val()).length === 0) {
+                $obj.next().text("密码不能为空");
+                inpblur(obj);
+            } else if (isNaN($.trim($obj.val()))) {
+                $obj.next().text("密码必须为数字");
+            } else if ($.trim($obj.val()).length !== 6) {
+                $obj.next().text("密码必须是六位数");
+            } else {
+                $obj.next().text("正确");
+                $obj.next().attr("class", "correct_span");
+                return true;
+            }
+            $obj.next().attr("class", "error_span");
+            return false;
+        }
+
+
+        function submit() {
+            if (cardBlur($("#bankcardId")) && moneyBlur($("#money")) && pwdBlur($("#pwd"))) {
+                var json = {"bankcardId":$.trim($("#bankcardId").val()),
+                    "money": $.trim($("#money").val()),
+                    "pwd":$.trim($("#pwd").val())}
+                $.post("/BankcardServlet?action=takeMoney", json, function (result) {
+                    alert(result);
+                    if(result.indexOf("成功")!==-1){
+                        var json={
+                            "bankcardId":$.trim($("#bankcardId").val()),
+                            "money": $.trim($("#money").val()),
+                            "typeName":"取款",
+                            "trandsInfo":"取款:"+$.trim($("#money").val())+"元"
+                        }
+                        $.post("/TransinfoServlet?action=addTransInfo",json);
+                    }
+                })
+            }
+
+        }
+    </script>
+    <title>取款</title>
+</head>
+
+<body>
+<header>
+    <div class="header_div">
+
+        <ul>
+            <li>
+                <a href="wanzehao/index.jsp">网站首页</a>
+            </li>
+            <li>
+                ｜
+            </li>
+            <li>
+                <a href="javascript:void(0)">网点查询</a>
+            </li>
+        </ul>
+        <div class="search">
+
+            <input type="text" placeholder="请输入关键字" size="15">
+            <input type="button">
+
+        </div>
+    </div>
+    </div>
+</header>
+
+
+<div class="title">
+    <ul>
+        <li>
+            <img src="img/guobank.png" width="198" height="50">
+        </li>
+        <li>
+            <p>|</p>
+        </li>
+        <li>
+            <p>个人网上银行——取款</p>
+        </li>
+    </ul>
+
+</div>
+<div class="contene">
+    <div class="form">
+        <div class="card">
+            <p>请输入卡号:</p>
+            <img src="img/card.png" width="20px" height="20px" class="icon" id="cardId">
+            <input type="text" size="30" onfocus="inpfcous(this)" onblur="cardBlur(this)" id="bankcardId">
+            <span class="error_span"></span>
+        </div>
+        <div class="price">
+            <p>请输入取款金额:</p>
+            <img src="img/price.png" width="20px" height="20px" class="icon">
+            <input type="text" size="30" onfocus="inpfcous(this)" onblur="moneyBlur(this)" id="money">
+            <span class="error_span"></span>
+        </div>
+        <div class="pwd">
+            <p>请输入密码:</p>
+            <img src="img/pwd1.png" width="20px" height="20px" class="icon">
+            <input type="password" size="30" onfocus="inpfcous(this)" onblur="pwdBlur(this)" id="pwd">
+            <span class="error_span"></span>
+        </div>
+        <div class="button">
+            <input type="button" value="确认" onclick="submit()">
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer_div">
+
+        <div class="service">
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">网站声明</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">|</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">网站地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">|</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"> 联系我们 </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">|</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">客服热线：<span>666666</span></a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">中国郭式银行版权所有</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">|</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><span>京ICP备01234567</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</footer>
+</body>
+
+</html>

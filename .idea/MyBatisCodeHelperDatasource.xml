@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="generateService" value="true" />
+        <option name="generateServiceInterface" value="true" />
+        <option name="javaMapperPackage" value="com.mapper" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/src" />
+        <option name="javaModelPackage" value="com.guobank.entity" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/src" />
+        <option name="lastDatabaseCrudChooseModuleName" value="MyBank" />
+        <option name="modelAddEqualHashCode" value="true" />
+        <option name="modelAddToString" value="true" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="MyBank">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/src" />
+                  <option name="javaModelPacakge" value="com.guobank.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/src" />
+                  <option name="javaServiceInterfacePackage" value="com.guobank.service" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/src" />
+                  <option name="javaServicePackage" value="com.guobank.service.impl" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/src" />
+                  <option name="xmlPackage" value="mapperxml" />
+                  <option name="xmlPath" value="c" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="guobank:bankcard">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Bankcard" />
+                  <option name="moduleName" value="MyBank" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="guobank:cardtype">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Cardtype" />
+                  <option name="moduleName" value="MyBank" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="guobank:loaninfo">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Loaninfo" />
+                  <option name="moduleName" value="MyBank" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="guobank:trandstype">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Trandstype" />
+                  <option name="moduleName" value="MyBank" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="guobank:transinfo">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="Transinfo" />
+                  <option name="moduleName" value="MyBank" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="guobank:userinfo">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Userinfo" />
+                  <option name="moduleName" value="MyBank" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="xmlMapperPackage" value="mapperxml" />
+        <option name="xmlMapperPath" value="c" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>

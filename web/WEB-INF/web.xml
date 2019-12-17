@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <welcome-file-list>
+        <welcome-file>/wanzehao/index.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>BankcardServlet</servlet-name>
+        <servlet-class>com.guobank.web.BankcardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BankcardServlet</servlet-name>
+        <url-pattern>/BankcardServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>TransinfoServlet</servlet-name>
+        <servlet-class>com.guobank.web.TransinfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TransinfoServlet</servlet-name>
+        <url-pattern>/TransinfoServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <!--杨昆-->
+    <servlet>
+        <servlet-name>SelectServlet</servlet-name>
+        <servlet-class>com.guobank.web.SelectPriceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectServlet</servlet-name>
+        <url-pattern>/SelectServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SelectNameServlet</servlet-name>
+        <servlet-class>com.guobank.web.SelectNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectNameServlet</servlet-name>
+        <url-pattern>/SelectNameServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SelectBankIdServlet</servlet-name>
+        <servlet-class>com.guobank.web.SelectBankIdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectBankIdServlet</servlet-name>
+        <url-pattern>/SelectBankIdServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TransMoneyServlet</servlet-name>
+        <servlet-class>com.guobank.web.TransMoneyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TransMoneyServlet</servlet-name>
+        <url-pattern>/TransMoneyServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>com.guobank.web.AddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/AddServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AjaxLoginServlet</servlet-name>
+        <servlet-class>com.guobank.wanzehao.web.AjaxLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>TuiChuServlet</servlet-name>
+        <servlet-class>com.guobank.wanzehao.web.TuiChuServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AjaxYZPhoServlet</servlet-name>
+        <servlet-class>com.guobank.wanzehao.web.AjaxYZPhoServlet</servlet-class>
+    </servlet>
+
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>SMSServlet</servlet-name>
+        <servlet-class>com.guobank.wanzehao.web.SMSServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AjaxAddUserInfoServlet</servlet-name>
+        <servlet-class>com.guobank.wanzehao.web.AjaxAddUserInfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AjaxGetPwdServlet</servlet-name>
+        <servlet-class>com.guobank.wanzehao.web.AjaxGetPwdServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>loanMoneyServlet</servlet-name>
+        <servlet-class>com.guobank.liukongfu.web.loanMoneyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>YZCardIdServlet</servlet-name>
+        <servlet-class>com.guobank.liukongfu.web.YZCardIdServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>QueryLoanInfoServlet</servlet-name>
+        <servlet-class>com.guobank.liukongfu.web.QueryLoanInfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>MoneyServlet</servlet-name>
+        <servlet-class>com.guobank.liukongfu.web.MoneyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>IsPassServlet</servlet-name>
+        <servlet-class>com.guobank.liukongfu.web.IsPassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>addhkServlet</servlet-name>
+        <servlet-class>com.guobank.liukongfu.web.addhkServlet</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+
+        <servlet-name>SMSServlet</servlet-name>
+
+        <url-pattern>/SMSServlet</url-pattern>
+
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AjaxLoginServlet</servlet-name>
+        <url-pattern>/AjaxLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TuiChuServlet</servlet-name>
+        <url-pattern>/TuiChuServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjaxAddUserInfoServlet</servlet-name>
+        <url-pattern>/AjaxAddUserInfoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AjaxYZPhoServlet</servlet-name>
+        <url-pattern>/AjaxYZPhoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjaxGetPwdServlet</servlet-name>
+        <url-pattern>/AjaxGetPwdServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loanMoneyServlet</servlet-name>
+        <url-pattern>/loanMoneyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>YZCardIdServlet</servlet-name>
+        <url-pattern>/YZCardIdServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryLoanInfoServlet</servlet-name>
+        <url-pattern>/QueryLoanInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MoneyServlet</servlet-name>
+        <url-pattern>/MoneyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IsPassServlet</servlet-name>
+        <url-pattern>/IsPassServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addhkServlet</servlet-name>
+        <url-pattern>/addhkServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AjaxInsertOpenAccount</servlet-name>
+        <servlet-class>com.guobank.guopeng.servlet.AjaxInsertOpenAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AjaxUpdateBankCardIdServlet</servlet-name>
+        <servlet-class>com.guobank.guopeng.servlet.AjaxUpdateBankCardIdServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AjaxDeleteBankCardIdServlet</servlet-name>
+        <servlet-class>com.guobank.guopeng.servlet.AjaxDeleteBankCardIdServlet</servlet-class>
+    </servlet>
+
+
+
+
+
+    <servlet-mapping>
+        <servlet-name>AjaxInsertOpenAccount</servlet-name>
+        <url-pattern>/AjaxInsertOpenAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjaxUpdateBankCardIdServlet</servlet-name>
+        <url-pattern>/AjaxUpdateBankCardIdServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjaxDeleteBankCardIdServlet</servlet-name>
+        <url-pattern>/AjaxDeleteBankCardIdServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+    <servlet-mapping>
+        <servlet-name>guoPengSMSServlet</servlet-name>
+        <url-pattern>/guoPengSMSServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>guoPengSMSServlet</servlet-name>
+        <servlet-class>com.guobank.guopeng.servlet.SMSServlet</servlet-class>
+    </servlet>
+
+
+
+
+
+
+
+    <servlet>
+        <servlet-name>mingzilongaddUserinfoServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.addUserinfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mingzilongaddUserinfoServlet</servlet-name>
+        <url-pattern>/mingzilongaddUserinfoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>mingzilongAjaxSJServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.AjaxSJServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mingzilongAjaxSJServlet</servlet-name>
+        <url-pattern>/mingzilongAjaxSJServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>mingzilongCloseuserinfoServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.CloseuserinfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mingzilongCloseuserinfoServlet</servlet-name>
+        <url-pattern>/mingzilongCloseuserinfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>mingzilongqueryUserinfoServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.queryUserinfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mingzilongqueryUserinfoServlet</servlet-name>
+        <url-pattern>/mingzilongqueryUserinfoServlet</url-pattern>
+    </servlet-mapping>
+</web-app>

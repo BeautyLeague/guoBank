@@ -1,0 +1,69 @@
+.title {
+    width: 100%;
+    height: 100px;
+    background: ghostwhite;
+}
+
+.title ul {
+    padding-top: 30px;
+    overflow: hidden;
+    margin-left: 20%;
+}
+
+.title ul li {
+    float: left;
+    margin-right: 20px;
+}
+
+.title p {
+    line-height: 50px;
+    font-size: 20px;
+}
+
+
+
+
+
+.contene{
+    width: 1200px;
+    margin: auto;
+  margin-top: 10px;
+  border-top: 1px rgb(167, 165, 165) solid
+}
+.classification{
+    margin-top: 20px;
+}
+.classification .scswtime{
+    border-top: 1px black solid;
+    height: 50px;
+    margin-top: 20px;
+}
+.classification .type{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.classification ul li{
+    display: inline-block;
+    margin-left: 20px;
+}
+.classification ul li a{
+    text-decoration: none;
+    color: black;
+    padding: 2px 7px;
+    border-radius: 5px;
+}
+.classification ul li a:hover{
+    background: rgb(214, 211, 211);
+}
+
+
+.data table{
+    width: 100%;
+}
+
+.data table td{
+  text-align: center;
+}
+.data tr{
+    line-height: 30px;;
+}

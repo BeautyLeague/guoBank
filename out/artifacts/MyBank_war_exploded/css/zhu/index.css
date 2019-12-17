@@ -1,0 +1,312 @@
+@charset "utf-8";
+*{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	cursor:pointer;
+}
+/*瀵艰埅椤�-澶撮儴*/
+#div1{	
+	background-color: #F2F2F2;
+	height:50px;
+	width:100%;
+	color: #0AD0E2;
+}
+
+#div1 span{
+	margin-left: 1060px;
+	
+}
+#div2{
+	display: inline-block;
+	height: 50px;
+	width: 180px;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+#div2 a{
+	text-decoration: none;
+	color: #0AD0E2;
+}
+#div2 a:hover{
+	text-decoration: underline;
+	color: green;
+	cursor:pointer;
+}
+#div3{
+	display: inline-block;
+	margin-left: 120px;
+}
+#div3 a{
+	text-decoration: none;
+	color: black;
+}
+/*鍥剧墖鏍峰紡*/
+#img1{
+	float: left;
+	height: 50px;
+	margin-top: 10px;
+	margin-left: 200px;
+}
+#img2,#img3{
+	height: 20px;
+}
+#img4{
+	padding-top: 10px;
+	height: 35px;
+	border-radius: 50px;
+	border: 1px solid;
+}
+
+#div4{
+	height: 60px;
+}
+#div4 .h3{
+	margin-top: 10px;
+	margin-left: 10px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+#hh{
+	position: relative;
+	left: -150px;
+	top: 20px;
+	display: inline-block;
+	font-weight: bold;
+}
+#div4 p{
+	display: inline-block;
+	position: relative;
+	top: 15px;
+	right: -100px;
+	color: #0AD0E2;
+	font-size: 20px;
+	font-weight: bold;
+}
+/*棣栭〉--娲诲姩婊氳疆*/
+/*鍥剧墖鏍峰紡*/
+#tuichu{
+	height:40px;
+	display:inline-block;
+	padding-left:10px;
+}
+#tuichu:hover{
+	cursor: pointer;
+}
+#img5{
+	width: 100%;
+	height: 400px;
+}
+#img6{
+	width: 100%;
+	height: 50px;
+}
+
+
+#div12 ul{
+	position: relative;
+	top: -50px;
+	left: 850px;
+	
+}
+#div12 ul li{
+	display: inline-block; font-size: 10px; line-height: 20px; font-family: "微软雅黑"; margin: 0 1px; width: 20px; height: 20px; border-radius: 50%; background: #333333; text-align: center; color: #ffffff;
+}
+.arrowLeft,.arrowRight{
+    position: absolute;
+    width: 30px;
+    background:rgba(0,0,0,0.2);
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    top:300px;
+    z-index: 150;
+    font-family: "微软雅黑";
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+}
+.arrowLeft{left: 10px;}
+.arrowRight{right: 10px;}
+
+
+#div5{
+	border: 2px solid;
+	width: 100%;
+	height: 600px;
+}
+
+
+
+#div6{
+	display: inline-block;
+	position: relative;
+	top: 20px;
+	left: 40px;
+}
+#ul1 li{
+   
+	border: 2px solid;
+}
+#ul1 li:nth-child(1){
+height: 100px;
+background-color: #0066CC;
+font-size: 40px;
+font-weight: bold;
+color: white;
+line-height: 100px;
+text-align: center;
+}
+#lione{
+	/*width: 500px;*/
+}
+#ul1 li:not(#lione){
+    border-top: none;
+	width: 380px;
+	height: 100px;
+	font-weight: bold;	
+	line-height: 100px;
+    text-align: center;
+    font-size: 30px;
+}
+#ul1 li a{
+	text-decoration: none;
+	color: black;
+}
+#ul1 li a:hover{
+	text-decoration: underline;
+	color: green;
+}
+
+
+
+
+#div7{
+	display: inline-block;
+
+	position: relative;
+	top: 20px;
+	left: 200px;
+}
+#ul2 li{
+   
+	border: 2px solid;
+}
+#ul2 li:nth-child(1){
+height: 100px;
+background-color: #0066CC;
+font-size: 40px;
+font-weight: bold;
+color: white;
+line-height: 100px;
+text-align: center;
+}
+
+#ul2 li:not(#lione){
+    border-top: none;
+	width: 380px;
+	height: 100px;
+	font-weight: bold;	
+	line-height: 100px;
+    text-align: center;
+    font-size: 30px;
+}
+#ul2 li a{
+	text-decoration: none;
+	color: black;
+}
+#ul2 li a:hover{
+	text-decoration: underline;
+	color: green;
+}
+
+
+
+
+
+/*涓氬姟鏌ヨ*/
+#div8{
+	display: inline-block;
+
+	position: relative;
+	top: 20px;
+	left: 340px;
+}
+#ul3 li{
+   
+	border: 2px solid;
+}
+#ul3 li:nth-child(1){
+height: 100px;
+background-color: #0066CC;
+font-size: 40px;
+font-weight: bold;
+color: white;
+line-height: 100px;
+text-align: center;
+}
+
+#ul3 li:not(#lione){
+    border-top: none;
+	width: 380px;
+	height: 100px;
+	font-weight: bold;	
+	line-height: 100px;
+    text-align: center;
+    font-size: 30px;
+}
+#ul3 li a{
+	text-decoration: none;
+	color: black;
+}
+#ul3 li a:hover{
+	text-decoration: underline;
+	color: green;
+}
+/*璐锋涓氬姟*/
+#div9{
+	height: 100px;
+	border: 2px solid ;
+	position: relative;
+	bottom: -50px;
+	left: 40px;
+	width: 90%;
+	margin: auto;
+	font-weight: bold;
+	font-size: 40px;
+}
+#div10{
+	display: inline-block;
+	position: relative;
+	top: -15px;
+	margin-left: 90px;
+	margin-right: 90px;
+
+}
+#div9 img:first-child{
+	margin-left: 30px;
+	height: 80px;
+	position: relative;
+	top:10px;
+
+}
+#img7{
+	position: relative;
+
+}
+#div11{
+	display: inline-block;
+	position: relative;
+	top:-15px;
+	margin-left: 50px;
+}
+
+/*搴曢儴*/
+
