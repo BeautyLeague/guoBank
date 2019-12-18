@@ -25,6 +25,12 @@ public class TransService implements ItransService {
         if(zhuanCard.getMoney() < money){
             throw new Exception("金额不足");
         }
+        if(zhuanCard.getIs_Ds().equals(1)){
+            throw  new Exception("卡号"+bankID+"已挂失，无法进行转账");
+        }
+        if(shouCard.getIs_Ds().equals(1)){
+            throw  new Exception("卡号"+card+"已挂失，无法进行转账");
+        }
         zhuanCard.setMoney(zhuanCard.getMoney()-money);
         shouCard.setMoney(shouCard.getMoney()+money);
         transterMoneyDao.update(zhuanCard);

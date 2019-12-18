@@ -13,7 +13,7 @@ public class transterMoneyDao extends BaseDao implements ItransferMoney {
     public Boolean update(Bankcard
                                       bankCard) throws Exception {
         String sql = "Update bankcard set money=?, cardtypeid=?, userid=?,pass=?," +
-                "is_ds=?,address=?,date=? where bankcardid=?  ";
+                "is_ds=?,address=?,date=? where bankcardid=? and IS_DS=0 ";
 
         Boolean b = super.executeUpdate(sql, new Object[]{bankCard.getMoney(),
                 bankCard.getCardTypeid(), bankCard.getUserid(), bankCard.getPass(),

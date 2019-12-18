@@ -231,18 +231,18 @@
 </div>
 <div class="com/ntent">
     <div class="form">
-        <div class="name">
-            <p>姓名:</p>
-            <i class="user"></i>
-            <input type="text" disabled class="ntu" id="name">
-            <span style="color: red;" id="name_error"></span>
-        </div>
         <div class="kahao">
             <p>卡号:</p>
             <i class="kas"></i>
             <input type="text" onblur="kaBlur(this)" onfocus="konfocus(this)" placeholder="请输入您的卡号" class="katu"
                    id="card">
             <span style="color: red;" id="ka_error"></span>
+        </div>
+        <div class="name">
+            <p>姓名:</p>
+            <i class="user"></i>
+            <input type="text" disabled class="ntu" id="name">
+            <span style="color: red;" id="name_error"></span>
         </div>
         <div>
             <p>余额:</p>

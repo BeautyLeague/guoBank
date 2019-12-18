@@ -129,7 +129,6 @@
             }
         }
 
-
         //判断收账卡号格式
         function kahaoBlur() {
 
@@ -151,11 +150,9 @@
                     if (result === "false") {
                         document.getElementById("kahao_error").innerText = "收账银行卡不存在";
                         return false;
-
                     } else {
                         document.getElementById("kahao_error").innerText = "";
                         return true;
-
                     }
 
                 })
@@ -301,7 +298,8 @@
             };
             $.post("/TransMoneyServlet", json, function (result) {
                 alert(result);
-                if(result!="密码错误"){
+                alert(document.getElementById("card").value);
+                if(result!="密码错误" && result!="卡号"+document.getElementById("ka").value+"已挂失，无法进行转账" &&result!="卡号"+document.getElementById("card").value+"已挂失，无法进行转账" && result!="金额不足"){
                     Add();
                 }
             });
