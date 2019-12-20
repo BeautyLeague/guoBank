@@ -46,7 +46,7 @@
                         return true;
                     } else {
                         $obj.next().attr("class", "error_span");
-                        $obj.next().text("该卡号不存在");
+                        $obj.next().text(result);
                         return false;
                     }
 
@@ -96,7 +96,7 @@
 
 
         function submit() {
-            if (cardBlur($("#bankcardId")) && moneyBlur($("#money")) && pwdBlur($("#pwd"))) {
+            if (cardBlur($("#bankcardId")) && moneyBlur($("#money")) && pwdBlur($("#pwd")) && $("#bankcardId").next().text() === "正确") {
                 var json = {"bankcardId":$.trim($("#bankcardId").val()),
                     "money": $.trim($("#money").val()),
                     "pwd":$.trim($("#pwd").val())}

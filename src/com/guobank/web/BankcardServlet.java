@@ -33,10 +33,13 @@ public class BankcardServlet extends HttpServlet {
         if ("inspectBankcardId".equals(request.getParameter("action"))) {
             System.out.println(request.getSession().getAttribute("info"));
             try {
-                if (bankcardService.getBankcardById(request.getParameter("bankCardId")) != null) {
+                Bankcard bankcard = bankcardService.getBankcardById(request.getParameter("bankCardId"));
+                if (bankcard== null) {
+                    response.getWriter().write("该卡号不存在");
+                } else if(bankcard.getIs_Ds()==1){
+                    response.getWriter().write("该卡号已挂失");
+                } else{
                     response.getWriter().write("true");
-                } else {
-                    response.getWriter().write("false");
                 }
             } catch (Exception e) {
                 e.printStackTrace();

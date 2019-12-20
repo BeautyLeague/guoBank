@@ -31,7 +31,7 @@
                         $obj.addClass("inputOk");
                         return true;
                     } else {
-                        $obj.next().text("该卡号不存在");
+                        $obj.next().text(result);
                         $obj.removeClass("inputOk");
                         $obj.addClass("inputError");
                         return false;
@@ -84,7 +84,7 @@
         }
 
         function submit() {
-            if (cardBlur() && moneyBlur() && pwdBlur()) {
+            if (cardBlur() && moneyBlur() && pwdBlur() && $("#bankcardId").next().text() === "") {
                 var json = {"bankcardId":$.trim($("#bankcardId").val()),
                     "money": $.trim($("#money").val()),
                     "pwd":$.trim($("#pwd").val())}
