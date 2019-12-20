@@ -17,7 +17,7 @@ public class SelectDao extends BaseDao implements ISelectDao {
     //查询余额方法
     @Override
     public Bankcard SelectPrice(String bankId, double money) throws Exception {
-        String sql = "select money from bankCard where bankCardId=?";
+        String sql = "select money from bankCard where bankCardId=? ";
         ResultSet rs = super.executeQuery(sql, new Object[]{bankId});
         List<Bankcard> list = new ArrayList<Bankcard>();
         Bankcard bankCard = new Bankcard();

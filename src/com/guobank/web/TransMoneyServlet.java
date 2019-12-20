@@ -2,7 +2,10 @@ package com.guobank.web;
 
 
 
+import com.guobank.dao.IBackstageDao;
+import com.guobank.service.IBackstageService;
 import com.guobank.service.ItransService;
+import com.guobank.service.impl.BackstageService;
 import com.guobank.service.impl.TransService;
 
 import javax.servlet.ServletException;
@@ -15,11 +18,13 @@ import java.io.IOException;
 @WebServlet(name = "TransMoneyServlet")
 public class TransMoneyServlet extends HttpServlet {
     private ItransService itransService = new TransService();
+    private IBackstageService backstageService = new BackstageService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("Utf-8");
         try {
+            backstageService.query();
             String ka = request.getParameter("ka");
             String card = request.getParameter("card");
             Integer pass = new Integer(request.getParameter("pwd"));
@@ -27,9 +32,9 @@ public class TransMoneyServlet extends HttpServlet {
             itransService.update(money, ka, pass, card);
             response.getWriter().write("转账成功");
         } catch (Exception e) {
-
-            response.getWriter().write(e.getMessage());
             e.printStackTrace();
+            response.getWriter().write(e.getMessage());
+
         }
     }
 

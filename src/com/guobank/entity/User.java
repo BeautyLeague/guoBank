@@ -1,6 +1,7 @@
 package com.guobank.entity;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @描述:
@@ -17,6 +18,16 @@ public class User {
     private  Integer pho     ;         //电话
     private  Integer id     ;         //身份证号
     private Date date  ;         //出生日期
+
+    public List<Bankcard> getBankcard() {
+        return bankcard;
+    }
+
+    public void setBankcard(List<Bankcard> bankcard) {
+        this.bankcard = bankcard;
+    }
+
+    private List<Bankcard> bankcard;
 
     public String getUserName() {
         return userName;

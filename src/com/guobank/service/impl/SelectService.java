@@ -12,9 +12,9 @@ public class SelectService implements ISelectService {
 
     @Override
     public Bankcard SelectPrice(String bankId,double money) throws Exception {
+        Bankcard shouCard = selectDao.SelectBankID(bankId);
 
         return selectDao.SelectPrice(bankId,money);
-
     }
 
     @Override

@@ -21,11 +21,12 @@ public class SelectPriceServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         try{
-        String bankId=request.getParameter("card");
+            String bankId=request.getParameter("card");
             Bankcard bankCard =  iSelectService.SelectPrice(bankId,0);
             response.getWriter().write(bankCard.getMoney()+"");
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            response.getWriter().write(e.getMessage());
+            e.printStackTrace();
         }
 
     }

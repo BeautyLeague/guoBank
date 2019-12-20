@@ -85,19 +85,19 @@
                 document.getElementById("ka_error").innerText = "";
             }
         }
-
         function konfocus(kas) {
             if (kas.value == "请输入您的卡号") {
                 kas.value = "";
             }
         }
-
+        
         //清空
         function caler() {
             document.getElementById("price").value="";
             document.getElementById("card").value="";
             document.getElementById("name").value="";
         }
+        
 
         function cc() {
             $.post("/SelectBankIdServlet", 'card=' + document.getElementById("card").value, function (result) {
