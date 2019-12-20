@@ -31,6 +31,7 @@
         <option name="remotingEnabled" value="false" />
         <option name="secure" value="true" />
         <option name="url" />
+        <option name="useRelativePathsInXml" value="false" />
         <option name="xmlDir" />
       </configuration>
     </facet>
@@ -116,6 +117,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.40" level="application_server_libraries" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.96" level="application_server_libraries" />
   </component>
 </module>
