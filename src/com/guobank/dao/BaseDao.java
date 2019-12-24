@@ -52,7 +52,7 @@ public class BaseDao {
 
 
 
-    public ResultSet executeQuery(String sql, Object[] params) throws Exception {
+    public ResultSet executeQuery(String sql, Object[] params) throws SQLException {
 
         PreparedStatement ps = conn.prepareStatement(sql);
 

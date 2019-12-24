@@ -32,7 +32,7 @@ public class AjaxLoginServlet extends HttpServlet {
 			result="登录成功";
 			
 			request.getSession().setAttribute("uname", uname);
-			request.getSession().setAttribute("info", userInfo);
+			request.getSession().setAttribute("user", userInfo);
 		} catch (Exception e) {
 			result=e.getMessage();
 			e.printStackTrace();

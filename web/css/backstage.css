@@ -1,0 +1,47 @@
+.title {
+    width: 100%;
+    height: 100px;
+    background: ghostwhite;
+}
+
+.title ul {
+    padding-top: 30px;
+    overflow: hidden;
+    margin-left: 20%;
+}
+
+.title ul li {
+    float: left;
+    margin-right: 20px;
+}
+
+.title p {
+    line-height: 50px;
+    font-size: 20px;
+}
+
+.content{
+    width: 80%;
+    margin: auto;
+}
+
+.content ul{
+    text-align:center;
+    overflow: hidden;
+}
+
+.content li{
+   width: 13%;
+    display: inline-block;
+}
+.ulUserInfoHead{
+    color: black;
+    font-weight: 600;
+}
+.ulCardInfoHead{
+    color: rgb(5, 71, 255);
+    font-weight: 500;
+}
+.cardInfo{
+    color:  rgb(0, 228, 245);
+}

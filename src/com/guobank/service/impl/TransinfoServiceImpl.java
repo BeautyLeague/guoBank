@@ -48,4 +48,15 @@ public class TransinfoServiceImpl implements TransinfoService{
     public void addTransInfo(Transinfo transinfo) throws SQLException {
         transinfoDao.addTransInfo(transinfo);
     }
+
+
+    @Override
+    public List<String[]> queryStatisticsWithin3Months() throws SQLException {
+        return transinfoDao.queryStatisticsWithin3Months();
+    }
+
+    @Override
+    public List<String[]> queryUserInformationWithin3Months() throws SQLException {
+        return transinfoDao.queryUserInformationWithin3Months();
+    }
 }

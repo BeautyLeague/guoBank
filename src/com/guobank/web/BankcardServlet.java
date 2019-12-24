@@ -31,8 +31,8 @@ public class BankcardServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         //判断卡号是否存在
         if ("inspectBankcardId".equals(request.getParameter("action"))) {
-            System.out.println(request.getSession().getAttribute("info"));
             try {
+
                 Bankcard bankcard = bankcardService.getBankcardById(request.getParameter("bankCardId"));
                 if (bankcard== null) {
                     response.getWriter().write("该卡号不存在");

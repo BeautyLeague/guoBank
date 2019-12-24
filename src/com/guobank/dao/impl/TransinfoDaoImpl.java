@@ -116,4 +116,37 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
         String sql = "insert into transinfo values(default,(select typeid from trandstype where typeName = ?),?,now(),?,?)";
         super.execute(sql,new Object[]{transinfo.getTrandstype().getTypeName(),transinfo.getBankcardid(),transinfo.getTrandsmoney(),transinfo.getTrandsinfos()});
     }
+
+
+    @Override
+    public List<String[]> queryStatisticsWithin3Months() throws SQLException {
+        String sql = "select td.typeName,sum(trandsmoney) as sumMoney ,MONTH(trandsDate) as month from transinfo as ti,trandstype as td where td.typeId = ti.typeId and  td.typeid in(1,2,4) and trandsDate>DATE_SUB(CURDATE(), INTERVAL 3 MONTH) GROUP BY DATE_FORMAT(trandsDate,'%Y%m'),td.typeid ORDER BY td.typeid,trandsDate";
+        ResultSet rs = super.executeQuery(sql,null);
+        List<String[]> stringList = new ArrayList<>();
+        while (rs.next()){
+            String[] strings = new String[3];
+            strings[0] = rs.getString("typeName");
+            strings[1] = rs.getString("sumMoney");
+            strings[2] = rs.getString("month");
+
+            stringList.add(strings);
+        }
+        return stringList;
+    }
+
+    @Override
+    public List<String[]> queryUserInformationWithin3Months() throws SQLException {
+        String sql = "select rt.TypeName as typename ,count(1) as count ,MONTH(r.RecordDate) as month from record as r,recordtype  as rt where r.RecordTypeId = rt.RecordTypeId and  rt.RecordTypeId in(1,2,3) and r.RecordDate>DATE_SUB(CURDATE(), INTERVAL 3 MONTH) GROUP BY DATE_FORMAT(r.RecordDate,'%Y%m') , rt.RecordTypeId ORDER BY rt.RecordTypeId , r.RecordDate";
+        ResultSet rs = super.executeQuery(sql,null);
+        
+        List<String[]> stringList = new ArrayList<>();
+        while (rs.next()){
+            String[] strings = new String[3];
+            strings[0] = rs.getString("typename");
+            strings[1] = rs.getString("count");
+            strings[2] = rs.getString("month");
+            stringList.add(strings);
+        }
+        return stringList;
+    }
 }
