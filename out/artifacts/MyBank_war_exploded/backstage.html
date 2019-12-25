@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 <script src="js/jquery-1.12.4.js"></script>
 <script>
     $(function(){
         $.post("BackstageServlet",function(result){
+            var ds;
+
             for ( var i = 0; i < result.length; i++) {
                 var userInfo = "<ul class='ulUserInfo'>" +
                     "<li>"+result[i].userID+"</li>" +
@@ -25,13 +26,19 @@
                         "<li>操作</li>\n" +
                         "</ul>";
                 for (var j =  0; j < result[i].bankcard.length;j++){
+                    var ds;
+                    if(result[i].bankcard[j].is_Ds==0){
+                        ds="否";
+                    }else {
+                        ds="是";
+                    }
                     var userInfoBankUl = "<ul class='cardInfo'>"+
                     "<li>"+result[i].bankcard[j].bankCardid+"</li>" +
                     "<li>"+result[i].bankcard[j].money+"</li>" +
                     "<li>"+result[i].bankcard[j].address+"</li>" +
                     "<li>"+result[i].bankcard[j].date+"</li>" +
-                    "<li>是</li>" +
-                    "<li><input type='button' value='挂失' style='color:red;'></li>"+
+                    "<li>"+ds+"</li>" +
+                    "<li><input type='button' value='冻结' style='color:red;'></li>"+
                     "</ul>"
                     userInfoBank+=userInfoBankUl;
                 }
@@ -53,7 +60,6 @@
         <link href="css/footer.css" rel="stylesheet">
         <link href="css/backstage.css" rel="stylesheet">
         <script src="js/jquery-1.12.4.js"></script>
-=======
 
     <head>
         <meta charset="UTF-8">
@@ -63,7 +69,6 @@
         <link href="/css/footer.css" rel="stylesheet">
         <link href="/css/backstage.css" rel="stylesheet">
         <script src="/js/jquery-1.12.4.js"></script>
->>>>>>> origin/master
         <script>
 
 
@@ -109,11 +114,8 @@
         <div class="title">
             <ul>
                 <li>
-<<<<<<< HEAD
                     <img src="img/guobank.png" width="198" height="50">
-=======
-                    <img src="/img/guobank.png" width="198" height="50">
->>>>>>> origin/master
+
                 </li>
                 <li>
                     <p>|</p>
@@ -169,35 +171,14 @@
                         <li>江西南昌</li>
                         <li>2013-3-3</li>
                         <li>是</li>
-                        <li><input type="button" value="挂失" style="color: red;"></li>
+                        <li><input type="button" value="冻结" style="color: red;"></li>
                     </ul>
-<<<<<<< HEAD
                 </div>
             </div>
-
         </div>
-
-=======
-
-
-                    
                 </div>
             </div>
-
-
-
-
         </div>
-
-
-
-
-
-
-
-
-
->>>>>>> origin/master
         <footer>
             <div class="footer_div">
                 <hr>

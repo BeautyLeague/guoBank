@@ -32,11 +32,14 @@ public class BackstageDao extends BaseDao implements IBackstageDao {
                 Bankcard bankcard = new Bankcard();
                 bankcard.setBankCardid(rs.getString("bankcardid"));
                 bankcard.setAddress(rs.getString("address"));
+                bankcard.setMoney(rs.getFloat("money"));
+                bankcard.setDate(rs.getDate("date"));
                 userId = rs.getInt("userid");
                 user.setUserName(rs.getString("username"));
                 user.setSex(rs.getString("sex"));
                 user.setDate(rs.getDate("borndate"));
                 user.setId(rs.getString("id"));
+
                 user.setPho(rs.getString("pho"));
                 user.setUserID(rs.getString("userid"));
                 user.setBankcard(new ArrayList<Bankcard>(){{add(bankcard);}});
