@@ -140,12 +140,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				&nbsp;&nbsp;<a href="/mingzilongqueryUserinfoServlet"><img src="/img/three.png" id="img4"/></a>&nbsp;&nbsp;&nbsp;
 				
 				<c:if test="${sessionScope.uname==null }">
-					<a href="/wanzehao/login.jsp">登录/注册</a>
+					<a href="/wanzehao/login.jsp">用户登录/注册</a>
+					<a href="/BackstageLogin.jsp">管理员登录/注册</a>
+
 				</c:if>
 				<c:if test="${sessionScope.uname!=null }">
 					<a href="/mingzilongqueryUserinfoServlet">${sessionScope.uname }</a>
 				</c:if>
-				
 				<a href="TuiChuServlet"><img src="/img/tuichu.png"  id="tuichu"/></a>
 			</div>
 			
@@ -162,7 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<img src="/img/cunzhu.png" id="img1" style="height:70px" />
 		
 			
-			<p>项目制作人：郭鹏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨昆&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;彭亮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;闵子龙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;万泽豪</p>
+			<p>项目制作人：郭鹏&nbsp;&nbsp;&nbsp;&nbsp;&;nbsp杨昆&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;彭亮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;闵子龙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;万泽豪</p>
 			
 		</div>
 		

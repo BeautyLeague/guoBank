@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $.post("BackstageServlet",function(result){
+            for ( var i = 0; i < result.length; i++) {
+                var userInfo = "<ul class='ulUserInfo'>" +
+                    "<li>"+result[i].userID+"</li>" +
+                    "<li>"+result[i].userName+"</li>" +
+                    "<li>"+result[i].sex+"</li>" +
+                    "<li>"+result[i].pho+"</li>" +
+                    "<li>"+result[i].id+"</li>" +
+                    "<li>"+result[i].date+"</li>" +
+                    "<li><a onclick='genduo(this)' href='#' data-flag ='false'>更多</a></li>" +
+                    "</ul>";
+                var userInfoBank = "<div class='cardInfos' style='display:none;'>";
+                    userInfoBank+="<ul class=\"ulCardInfoHead\">\n" +
+                        "                        <li>卡号</li>\n" +
+                        "                        <li>金额</li>\n" +
+                        "                        <li>地址</li>\n" +
+                        "                        <li>办卡时间</li>\n" +
+                        "                        <li>是否挂失</li>\n" +
+                        "                        <li>操作</li>\n" +
+                        "                    </ul>";
+                for (var j =  0; j < result[i].bankcard.length;j++){
+                    var userInfoBankUl = "<ul class='cardInfo'>"+
+                    "<li>"+result[i].bankcard[j].bankCardid+"</li>" +
+                    "<li>"+result[i].bankcard[j].money+"</li>" +
+                    "<li>"+result[i].bankcard[j].address+"</li>" +
+                    "<li>"+result[i].bankcard[j].date+"</li>" +
+                    "<li>是</li>" +
+                    "<li><input type='button' value='挂失' style='color:red;'></li>"+
+                    "</ul>"
+                    userInfoBank+=userInfoBankUl;
+                }
+                userInfoBank+="</div>";
+                $(".userInfo").append(userInfo);
+                $(".userInfo").append(userInfoBank);
+            };
+
+        },"JSON");
+
+    });
+</script>
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>管理用户信息</title>
+        <link href="css/header.css" rel="stylesheet">
+        <link href="css/footer.css" rel="stylesheet">
+        <link href="css/backstage.css" rel="stylesheet">
+        <script src="js/jquery-1.12.4.js"></script>
+        <script>
+
+
+            function genduo(obj) {
+                if ($(obj).attr("data-flag")=="false") {
+                    $(obj).parent().parent().next().css("display","block");
+                    $(obj).attr("data-flag","true")
+                   
+                } else {
+                    $(obj).parent().parent().next().css("display","none");
+                    $(obj).attr("data-flag","false")
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <div class="header_div">
+
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)">网站首页</a>
+                    </li>
+                    <li>
+                        ｜
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">网点查询</a>
+                    </li>
+                </ul>
+                <div class="search">
+
+                    <input type="text" placeholder="请输入关键字" size="15">
+                    <input type="button">
+
+                </div>
+            </div>
+            </div>
+        </header>
+
+        <div class="title">
+            <ul>
+                <li>
+                    <img src="img/guobank.png" width="198" height="50">
+                </li>
+                <li>
+                    <p>|</p>
+                </li>
+                <li>
+                    <p>管理用户信息</p>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+        <div class="content">
+
+
+
+            <div class="userInfo">
+
+                <div class="head">
+                    <ul class="ulUserInfoHead">
+                        <li>id</li>
+                        <li>姓名</li>
+                        <li>性别</li>
+                        <li>电话</li>
+                        <li>身份证号</li>
+                        <li>出生日期</li>
+                        <li>更多</li>
+                    </ul>
+                </div>
+                <ul class="ulUserInfo">
+                    <li>1</li>
+                    <li>杨昆</li>
+                    <li>女</li>
+                    <li>13065489657</li>
+                    <li>362598456522001452</li>
+                    <li>21999-3-6</li>
+                    <li><a onclick='genduo(this)' href='#' data-flag ='false'>更多</a></li>
+                </ul>
+
+                <div class="cardInfos" style="display: none;">
+                    <ul class="ulCardInfoHead">
+                        <li>卡号</li>
+                        <li>金额</li>
+                        <li>地址</li>
+                        <li>办卡时间</li>
+                        <li>是否挂失</li>
+                        <li>操作</li>
+                    </ul>
+                    <ul class="cardInfo">
+                        <li>2586485245214555</li>
+                        <li>233,12,32</li>
+                        <li>江西南昌</li>
+                        <li>2013-3-3</li>
+                        <li>是</li>
+                        <li><input type="button" value="挂失" style="color: red;"></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <footer>
+            <div class="footer_div">
+                <hr>
+                <div class="service">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)">网站声明</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">|</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">网站地图</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">|</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"> 联系我们 </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">|</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">客服热线：<span>666666</span></a>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)">中国郭式银行版权所有</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">|</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><span>京ICP备01234567</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </footer>
+    </body>
+
+</html>

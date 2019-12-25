@@ -18,13 +18,12 @@ import java.io.IOException;
 @WebServlet(name = "TransMoneyServlet")
 public class TransMoneyServlet extends HttpServlet {
     private ItransService itransService = new TransService();
-    private IBackstageService backstageService = new BackstageService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("Utf-8");
         try {
-            backstageService.query();
+
             String ka = request.getParameter("ka");
             String card = request.getParameter("card");
             Integer pass = new Integer(request.getParameter("pwd"));

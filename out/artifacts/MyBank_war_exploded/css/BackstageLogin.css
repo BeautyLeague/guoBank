@@ -1,0 +1,115 @@
+.context{
+    width: 100%;
+    padding-top: 50px;
+}
+body{
+    background: url(/img/hexabump.png);
+}
+.registeForm{
+    width: 300px;
+    height: 350px;
+    background: white;
+    border-radius: 5%;
+    margin: auto;
+    padding: 20px;
+}
+
+.headPortraitImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: auto;
+    display: block;
+}
+.registeForm div,.loginForm div{
+    width: 220px;
+    margin: auto;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.registeForm div input[type='text'],.registeForm div input[type='email'],.registeForm div input[type='password'],.loginForm div input[type='email'],.loginForm div input[type='password']{
+    line-height: 25px;
+    width: 216px;
+    border: 1px rgb(110, 110, 109) solid;
+    border-radius: 4px;
+    /* 去除input获取焦点的蓝色边框 */
+    outline:none;
+    /* 去掉因input输入框记忆功能导致背景变色 */
+    box-shadow: 0 0 0 1000px white inset;
+    padding-left: 10px;
+}
+.tips{
+    font-size: 13px;
+    color: rgb(143, 143, 142);
+    position: absolute;
+    background: white;
+    left: 5px;
+    top: 5px;
+    /* 让这个元素不可被点击 */
+    pointer-events: none;
+}
+
+#register,#login{
+    border: 0px;
+    border-radius: 4px;
+    width: 100px;
+    margin: auto;
+    display: block;
+    background-color: rgb(0, 183, 255);
+    padding: 0px;
+    line-height: 30px;
+    cursor: pointer;
+    /* 去除input获取焦点的蓝色边框 */
+    outline:none;
+    color: white;
+}
+
+#register:hover{
+    background-color: rgb(111, 194, 250);
+}
+
+.yiyouDiv{
+    font-size: 10px;
+}
+
+
+.loginForm{
+    width: 300px;
+    height: 180px;
+    background: white;
+    border-radius: 5%;
+    margin: auto;
+    padding: 50px 20px 20px 20px;
+}
+
+
+
+
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
+
+.registeLayer{
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    padding: 6px 16px;
+    border: 12px solid #D6E9F1;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+}

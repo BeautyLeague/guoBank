@@ -15,9 +15,9 @@ public class User {
     private String sex;              //性别
     private  Integer age;              //年龄
     private  Integer leven;              //等级
-    private  Integer pho     ;         //电话
-    private  Integer id     ;         //身份证号
-    private Date date  ;         //出生日期
+    private  String pho;         //电话
+    private  String id;         //身份证号
+    private Date date;         //出生日期
 
     public List<Bankcard> getBankcard() {
         return bankcard;
@@ -77,19 +77,19 @@ public class User {
         this.leven = leven;
     }
 
-    public Integer getPho() {
+    public String getPho() {
         return pho;
     }
 
-    public void setPho(Integer pho) {
+    public void setPho(String pho) {
         this.pho = pho;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

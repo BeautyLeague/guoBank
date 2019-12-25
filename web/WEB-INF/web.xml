@@ -305,4 +305,14 @@
         <servlet-name>mingzilongqueryUserinfoServlet</servlet-name>
         <url-pattern>/mingzilongqueryUserinfoServlet</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>BackstageServlet</servlet-name>
+        <servlet-class>com.guobank.web.BackstageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BackstageServlet</servlet-name>
+        <url-pattern>/BackstageServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
