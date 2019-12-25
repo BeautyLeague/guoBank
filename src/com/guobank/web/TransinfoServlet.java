@@ -72,6 +72,18 @@ public class TransinfoServlet extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }else if("queryStatisticsWithin3Months".equals(request.getParameter("action"))){
+            try {
+               response.getWriter().println(JSON.toJSONString(transinfoService.queryStatisticsWithin3Months()));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }else if("queryUserInformationWithin3Months".equals(request.getParameter("action"))){
+            try {
+                response.getWriter().println(JSON.toJSONString(transinfoService.queryUserInformationWithin3Months()));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

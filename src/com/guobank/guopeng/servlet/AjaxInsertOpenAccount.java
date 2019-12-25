@@ -38,8 +38,9 @@ public class AjaxInsertOpenAccount extends HttpServlet {
 		// String result="";
 		 String id="";
 		try {
-			UserInfo user = (UserInfo) request.getSession().getAttribute("info");
+			UserInfo user = (UserInfo) request.getSession().getAttribute("user");
 			Integer userId=	user.getUserId();
+			System.out.println(userId);
 			iOpenAccountService.InsertOpenAccount(bankCardId, cardTypeId,userId, monery, password, address);
 			id=bankCardId;
 		} catch (Exception e) {

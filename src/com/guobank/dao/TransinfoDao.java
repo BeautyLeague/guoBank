@@ -22,6 +22,9 @@ public interface TransinfoDao {
     Page<Transinfo> queryTransinfoByType(String typeName,Integer pageNo)throws SQLException;
     Page<Transinfo> queryTransinfoByDate(String startDate,String endDate,Integer pageNo)throws SQLException;
 
+    List<String[]> queryStatisticsWithin3Months()throws SQLException;
+    List<String[]> queryUserInformationWithin3Months()throws SQLException;
+
 
 
 
