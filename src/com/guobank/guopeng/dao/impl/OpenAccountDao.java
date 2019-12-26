@@ -1,6 +1,6 @@
 package com.guobank.guopeng.dao.impl;
 
-import com.guobank.guopeng.dao.BaseDao;
+import com.guobank.dao.BaseDao;
 import com.guobank.guopeng.dao.IOpenAccountDao;
 import com.guobank.guopeng.entity.OpenAccount;
 

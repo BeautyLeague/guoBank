@@ -1,6 +1,6 @@
 package com.guobank.wanzehao.dao.impl;
 
-import com.guobank.wanzehao.dao.BaseDao;
+import com.guobank.dao.BaseDao;
 import com.guobank.wanzehao.dao.IUserInfoDao;
 import com.guobank.wanzehao.entity.UserInfo;
 
