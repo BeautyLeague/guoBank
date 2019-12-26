@@ -1,6 +1,6 @@
 package com.guobank.liukongfu.dao.impl;
 
-import com.guobank.liukongfu.dao.BaseDao;
+import com.guobank.dao.BaseDao;
 import com.guobank.liukongfu.dao.IUserInfoDao;
 import com.guobank.liukongfu.entity.UserInfo;
 

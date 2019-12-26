@@ -1,6 +1,5 @@
 package com.guobank.dao;
 
-import com.mysql.jdbc.Driver;
 
 import java.sql.*;
 import java.util.Properties;
@@ -21,13 +20,17 @@ public class BaseDao {
 
     static {
         try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://192.168.43.43:3306/guobank","myuser","mypassword");
+            Properties properties = new Properties();
+            properties.load(BaseDao.class.getClassLoader().getResourceAsStream("db.properties"));
+            Class.forName(properties.getProperty("driver"));
+            conn = DriverManager.getConnection(properties.getProperty("url"),properties.getProperty("name"),properties.getProperty("password"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+
 
     protected boolean execute(String sql, Object[] params) throws SQLException {
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -56,7 +59,6 @@ public class BaseDao {
 
         PreparedStatement ps = conn.prepareStatement(sql);
 
-        // ���ò���
         if (params != null) {
             for (int i = 0; i < params.length; i++) {
                 ps.setObject(i + 1, params[i]);
@@ -67,28 +69,19 @@ public class BaseDao {
         return rs;
     }
 
-    /**
-     * ִ������ɾ����
-     *
-     * @param sql
-     * @param params ����ֵ����
-     * @throws Exception
-     */
     public Boolean executeUpdate(String sql, Object[] params) throws Exception {
         PreparedStatement ps = conn.prepareStatement(sql);
 
-        // ���ò���
+
         if (params != null) {
             for (int i = 0; i < params.length; i++) {
                 ps.setObject(i + 1, params[i]);
             }
         }
-        // ִ��
+
         return   ps.execute();
 
 
-        // �ر�
-        //this.closeConnection(connection, ps, null);
     }
 
     public void closeConnection(Connection connection, Statement statement,

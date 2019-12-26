@@ -21,18 +21,20 @@
 }
 
 .content{
-    width: 80%;
+    width: 1300px;
     margin: auto;
 }
 
 .content ul{
-    text-align:center;
+
     overflow: hidden;
 }
 
 .content li{
-   width: 13%;
-    display: inline-block;
+   width: 150px;
+    float: left;
+    text-align:center;
+    margin: 10px;
 }
 .ulUserInfoHead{
     color: black;
@@ -44,4 +46,7 @@
 }
 .cardInfo{
     color:  rgb(0, 228, 245);
+}
+.cardInfos{
+    margin-left: 150px;
 }

@@ -1,6 +1,6 @@
 package com.guobank.minzilong.dao.impl;
 
-import com.guobank.minzilong.dao.BaseDao;
+import com.guobank.dao.BaseDao;
 import com.guobank.minzilong.dao.IUserinfoDao;
 import com.guobank.minzilong.entity.Userinfo;
 
