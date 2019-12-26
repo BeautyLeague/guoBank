@@ -27,8 +27,12 @@ public class AjaxUpdateBankCardIdServlet extends HttpServlet {
 		 String bankCardId = request.getParameter("bankCardId");
 		 String result="";
 		 try {
-			iOpenAccountService.UpdateBankCardId(bankCardId);
-			result="挂失成功";
+			 String updateBankCardId = iOpenAccountService.UpdateBankCardId(bankCardId);
+			 if (updateBankCardId=="挂失成功") {
+				 result="挂失成功";
+			 }else{
+				 result="银行卡已挂失";
+			 }
 		} catch (Exception e) {
 			e.printStackTrace();
 			result="没有此银行卡号请重新输入";

@@ -25,6 +25,14 @@
         <url-pattern>/TransinfoServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AdminInfoServlet</servlet-name>
+        <servlet-class>com.guobank.web.AdminInfoServlet</servlet-class>
+    </servlet>
+<servlet-mapping>
+    <servlet-name>AdminInfoServlet</servlet-name>
+    <url-pattern>/AdminInfoServlet</url-pattern>
+</servlet-mapping>
 
     <!--杨昆-->
     <servlet>

@@ -18,14 +18,20 @@ public class OpenAccountService implements IOpenAccountService {
 		this.iOpenAccount.InsertOpenAccount(bankCardId, cardTypeId,userId, monery, password, address);
 	}
 	@Override
-	public void UpdateBankCardId(String bankCardId) throws Exception {
+	public String UpdateBankCardId(String bankCardId) throws Exception {
 		OpenAccount openAccount = SelcetBankCardId(bankCardId);
+		String result;
 		if(openAccount!=null&&openAccount.getBankCardId()!=null){
-			this.iOpenAccount.UpdateBankCardId(bankCardId);
+			if (openAccount.getIs_ds()==0) {
+				this.iOpenAccount.UpdateBankCardId(bankCardId);
+				result="挂失成功";
+			}else{
+				result="银行卡已挂失";
+			}
 		}else{
 			throw new Exception("没有该银行卡请重新输入卡号");
 		}
-		
+		return result;
 	}
 	@Override
 	public OpenAccount SelcetBankCardId(String bankCardId) throws Exception {
