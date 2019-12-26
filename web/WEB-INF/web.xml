@@ -332,4 +332,13 @@
         <servlet-name>LoseServlet</servlet-name>
         <url-pattern>/LoseServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>com.guobank.web.AdminLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/AdminLoginServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
