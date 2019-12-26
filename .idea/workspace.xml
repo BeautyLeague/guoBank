@@ -6,46 +6,28 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="831b8ee5-df93-40a1-be0a-a3defed0b9b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/db.properties" afterDir="false" />
+    <list default="true" id="fdf328b7-c2f7-46b9-89e8-51bca02d6af6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/dao/ILoseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/dao/impl/LoseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/service/ILoseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/service/impl/LoseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/web/LoseServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/META-INF/MyBank.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/META-INF/MyBank.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/dao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/dao/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/dao/impl/OpenAccountDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/dao/impl/OpenAccountDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/dao/impl/UserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/LoanInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/LoanInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/dao/impl/userinfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/dao/impl/userinfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/dao/impl/UserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyBank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyBank.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/BackstageLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/BackstageLogin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/service/IOpenAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/service/IOpenAccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/service/impl/OpenAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/service/impl/OpenAccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/servlet/AjaxUpdateBankCardIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/servlet/AjaxUpdateBankCardIdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/backstage.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/backstage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/backstage.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/backstage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/displaydata.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/displaydata.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/dao/BaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/guopeng/dao/BaseDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/guopeng/dao/impl/OpenAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/guopeng/dao/impl/OpenAccountDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/guopeng/dao/impl/UserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/guopeng/dao/impl/UserInfoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/BaseDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/LoanInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/LoanInfoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/UserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/UserInfoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/minzilong/dao/BaseDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/minzilong/dao/impl/userinfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/dao/impl/userinfoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/wanzehao/dao/BaseDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/wanzehao/dao/impl/UserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/dao/impl/UserInfoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/dao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/dao/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/dao/impl/OpenAccountDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/dao/impl/OpenAccountDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/dao/impl/UserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/LoanInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/LoanInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/dao/impl/userinfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/dao/impl/userinfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/dao/BaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/dao/impl/UserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/displaydata.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/displaydata.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yangkun.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/guopeng/ReportLoss.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/guopeng/ReportLoss.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/service/IOpenAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/service/IOpenAccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/service/impl/OpenAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/service/impl/OpenAccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/servlet/AjaxUpdateBankCardIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/servlet/AjaxUpdateBankCardIdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/backstage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/backstage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +52,15 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
@@ -111,8 +100,20 @@
       <recent name="D:\Java\Jsp\guoBank\web\css" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
-    <configuration name="Tomcat 7.0.96" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.96" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 8.5.40" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.40" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
@@ -136,6 +137,21 @@
       <RunnerSettings RunnerId="JRebel Debug">
         <option name="DEBUG_PORT" value="56787" />
       </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -204,23 +220,33 @@
       </method>
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fdf328b7-c2f7-46b9-89e8-51bca02d6af6" name="Default Changelist" comment="" />
+      <created>1577329185249</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577329185249</updated>
+      <workItem from="1577329186794" duration="1650000" />
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="完成已挂失的卡号无法存取款" />

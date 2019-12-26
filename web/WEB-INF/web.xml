@@ -323,4 +323,13 @@
         <servlet-name>BackstageServlet</servlet-name>
         <url-pattern>/BackstageServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoseServlet</servlet-name>
+        <servlet-class>com.guobank.web.LoseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoseServlet</servlet-name>
+        <url-pattern>/LoseServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

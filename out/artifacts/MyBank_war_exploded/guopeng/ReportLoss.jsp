@@ -85,9 +85,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					success:function(result){
 						if(result=="挂失成功"){
 							layer.msg('挂失成功<br>请您耐心等待，我们会尽快处理！', {
-						        time: 20000, //20s后自动关闭
-						        btn: ['好的','知道了','关闭']
-						      });
+								time: 20000, //20s后自动关闭
+								btn: ['好的','知道了','关闭']
+							});
+						}else if(result=="银行卡已挂失"){
+							layer.msg('银行卡已挂失',{icon:2});
 						}else{
 							layer.msg('没有此银行卡号请重新输入',{icon:2});
 						}
