@@ -359,7 +359,7 @@
                 checkPattern( $("#email"));
             },
             success : function(result) {
-                if(result === "true"){
+                if(result === "false"){
                     $("#email").next().text("验证完成，可用");
                     yesPattern($("#email"));
                     emailFlag = true;
