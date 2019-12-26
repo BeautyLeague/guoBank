@@ -4,6 +4,7 @@ import com.guobank.dao.AdminInfoDao;
 import com.guobank.dao.BaseDao;
 import com.guobank.entity.AdminInfo;
 
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +30,11 @@ public class AdminInfoDaoImpl extends BaseDao implements AdminInfoDao {
             adminInfo = new AdminInfo();
             for (Field field: AdminInfo.class.getDeclaredFields()) {
                 field.setAccessible(true);
+                if(field.getType() == InputStream.class){
+                    adminInfo.setAdminPortrait(rs.getAsciiStream("AdminPortrait"));
+                }else{
                 field.set(adminInfo,rs.getObject(field.getName()));
+                }
             }
         }
         return adminInfo;

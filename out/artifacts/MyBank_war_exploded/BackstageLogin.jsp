@@ -70,7 +70,7 @@
     //保存可以选择的文件格式
     var imgSuffixs = new Array(".jpg", ".png", ".jpeg", ".gif")
     //用来保存上一次选择的文件
-    var prevFile = $('#file')[0].files[0];
+    var prevFile = document.getElementById("file").files[0];
     $(function () {
         //点击图片显示选择文件框
         $(".headPortraitImg").click(function () {

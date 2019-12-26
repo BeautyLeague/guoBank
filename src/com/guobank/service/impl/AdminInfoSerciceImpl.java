@@ -22,7 +22,7 @@ public class AdminInfoSerciceImpl implements AdminInfoService {
     private AdminInfoDao adminInfoDao = new AdminInfoDaoImpl();
     @Override
     public boolean checkEmail(String email) throws Exception {
-        return email != null;
+        return adminInfoDao.queryByEmail(email) != null;
     }
 
     @Override
