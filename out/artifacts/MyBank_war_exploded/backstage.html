@@ -33,12 +33,12 @@
                         ds="是";
                     }
                     var userInfoBankUl = "<ul class='cardInfo'>"+
-                    "<li>"+result[i].bankcard[j].bankCardid+"</li>" +
+                    "<li id='bankcardId'>"+result[i].bankcard[j].bankCardid+"</li>" +
                     "<li>"+result[i].bankcard[j].money+"</li>" +
                     "<li>"+result[i].bankcard[j].address+"</li>" +
                     "<li>"+result[i].bankcard[j].date+"</li>" +
                     "<li>"+ds+"</li>" +
-                    "<li><input type='button' value='冻结' style='color:red;'></li>"+
+                    "<li><input type='button' value='冻结' style='color:red;' onclick='lose(this)'></li>"+
                     "</ul>"
                     userInfoBank+=userInfoBankUl;
                 }
@@ -50,6 +50,22 @@
         },"JSON");
 
     });
+
+    function lose(obj) {
+        var flag=confirm("请问您是否确认冻结此卡号，冻结之后该卡号将无法进行存取款，转账等操作","提示");
+        if(flag){
+            $.post("LoseServlet","bankcardId="+$(obj).parent().prev().prev().prev().prev().prev().text(),function (result) {
+                if($(obj).parent().prev().text()=="是"){
+                    alert("此卡号已经冻结，无法继续进行冻结操作")
+                }else if(result=="冻结成功"){
+                    alert("冻结该银行卡成功！");
+                    $(obj).parent().prev().text("是");
+                }else{
+                    alert("冻结该银行卡失败");
+                }
+            })
+        }
+    }
 </script>
 
 <head>

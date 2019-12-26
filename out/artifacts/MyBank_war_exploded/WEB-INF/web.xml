@@ -25,6 +25,14 @@
         <url-pattern>/TransinfoServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AdminInfoServlet</servlet-name>
+        <servlet-class>com.guobank.web.AdminInfoServlet</servlet-class>
+    </servlet>
+<servlet-mapping>
+    <servlet-name>AdminInfoServlet</servlet-name>
+    <url-pattern>/AdminInfoServlet</url-pattern>
+</servlet-mapping>
 
     <!--杨昆-->
     <servlet>
@@ -314,5 +322,14 @@
     <servlet-mapping>
         <servlet-name>BackstageServlet</servlet-name>
         <url-pattern>/BackstageServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoseServlet</servlet-name>
+        <servlet-class>com.guobank.web.LoseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoseServlet</servlet-name>
+        <url-pattern>/LoseServlet</url-pattern>
     </servlet-mapping>
 </web-app>
