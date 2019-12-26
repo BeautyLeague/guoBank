@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body style="height: 100%; margin: 0">
+    <h2 style="margin: auto;width: 400px;margin-bottom: 30px">三个月内的 存款,取款,贷款 统计</h2>
+        <div id="container1" style="height: 500px;width: 700px;margin: auto;"></div>
+    <h2 style="margin: auto;width: 400px;margin-bottom: 30px">三个月内的 注册,开户,销户 统计</h2>
+        <div id="container2" style="height: 500px;width: 700px;margin: auto;"></div>
+        <script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+        <script type="text/javascript">
+            $.post("/TransinfoServlet?action=queryStatisticsWithin3Months",function (result) {
+                    var dataset = [
+                        ['product', result[0][2]+="月", result[1][2]+="月", result[2][2]+="月"],
+                        [result[0][0], result[0][1], result[1][1], result[2][1]],
+                        [result[3][0], result[3][1], result[4][1], result[5][1]],
+                        [result[6][0], result[6][1], result[7][1], result[8][1]],
+                    ];
+
+                var dom = document.getElementById("container1");
+                var myChart = echarts.init(dom);
+                var app = {};
+                option = null;
+                option = {
+                    legend: {},
+                    tooltip: {},
+                    dataset: {
+                        source: dataset
+                    },
+                    xAxis: { type: 'category' },
+                    yAxis: {},
+                    // Declare several bar series, each will be mapped
+                    // to a column of dataset.source by default.
+                    series: [
+                        { type: 'bar' },
+                        { type: 'bar' },
+                        { type: 'bar' }
+                    ]
+                };
+
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+                }
+            },"json");
+
+
+
+        </script>
+        <script>
+            $.post("/TransinfoServlet?action=queryUserInformationWithin3Months",function (result) {
+                var dataset = [
+                    ['product', result[0][2]+="月", result[1][2]+="月", result[2][2]+="月"],
+                    [result[0][0], result[0][1], result[1][1], result[2][1]],
+                    [result[3][0], result[3][1], result[4][1], result[5][1]],
+                    [result[6][0], result[6][1], result[7][1], result[8][1]],
+                ];
+
+                var dom = document.getElementById("container2");
+                var myChart = echarts.init(dom);
+                var app = {};
+                option = null;
+                option = {
+                    legend: {},
+                    tooltip: {},
+                    dataset: {
+                        source: dataset
+                    },
+                    xAxis: { type: 'category' },
+                    yAxis: {},
+                    // Declare several bar series, each will be mapped
+                    // to a column of dataset.source by default.
+                    series: [
+                        { type: 'bar' },
+                        { type: 'bar' },
+                        { type: 'bar' }
+                    ]
+                };
+
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+                }
+            },"json");
+
+
+
+        </script>
+    </body>
+
+</html>
