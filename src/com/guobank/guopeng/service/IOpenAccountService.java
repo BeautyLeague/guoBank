@@ -6,7 +6,7 @@ import com.guobank.guopeng.entity.OpenAccount;
 public interface IOpenAccountService {
 	public void InsertOpenAccount(String bankCardId, int cardTypeId,int userId, double monery, int password, String address)throws Exception;
 	
-	public void UpdateBankCardId(String bankCardId)throws Exception;
+	public String UpdateBankCardId(String bankCardId)throws Exception;
 	
 	public OpenAccount SelcetBankCardId(String bankCardId)throws Exception;
 	
