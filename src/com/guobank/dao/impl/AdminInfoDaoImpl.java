@@ -27,10 +27,11 @@ public class AdminInfoDaoImpl extends BaseDao implements AdminInfoDao {
         AdminInfo adminInfo = null;
         while (rs.next()){
             adminInfo = new AdminInfo();
-            for (Field field: AdminInfo.class.getDeclaredFields()) {
-                field.setAccessible(true);
-                field.set(adminInfo,rs.getObject(field.getName()));
-            }
+//            for (Field field: AdminInfo.class.getDeclaredFields()) {
+//                field.setAccessible(true);
+//                field.set(adminInfo,rs.getObject(field.getName()));
+//            }
+            adminInfo.setAdminPortrait(rs.getAsciiStream("AdminPortrait"));
         }
         return adminInfo;
     }

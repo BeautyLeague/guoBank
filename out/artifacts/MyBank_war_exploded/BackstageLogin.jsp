@@ -70,7 +70,7 @@
     //保存可以选择的文件格式
     var imgSuffixs = new Array(".jpg", ".png", ".jpeg", ".gif")
     //用来保存上一次选择的文件
-    var prevFile = $('#file')[0].files[0];
+    var prevFile = document.getElementById("file").files[0];
     $(function () {
         //点击图片显示选择文件框
         $(".headPortraitImg").click(function () {
@@ -230,12 +230,12 @@
         effectFlag = true;
         if(emailFlag & registeBtnEmail() & registeBtnName() & registeBtnPwd() ){
             var formData = new FormData();
-            formData.append("username",$("#name").val());
-            formData.append("useremail",$("#email").val());
-            formData.append("userpwd",$("#pwd").val());
-            formData.append("file",prevFile);
+            formData.append("adminName",$("#name").val());
+            formData.append("adminEmail",$("#email").val());
+            formData.append("adminPwd",$("#pwd").val());
+            formData.append("adminPortrait",prevFile);
             $.ajax({
-                url : "registe",
+                url : "AdminInfoServlet?action=register",
                 type : 'POST',
                 data : formData,
                 // 告诉jQuery不要去处理发送的数据
@@ -249,13 +249,14 @@
                     console.log("正在进行，请稍候");
                 },
                 success : function(result) {
-                    if(result=="成功"){
+                    if(result=="true"){
                         yesGetInto("注册成功");
                     }else{
                         noGetInto("注册失败");
                     }
                 },
                 error : function(responseStr) {
+                    console.log(responseStr);
                     console.log("error");
                 }
             });
@@ -349,7 +350,7 @@
     function emailExists(){
         emailFlag = false;
         $.ajax({
-            url : "checkEmail",
+            url : "AdminInfoServlet?action=checkEmail",
             type : 'POST',
             dataType:'text',
             data : "email="+$("#email").val(),
@@ -368,6 +369,7 @@
                 }
             },
             error : function(responseStr) {
+                console.log(responseStr);
                 console.log("error");
             }
         });
