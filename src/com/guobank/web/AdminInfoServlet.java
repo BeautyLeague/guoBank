@@ -14,7 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -48,13 +50,18 @@ public class AdminInfoServlet extends HttpServlet {
                   if(fileItem.isFormField()){
                           Field field = AdminInfo.class.getDeclaredField(fileItem.getFieldName());
                           field.setAccessible(true);
-                          field.set(adminInfo,fileItem.getString());
+                          field.set(adminInfo,fileItem.getString("utf-8"));
                   }else{
-                      //是文件类型
-                        adminInfo.setAdminPortrait(fileItem.getInputStream());
+                      if(fileItem.getName().equals("default")){
+                          InputStream is = new FileInputStream(request.getServletContext().getRealPath("/img/default.jpg"));
+                          adminInfo.setAdminPortrait(is);
+                      }else {
+                          //是文件类型
+                          adminInfo.setAdminPortrait(fileItem.getInputStream());
+                      }
                   }
               }
-              response.getWriter().println(adminInfoService.adminRegister(adminInfo));
+              response.getWriter().print(adminInfoService.adminRegister(adminInfo));
             }
         }catch (Exception e){
             e.printStackTrace();

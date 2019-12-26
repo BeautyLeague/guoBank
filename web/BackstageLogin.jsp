@@ -68,9 +68,10 @@
     //用来判断用户是登录还是注册
     effectFlag = true;
     //保存可以选择的文件格式
-    var imgSuffixs = new Array(".jpg", ".png", ".jpeg", ".gif")
+    var imgSuffixs = new Array(".jpg", ".png", ".jpeg", ".gif");
     //用来保存上一次选择的文件
-    var prevFile = document.getElementById("file").files[0];
+    // var prevFile = document.getElementById("file").files[0];
+    var prevFile = new File([document.getElementById("file").files[0]], "default");
     $(function () {
         //点击图片显示选择文件框
         $(".headPortraitImg").click(function () {
@@ -249,7 +250,7 @@
                     console.log("正在进行，请稍候");
                 },
                 success : function(result) {
-                    if(result=="true"){
+                    if(result==="true"){
                         yesGetInto("注册成功");
                     }else{
                         noGetInto("注册失败");
@@ -269,7 +270,7 @@
         setInterval(function(){
             i--;
             if(i==0){
-                window.location.href="homepage.html";
+                window.location.href="displaydata.html";
             }
             $(".registeLayer").text(""+message+",即将跳转主页面:"+i);
 
