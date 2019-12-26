@@ -10,7 +10,7 @@
     <link href="/css/BackstageLogin.css" rel='stylesheet'>
 
     <title>注册</title>
-    <script src="/js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-1.12.4.js"></script>
 </head>
 
 <body>
@@ -202,7 +202,7 @@
                 "pwd": $("#loginPwd").val()
             };
             $.ajax({
-                url : "login",
+                url : "AdminLoginServlet",
                 type : 'POST',
                 data : json,
                 beforeSend:function(){
@@ -212,7 +212,7 @@
                     console.log("正在登录，请稍候");
                 },
                 success : function(result) {
-                    if(result=="成功"){
+                    if(result=="登录成功"){
                         yesGetInto("登录成功");
                     }else{
                         noGetInto(result);
@@ -269,9 +269,9 @@
         setInterval(function(){
             i--;
             if(i==0){
-                window.location.href="homepage.html";
+                window.location.href="backstage.html";
             }
-            $(".registeLayer").text(""+message+",即将跳转主页面:"+i);
+            $(".registeLayer").text(""+message+",即将跳至后台管理页面:"+i);
 
         },1000)
     }

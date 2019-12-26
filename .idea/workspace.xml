@@ -6,26 +6,17 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdf328b7-c2f7-46b9-89e8-51bca02d6af6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/guobank/dao/ILoseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/guobank/dao/impl/LoseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/guobank/service/ILoseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/guobank/service/impl/LoseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/guobank/web/LoseServlet.java" afterDir="false" />
+    <list default="true" id="fdf328b7-c2f7-46b9-89e8-51bca02d6af6" name="Default Changelist" comment="后台管理员挂失功能">
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/dao/IAdminLoginDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/dao/impl/AdminLoginDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/service/IAdminLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/service/impl/AdminLoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/web/AdminLoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyBank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyBank.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/BackstageLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/BackstageLogin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/service/IOpenAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/service/IOpenAccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/service/impl/OpenAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/service/impl/OpenAccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/servlet/AjaxUpdateBankCardIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/guopeng/servlet/AjaxUpdateBankCardIdServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/backstage.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/backstage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/backstage.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/backstage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/displaydata.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/displaydata.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/guopeng/ReportLoss.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/guopeng/ReportLoss.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/service/IOpenAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/service/IOpenAccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/service/impl/OpenAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/service/impl/OpenAccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/servlet/AjaxUpdateBankCardIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/guopeng/servlet/AjaxUpdateBankCardIdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/BackstageLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/BackstageLogin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/backstage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/backstage.html" afterDir="false" />
     </list>
@@ -55,8 +46,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -230,8 +221,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577329185249</updated>
-      <workItem from="1577329186794" duration="1650000" />
+      <workItem from="1577329186794" duration="4115000" />
     </task>
+    <task id="LOCAL-00001" summary="后台管理员挂失功能">
+      <created>1577330965423</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577330965423</updated>
+    </task>
+    <task id="LOCAL-00002" summary="后台管理员挂失功能">
+      <created>1577331200723</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577331200723</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +258,8 @@
     <MESSAGE value="完成已挂失的卡号无法存取款" />
     <MESSAGE value="完成统计三个月内的存款  取款  贷款金额树状图&#10;完成统计三个月内的注册  开户  销户人数树状图" />
     <MESSAGE value="修改后台管理页面问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改后台管理页面问题" />
+    <MESSAGE value="后台管理员挂失功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="后台管理员挂失功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577238990515">
