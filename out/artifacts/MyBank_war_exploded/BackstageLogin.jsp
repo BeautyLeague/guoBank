@@ -17,6 +17,7 @@
 <h1 id="title" style="color: rosybrown">郭氏银行后台管理系统</h1>
 <div class="context">
     <div class="registeForm">
+
         <div class="headPortrait">
             <img src="img/default.jpg" class="headPortraitImg">
             <input type="file" id="file" hidden accept=".jpg,.png,.jpeg,.gif">
@@ -196,7 +197,6 @@
     }
     //点击登录按钮
     function loginBtn() {
-
         if(loginBtnEmail() & loginBtnPwd()){
             var json = {
                 "email":$("#loginEmail").val(),
@@ -213,6 +213,7 @@
                     console.log("正在登录，请稍候");
                 },
                 success : function(result) {
+
                     if(result=="登录成功"){
                         yesGetInto("登录成功");
                     }else{
@@ -251,7 +252,7 @@
                 },
                 success : function(result) {
                     if(result=="true"){
-                        yesGetInto("注册成功");
+                        yesRegiest("注册成功，请等待管理员激活后登录，激活结果会通过邮件发至您的邮箱");
                     }else{
                         noGetInto("注册失败");
                     }
@@ -264,13 +265,25 @@
         }
     }
 
+    function yesRegiest(message){
+
+        var i = 2;
+        $(".registeLayer").text(message);
+        setInterval(function(){
+            if(i==0){
+                location.reload();
+            }
+            i--;
+        },1000)
+    }
+
     function yesGetInto(message){
         var i = 3;
         $(".registeLayer").text(""+message+",即将跳转主页面:"+i);
         setInterval(function(){
             i--;
             if(i==0){
-                window.location.href="homepage.html";
+                window.location.href="adminHome.jsp";
             }
             $(".registeLayer").text(""+message+",即将跳转主页面:"+i);
 
