@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<h1 id="title" style="color: rosybrown">郭氏银行后台管理系统</h1>
 <div class="context">
     <div class="registeForm">
         <div class="headPortrait">
@@ -212,7 +213,7 @@
                     console.log("正在登录，请稍候");
                 },
                 success : function(result) {
-                    if(result=="成功"){
+                    if(result=="登录成功"){
                         yesGetInto("登录成功");
                     }else{
                         noGetInto(result);
