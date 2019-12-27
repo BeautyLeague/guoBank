@@ -1,6 +1,8 @@
 package com.guobank.dao;
 
+import com.guobank.entity.AdminInfo;
+
 public interface IAdminLoginDao {
 
-    public void Login(String adminEmail,String adminPwd)throws Exception;
+    public AdminInfo Login(String adminEmail)throws Exception;
 }

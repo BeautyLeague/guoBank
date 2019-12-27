@@ -216,7 +216,7 @@
                     if(result=="登录成功"){
                         yesGetInto("登录成功");
                     }else{
-                        noGetInto("result");
+                        noGetInto(result);
                     }
                 },
                 error : function(responseStr) {

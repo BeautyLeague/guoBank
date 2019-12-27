@@ -22,9 +22,8 @@ public class AdminLoginServlet extends HttpServlet {
             adminLogin.Login(email,pwd);
             response.getWriter().write("登录成功");
         }catch (Exception e){
-            e.printStackTrace();
             response.getWriter().write(e.getMessage());
-            response.getWriter().write("账号未激活");
+            e.printStackTrace();
         }
     }
 

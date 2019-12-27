@@ -1,6 +1,8 @@
 package com.guobank.service;
 
+import com.guobank.entity.AdminInfo;
 public interface IAdminLogin {
-    public void Login(String adminEmail,String adminPwd)throws Exception;
+
+    public Boolean Login(String adminEmail,String adminPwd)throws Exception;
 
 }
