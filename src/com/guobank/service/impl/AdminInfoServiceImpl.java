@@ -18,11 +18,11 @@ import java.sql.SQLException;
  * @Description: TODO
  * @date Date : 2019年12月26日 9:33
  */
-public class AdminInfoSerciceImpl implements AdminInfoService {
+public class AdminInfoServiceImpl implements AdminInfoService {
     private AdminInfoDao adminInfoDao = new AdminInfoDaoImpl();
     @Override
     public boolean checkEmail(String email) throws Exception {
-        return adminInfoDao.queryByEmail(email) != null;
+        return adminInfoDao.queryByEmail(email) != null ;
     }
 
     @Override

@@ -37,6 +37,7 @@ public class AdminInfoDaoImpl extends BaseDao implements AdminInfoDao {
                 }
             }
         }
+        System.out.println(adminInfo);
         return adminInfo;
     }
 

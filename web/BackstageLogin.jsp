@@ -68,9 +68,9 @@
     //用来判断用户是登录还是注册
     effectFlag = true;
     //保存可以选择的文件格式
-    var imgSuffixs = new Array(".jpg", ".png", ".jpeg", ".gif")
+    var imgSuffixs = new Array(".jpg", ".png", ".jpeg", ".gif");
     //用来保存上一次选择的文件
-    var prevFile = document.getElementById("file").files[0];
+    var prevFile = new File([document.getElementById("file").files[0]],"default");
     $(function () {
         //点击图片显示选择文件框
         $(".headPortraitImg").click(function () {
@@ -202,7 +202,7 @@
                 "pwd": $("#loginPwd").val()
             };
             $.ajax({
-                url : "login",
+                url : "AdminLoginServlet",
                 type : 'POST',
                 data : json,
                 beforeSend:function(){
@@ -356,7 +356,7 @@
             data : "email="+$("#email").val(),
             beforeSend:function(){
                 $("#email").next().text("正在验证，请稍候");
-                checkPattern( $("#email"));
+                checkPattern($("#email"));
             },
             success : function(result) {
                 if(result === "false"){

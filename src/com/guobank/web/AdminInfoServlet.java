@@ -2,15 +2,12 @@ package com.guobank.web;
 
 import com.guobank.entity.AdminInfo;
 import com.guobank.service.AdminInfoService;
-import com.guobank.service.impl.AdminInfoSerciceImpl;
+import com.guobank.service.impl.AdminInfoServiceImpl;
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +29,7 @@ import java.util.List;
  * @date Date : 2019年12月26日 9:22
  */
 public class AdminInfoServlet extends HttpServlet {
-    private AdminInfoService adminInfoService = new AdminInfoSerciceImpl();
+    private AdminInfoService adminInfoService = new AdminInfoServiceImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             request.setCharacterEncoding("utf-8");
