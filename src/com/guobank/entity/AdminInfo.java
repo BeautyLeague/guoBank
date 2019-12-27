@@ -14,11 +14,19 @@ import java.io.InputStream;
  * @date Date : 2019年12月26日 9:25
  */
 public class AdminInfo {
-    private String adminEmail;
-    private String adminPwd;
-    private String adminName;
-    private InputStream adminPortrait;
+    private String adminEmail;          //邮箱
+    private String adminPwd;            //密码
+    private String adminName;           //用户名
+    private InputStream adminPortrait;  //头像
+    private  Integer activation;        //激活
 
+    public Integer getActivation() {
+        return activation;
+    }
+
+    public void setActivation(Integer activation) {
+        this.activation = activation;
+    }
 
     public String getAdminEmail() {
         return adminEmail;

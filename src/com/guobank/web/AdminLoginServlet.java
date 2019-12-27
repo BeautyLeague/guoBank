@@ -24,6 +24,7 @@ public class AdminLoginServlet extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
             response.getWriter().write(e.getMessage());
+            response.getWriter().write("账号未激活");
         }
     }
 

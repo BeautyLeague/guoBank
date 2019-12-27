@@ -141,7 +141,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<c:if test="${sessionScope.uname==null }">
 					<a href="/wanzehao/login.jsp">用户登录/注册</a>
-					<a href="/BackstageLogin.jsp">管理员登录/注册</a>
+					<a href="BackstageLogin.jsp">管理员登录/注册</a>
 
 				</c:if>
 				<c:if test="${sessionScope.uname!=null }">
