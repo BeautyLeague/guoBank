@@ -43,7 +43,7 @@ public class AdminInfoDaoImpl extends BaseDao implements AdminInfoDao {
 
     @Override
     public boolean saveAdminInfo(AdminInfo adminInfo) throws SQLException {
-        String sql = "insert into adminInfo values(?,?,?,?)";
+        String sql = "insert into adminInfo values(?,?,?,?,default)";
         return !super.execute(sql,new Object[]{adminInfo.getAdminEmail(),adminInfo.getAdminPwd(),adminInfo.getAdminName(),adminInfo.getAdminPortrait()});
     }
 }
