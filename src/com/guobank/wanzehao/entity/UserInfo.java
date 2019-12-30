@@ -22,6 +22,17 @@ public class UserInfo {
 	private String id;
 	//�û���������
 	private Date bornDate;
+
+	private String path;
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 	public Integer getUserId() {
 		return userId;
 	}

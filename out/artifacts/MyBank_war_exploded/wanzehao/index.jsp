@@ -9,11 +9,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
    <style>
-   #ss{
-   margin-left:450px;
-   margin-top:30px;
-   display: inline-block;
-   }
+	   body{
+		   overflow-x: hidden;
+	   }
+	   #ss{
+	   margin-left:450px;
+	   margin-top:30px;
+	   display: inline-block;
+	   }
       #as *:not(#ss){
         margin:100px 30px;
         
@@ -73,14 +76,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <!--可移动的Div  -->
   <div id="moveBar">
-        <div id="banner"><img src="/img/lxsm.png"><span id="p">利息说明</span></div>
+        <div id="banner"><img src="/img/lxsm.png"><span>利息说明</span><span style="float: right;margin-right: 10px;" id="p">关闭</span></div>
         <div id="content">    
 	        <table border="1" id="table">
 			    <tr>
 			        <td height="50" width="100">等级\年利率</td>
 			        <%
-			        	for(int i=1;i<=10;i++){
-						    String td = "<td width='100'>"+i+"年</td>";
+			        	for(int i=1;i<=11;i++){
+
+							String td ="";
+			        		if(i==11){
+								td = "<td width='140'>最高贷款金额</td>";
+							}else{
+								td = "<td width='100'>"+i+"年</td>";
+							}
 						    out.print(td);
 					    }
 			     	 %>
@@ -117,9 +126,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						   out.print("<tr>");
 						   out.print("<td height='50'>VIP"+i+"</td>");
 						   DecimalFormat df = new DecimalFormat("#.000");
-				        	for(int j=1;j<=10;j++){
+				        	for(int j=1;j<=11;j++){
 				        	    String result=df.format(rate+(addrate*j));
-							    out.print("<td>"+result+"%</td>");
+				        	    if(j==11){
+									out.print("<td>"+(i*100000)+"</td>");
+								}else{
+									out.print("<td>"+result+"%</td>");
+								}
 							}
 							out.print("</tr>");
 					    }
@@ -136,18 +149,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<img src="/img/one.png" id="img2"/>客服服务|
 			<img src="/img/two.png" id="img3"/>119329
 			</span>
+            <a href="BackstageLogin.jsp">管理员登录/注册</a>
 			<div id="div2" style="width: 220px;">
-				&nbsp;&nbsp;<a href="/mingzilongqueryUserinfoServlet"><img src="/img/three.png" id="img4"/></a>&nbsp;&nbsp;&nbsp;
+
+				<c:if test="${sessionScope.uname!=null }">
+					<a href="/mingzilongqueryUserinfoServlet"><img src="${sessionScope.user.path}" id="img4"/></a>&nbsp;
+				</c:if>
+				<c:if test="${sessionScope.uname==null }">
+					<a href="javascript:void(0)"><img src="/img/three.png" id="img4"/></a>&nbsp;
+				</c:if>
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				
 				<c:if test="${sessionScope.uname==null }">
-					<a href="/wanzehao/login.jsp">用户登录/注册</a>
-					<a href="BackstageLogin.jsp">管理员登录/注册</a>
-
+					<a href="/wanzehao/login.jsp">登录/注册</a>
 				</c:if>
 				<c:if test="${sessionScope.uname!=null }">
 					<a href="/mingzilongqueryUserinfoServlet">${sessionScope.uname }</a>
 				</c:if>
+				
 				<a href="TuiChuServlet"><img src="/img/tuichu.png"  id="tuichu"/></a>
+
 			</div>
 			
 			
@@ -161,10 +182,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div id="div4">
 			<img src="/img/cunzhu.png" id="img1" style="height:70px" />
-		
-			
-			<p>项目制作人：郭鹏&nbsp;&nbsp;&nbsp;&nbsp;&;nbsp杨昆&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;彭亮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;闵子龙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;万泽豪</p>
-			
 		</div>
 		
 		<!--首页--活动滚动-->
@@ -186,28 +203,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!--首页--主体-->
 		<div id="div5">
 			<div id="div6">
-			<ul id="ul1">
-				<li id="lione">银&nbsp;&nbsp;行&nbsp;&nbsp;卡&nbsp;&nbsp;管&nbsp;&nbsp;理</li>
-				<li><a href="/guopeng/index01.jsp">银行卡开户</a></li>
-				<li><a href="/guopeng/ReportLoss.jsp">银行卡挂失</a></li>
-				<li><a href="/guopeng/SalesAccount.jsp">银行卡销户</a></li>
-			</ul>
+				<ul id="ul1">
+					<li id="lione">银&nbsp;&nbsp;行&nbsp;&nbsp;卡&nbsp;&nbsp;管&nbsp;&nbsp;理</li>
+					<li><a href="/guopeng/index01.jsp">银行卡开户</a></li>
+					<li><a href="/guopeng/ReportLoss.jsp">银行卡挂失</a></li>
+					<li><a href="/guopeng/SalesAccount.jsp">银行卡销户</a></li>
+				</ul>
 			</div>
 			<div id="div7">
-			<ul id="ul2">
-				<li id="lione">资&nbsp;&nbsp;产&nbsp;&nbsp;管&nbsp;&nbsp;理</li>
-				<li><a href="/deposit.html">存款</a></li>
-				<li><a href="/takemoney.html">取款</a></li>
-				<li><a href="/Trans.jsp">转账</a></li>
-			</ul>
+				<ul id="ul2">
+					<li id="lione">资&nbsp;&nbsp;产&nbsp;&nbsp;管&nbsp;&nbsp;理</li>
+					<li><a href="/deposit.html">存款</a></li>
+					<li><a href="/takemoney.html">取款</a></li>
+					<li><a href="/Trans.jsp">转账</a></li>
+				</ul>
 			</div>
 			<div id="div8">
-			<ul id="ul3">
-				<li id="lione">业&nbsp;&nbsp;务&nbsp;&nbsp;查&nbsp;&nbsp;询</li>
-				<li><a href="/Select.jsp">账户余额查询</a></li>
-				<li><a href="/wanzehao/fail.jsp">贷款业务查询</a></li>
-				<li><a href="/checkdetails.html">近期账单查询</a></li>
-			</ul>
+				<ul id="ul3">
+					<li id="lione">业&nbsp;&nbsp;务&nbsp;&nbsp;查&nbsp;&nbsp;询</li>
+					<li><a href="/Select.jsp">账户余额查询</a></li>
+					<li><a href="/wanzehao/fail.jsp">贷款业务查询</a></li>
+					<li><a href="/checkdetails.html">近期账单查询</a></li>
+				</ul>
 			</div>
 			
 			<div id="div9">

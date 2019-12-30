@@ -1,8 +1,9 @@
 package com.guobank.minzilong.web;
 
-import com.guobank.minzilong.entity.Userinfo;
+
 import com.guobank.minzilong.service.IUserinfoService;
 import com.guobank.minzilong.service.impl.UserinfoServlce;
+import com.guobank.wanzehao.entity.UserInfo;
 
 import java.io.IOException;
 
@@ -21,46 +22,49 @@ public class addUserinfoServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	      try {
-	      	   System.out.println(1);
-	    	  request.setCharacterEncoding("utf-8");
-	          String userName=request.getParameter("userName");
-	          String sex=request.getParameter("sex");
-	          Integer age=new Integer(request.getParameter("age"));
-	          System.out.println(request.getParameter("leven"));
-	          System.out.println(request.getParameter("leven"));
-	          Integer leven=new Integer(request.getParameter("leven"));
-	          String pho=request.getParameter("pho");
-	          String id=request.getParameter("id");
-	          String bornDate=request.getParameter("bornDate");
-	       
-		
-	       Date date = java.sql.Date.valueOf(bornDate);
-	       Userinfo userinfo=new Userinfo();
-	       userinfo.setUserName(userName);
-	       userinfo.setSex(sex);
-	       userinfo.setAge(age);
-	       userinfo.setLeven(leven);
-	       userinfo.setPho(pho);
-	       userinfo.setId(id);
-	       userinfo.setBornDate(date);
-	       
-	       System.out.println(userinfo);
-	     
-			this.iUserinfoService.addUserinfoService(userinfo);
-			request.getSession().setAttribute("user",userinfo);
-			request.getRequestDispatcher("/wanzehao/index.jsp").forward(request, response);
-	 }catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
-		request.setAttribute("message","修改失败！");
-		request.getRequestDispatcher("/minzilong/userinfo.jsp").forward(request, response);
-	 }
+
 }
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			doGet(request, response);
-			}
+		try {
+			request.setCharacterEncoding("utf-8");
+			String userName=request.getParameter("userName");
+			String sex=request.getParameter("sex");
+			Integer age=new Integer(request.getParameter("age"));
+			System.out.println(request.getParameter("leven"));
+			System.out.println(request.getParameter("leven"));
+			Integer leven=new Integer(request.getParameter("leven"));
+			String pho=request.getParameter("pho");
+			String bornDate=request.getParameter("bornDate");
+			Date date = java.sql.Date.valueOf(bornDate);
+
+			UserInfo userInfo1=(UserInfo)request.getSession().getAttribute("user");
+			userInfo1.setUserName(userName);
+			userInfo1.setSex(sex);
+			userInfo1.setAge(age);
+			userInfo1.setLeven(leven);
+			userInfo1.setPho(pho);
+			userInfo1.setBornDate(date);
+
+			UserInfo userinfo=new UserInfo();
+			userinfo.setUserName(userName);
+			userinfo.setSex(sex);
+			userinfo.setAge(age);
+			userinfo.setLeven(leven);
+			userinfo.setPho(pho);
+			userinfo.setBornDate(date);
+
+
+			this.iUserinfoService.addUserinfoService(userinfo);
+			request.getSession().setAttribute("user",userInfo1);
+			request.getRequestDispatcher("/wanzehao/index.jsp").forward(request, response);
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			request.setAttribute("message","修改失败！");
+			request.getRequestDispatcher("/minbzilong/userinfo.jsp").forward(request, response);
+		}
+	}
 
 }

@@ -7,20 +7,125 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f6d901c-00df-403f-b638-d5b93367fb6c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/util/Page.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/dao/IBankcardDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/dao/impl/BankcardDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/entity/Bankcard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/service/IBankcardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/service/impl/BankcardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/CloseUserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/UpdateMoneyServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/UpdatePathServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/YZpassServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/YzPwdServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/addInfoServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/ispwdServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/queryBankServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/queryUserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/updPwdServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/entity/Record.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/web/YZIDServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css/acc.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css/list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css/pwd.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/minzilong/account.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/minzilong/pass.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/minzilong/userlist.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/1000787_300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/1000808_300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/1000821_300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/1000865_300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/1000868_300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/1000880_300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/1000950_300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/1001368_300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/1001733_300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tximg/three.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyBank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyBank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/guopeng/css/ReportLoss.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/guopeng/css/ReportLoss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/guopeng/css/component.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/guopeng/css/component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/Batch.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/Batch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/css/ReportLoss.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/css/ReportLoss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/css/component.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/css/component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/css/content.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/css/content.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/eTicket.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/eTicket.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/openHelp.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/openHelp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/roadlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/roadlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/userInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/userInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/userService.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/userService.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guopeng/vip.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/guopeng/vip.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/META-INF/MyBank.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/META-INF/MyBank.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/ILoanInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/ILoanInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/IUserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/IUserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/LoanInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/LoanInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/service/ILoanInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/service/ILoanInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/service/impl/LoanInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/service/impl/LoanInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/web/QueryLoanInfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/web/QueryLoanInfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/dao/IUserinfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/dao/IUserinfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/dao/impl/userinfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/dao/impl/userinfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/service/IUserinfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/service/IUserinfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/service/impl/UserinfoServlce.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/service/impl/UserinfoServlce.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/web/CloseuserinfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/web/CloseuserinfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/web/addUserinfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/web/addUserinfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/web/queryUserinfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/minzilong/web/queryUserinfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/dao/IUserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/dao/IUserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/dao/impl/UserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/entity/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/entity/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/service/impl/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/service/impl/UserInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/web/AjaxAddUserInfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/web/AjaxAddUserInfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/web/AjaxGetPwdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/web/AjaxGetPwdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/web/AjaxLoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/wanzehao/web/AjaxLoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/bank.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/bank.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/zhu/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/zhu/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/minzilong/userinfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/minzilong/userinfo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/fail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/fail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/information.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/information.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/ILoanInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/ILoanInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/IUserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/IUserInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/LoanInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/LoanInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/UserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/UserInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/service/ILoanInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/service/ILoanInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/service/impl/LoanInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/service/impl/LoanInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/web/QueryLoanInfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/web/QueryLoanInfoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/minzilong/dao/IUserinfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/dao/IUserinfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/minzilong/dao/impl/userinfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/dao/impl/userinfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/minzilong/service/IUserinfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/service/IUserinfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/minzilong/service/impl/UserinfoServlce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/service/impl/UserinfoServlce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/minzilong/web/CloseuserinfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/CloseuserinfoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/minzilong/web/addUserinfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/addUserinfoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/minzilong/web/queryUserinfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/minzilong/web/queryUserinfoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/wanzehao/dao/IUserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/dao/IUserInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/wanzehao/dao/impl/UserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/dao/impl/UserInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/wanzehao/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/entity/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/wanzehao/service/impl/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/service/impl/UserInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/wanzehao/web/AjaxAddUserInfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/web/AjaxAddUserInfoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/wanzehao/web/AjaxGetPwdServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/web/AjaxGetPwdServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/guobank/wanzehao/web/AjaxLoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/wanzehao/web/AjaxLoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/ILoanInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/ILoanInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/IUserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/IUserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/LoanInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/LoanInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/service/ILoanInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/service/ILoanInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/service/impl/LoanInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/service/impl/LoanInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/web/QueryLoanInfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/web/QueryLoanInfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/dao/IUserinfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/dao/IUserinfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/dao/impl/userinfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/dao/impl/userinfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/service/IUserinfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/service/IUserinfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/service/impl/UserinfoServlce.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/service/impl/UserinfoServlce.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/web/CloseuserinfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/web/CloseuserinfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/web/addUserinfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/web/addUserinfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/web/queryUserinfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/minzilong/web/queryUserinfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/dao/IUserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/dao/IUserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/dao/impl/UserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/entity/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/entity/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/service/impl/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/service/impl/UserInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/web/AjaxAddUserInfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/web/AjaxAddUserInfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/web/AjaxGetPwdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/web/AjaxGetPwdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/web/AjaxLoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/wanzehao/web/AjaxLoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/adminHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/adminHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/bank.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/bank.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/zhu/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/zhu/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/loginCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/loginCheck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/minzilong/userinfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/minzilong/userinfo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/wanzehao/fail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/wanzehao/fail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/wanzehao/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/wanzehao/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/wanzehao/information.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/wanzehao/information.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/wanzehao/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/wanzehao/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +160,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/guopeng" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/css/zhu" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -67,11 +172,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Java\Jsp\guoBank\web\guopeng" />
-      <recent name="D:\Java\Jsp\guoBank\web\guopeng\css" />
-      <recent name="D:\Java\Jsp\guoBank\web\img" />
-      <recent name="D:\Java\Jsp\guoBank\web\WEB-INF\lib" />
-      <recent name="D:\Java\Jsp\guoBank\src\com\guobank\util" />
+      <recent name="D:\Java\Jsp\guoBank\web\css\zhu" />
+      <recent name="D:\Java\Jsp\guoBank\web\tximg" />
+      <recent name="D:\Java\Jsp\guoBank\web" />
+      <recent name="D:\Java\Jsp\guoBank\src\com\guobank" />
+      <recent name="D:\Java\Jsp\guoBank\web\minzilong" />
     </key>
   </component>
   <component name="RunManager">
@@ -227,7 +332,8 @@
     <MESSAGE value="完成激活功能" />
     <MESSAGE value="退出" />
     <MESSAGE value="显示登录的管理员信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="显示登录的管理员信息" />
+    <MESSAGE value="新增郭鹏的帮助页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增郭鹏的帮助页面" />
   </component>
   <component name="WindowStateProjectService">
     <state x="452" y="56" key="#Tomcat_8.5.40" timestamp="1577418466576">
@@ -246,10 +352,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="170" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577690833359" />
-    <state x="421" y="9" key="CommitChangelistDialog2" timestamp="1577690211580">
+    <state x="421" y="9" key="CommitChangelistDialog2" timestamp="1577695142389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="421" y="9" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577690211580" />
+    <state x="421" y="9" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1577695142389" />
     <state width="427" height="466" key="DebuggerActiveHint" timestamp="1577689906412">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -258,70 +364,70 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="606" y="207" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577690830444" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1577694444883">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1577703709871">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577694444883" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1577694444883">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577703709871" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1577703709871">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577694444883" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1577694444883">
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577703709871" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1577703709871">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577694444883" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1577694444883">
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577703709871" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1577703709871">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577694444883" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577703709871" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1577703710013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577703710013" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1577703710013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1577694444883">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1577703710013" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1577703710013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1577694444883" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1577703710013" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1577703710013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1577703710013" />
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1577703709872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577703709872" />
+    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1577703709872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1577703709872" />
+    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1577703709872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1577703709872" />
+    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1577703709872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.3.bottom" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1577703709872" />
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom" timestamp="1577703709872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.3.center" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577703709872" />
+    <state width="1493" height="261" key="GridCell.Tab.3.center" timestamp="1577703709872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.3.left" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1577703709872" />
+    <state width="1493" height="261" key="GridCell.Tab.3.left" timestamp="1577703709872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
-    <state width="1493" height="261" key="GridCell.Tab.3.right" timestamp="1577694444884">
+    <state width="1493" height="261" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1577703709872" />
+    <state width="1493" height="261" key="GridCell.Tab.3.right" timestamp="1577703709872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1577694444884" />
+    <state width="1493" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1577703709872" />
     <state x="147" y="65" key="MergeDialog" timestamp="1577344365176">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -338,10 +444,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="510" y="119" key="VCS.ChangeListViewerDialog/0.0.1536.824@0.0.1536.824" timestamp="1577332451555" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1577690220007">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1577695149309">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577690220007" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1577695149309" />
     <state x="564" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577690781757">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

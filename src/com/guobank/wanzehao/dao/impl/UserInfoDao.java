@@ -3,9 +3,11 @@ package com.guobank.wanzehao.dao.impl;
 import com.guobank.dao.BaseDao;
 import com.guobank.wanzehao.dao.IUserInfoDao;
 import com.guobank.wanzehao.entity.UserInfo;
+import sun.java2d.Surface;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -32,7 +34,7 @@ public class UserInfoDao extends BaseDao implements IUserInfoDao {
 			userInfo.setPwd(rs.getString("pwd"));
 			userInfo.setUserName(rs.getString("userName"));
 			userInfo.setSex(rs.getString("sex"));
-			
+			userInfo.setPath(rs.getString("path"));
 			userInfos.add(userInfo);
 			
 		}
@@ -43,9 +45,9 @@ public class UserInfoDao extends BaseDao implements IUserInfoDao {
 	@Override
 	public void addUserInfo(UserInfo uInfo) throws Exception {
 		
-        String sql="insert into userinfo(userId,userName,pwd,pho) values(null,?,?,?)";
+        String sql="insert into userinfo(userId,bornDate,age,sex,userName,leven,pwd,pho,Id,path) values(null,?,?,?,?,?,?,?,?,?)";
 		
-		super.executeUpdate(sql, new Object[]{uInfo.getUserName(),uInfo.getPwd(),uInfo.getPho()});
+		super.executeUpdate(sql, new Object[]{new Date(),0,"男",uInfo.getUserName(),uInfo.getLeven(),uInfo.getPwd(),uInfo.getPho(),uInfo.getId(),"../tximg/three.png"});
 		
 	}
 
@@ -75,10 +77,23 @@ public class UserInfoDao extends BaseDao implements IUserInfoDao {
 			userInfo.setPwd(rs.getString("pwd"));
 			userInfo.setUserName(rs.getString("userName"));
 			userInfo.setSex(rs.getString("sex"));
+			userInfo.setPath(rs.getString("path"));
 		}
 		
 		return userInfo;
 	}
 
-	
+	@Override
+	public void updatePass(String userId) throws Exception {
+		String sql="update userInfo set pwd='123456' where pho=?";
+		super.executeUpdate(sql,new Object[]{userId});
+	}
+
+	@Override
+	public void addRecord() throws Exception {
+		String sql="insert into record value(null,1,?)";
+		super.executeUpdate(sql,new Object[]{new Date()});
+	}
+
+
 }

@@ -1,5 +1,7 @@
 package com.guobank.wanzehao.web;
 
+import com.guobank.wanzehao.dao.IUserInfoDao;
+import com.guobank.wanzehao.dao.impl.UserInfoDao;
 import com.guobank.wanzehao.service.IUserInfoService;
 import com.guobank.wanzehao.service.impl.UserInfoService;
 
@@ -15,13 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AjaxGetPwdServlet extends HttpServlet {
 
-	private IUserInfoService iUserInfoService = new UserInfoService();
+	private IUserInfoDao iUserInfoDao = new UserInfoDao();
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
            String result ="";
 		try {
 			String pho = request.getParameter("pho");
-			result =iUserInfoService.getPwd(pho);
+			iUserInfoDao.updatePass(pho);
+			result ="密码已经重置为'123456',请尽快登录修改密码！";
 		} catch (Exception e) {
 			
 			e.printStackTrace();

@@ -1,5 +1,7 @@
 package com.guobank.wanzehao.web;
 
+import com.guobank.wanzehao.dao.IUserInfoDao;
+import com.guobank.wanzehao.dao.impl.UserInfoDao;
 import com.guobank.wanzehao.entity.UserInfo;
 import com.guobank.wanzehao.service.IUserInfoService;
 import com.guobank.wanzehao.service.impl.UserInfoService;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AjaxAddUserInfoServlet extends HttpServlet {
 
 	IUserInfoService iUserInfoService = new UserInfoService();
+	IUserInfoDao iUserInfoDao = new UserInfoDao();
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -31,7 +34,7 @@ public class AjaxAddUserInfoServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");response.setCharacterEncoding("UTF-8");
 
 			String uname=request.getParameter("uname");
-
+			String cardId = request.getParameter("cardId");
 			String pwd = request.getParameter("pwd");
 			String pho = request.getParameter("pho");
 
@@ -41,8 +44,9 @@ public class AjaxAddUserInfoServlet extends HttpServlet {
 			uInfo.setPwd(pwd);
 			uInfo.setPho(pho);
 			uInfo.setLeven(1);
-
-		iUserInfoService.addUserInfo(uInfo);
+			uInfo.setId(cardId);
+			iUserInfoService.addUserInfo(uInfo);
+			iUserInfoDao.addRecord();
 			result="注册成功";
 		} catch (Exception e) {
 			result="注册失败";

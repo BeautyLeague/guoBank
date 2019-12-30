@@ -1,6 +1,6 @@
 package com.guobank.minzilong.web;
 
-import com.guobank.minzilong.entity.Userinfo;
+
 import com.guobank.minzilong.service.IUserinfoService;
 import com.guobank.minzilong.service.impl.UserinfoServlce;
 import com.guobank.wanzehao.entity.UserInfo;
@@ -36,32 +36,13 @@ public class queryUserinfoServlet extends HttpServlet {
 		
 	  try {
 	 // request.setAttribute("username", username);
-		List<Userinfo> userinfo1=this.iUserinfoService.queryUserinfolisList();
+		List<UserInfo> userinfo1=this.iUserinfoService.queryUserinfolisList();
 
 		request.setAttribute("userinfo1",request.getSession().getAttribute("user"));
-		UserInfo userInfo =(UserInfo) request.getSession().getAttribute("user");
-		String[] pwd = userInfo.getPwd().split("|");
-		String[] id = userInfo.getId().split("|");
-		String pass ="";
-		for (int i=0;i<pwd.length;i++){
-			if(i!=0&&i!=pwd.length-1) {
-				pass = pass + "*";
-			}else{
-				pass = pass + pwd[i];
-			}
-		}
-	  String ids ="";
-	  for (int i=0;i<id.length;i++){
-		  if(i>5&&i<14) {
-			  ids = ids + "*";
-		  }else{
-			  ids = ids + id[i];
-		  }
-	  }
-		userInfo.setPwd(pass);
-	  userInfo.setId(ids);
+		UserInfo userInfo;
+		userInfo = (UserInfo) request.getSession().getAttribute("user");
 		request.setAttribute("userinfo1",userInfo);
-		request.getRequestDispatcher("/minzilong/userinfo.jsp").forward(request, response);
+		request.getRequestDispatcher("/minzilong/userlist.jsp").forward(request, response);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

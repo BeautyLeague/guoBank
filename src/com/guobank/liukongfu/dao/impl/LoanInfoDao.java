@@ -5,6 +5,7 @@ import com.guobank.liukongfu.dao.ILoanInfoDao;
 import com.guobank.liukongfu.entity.BankCard;
 import com.guobank.liukongfu.entity.LoanInfo;
 import com.guobank.liukongfu.entity.TransInfo;
+import com.guobank.liukongfu.util.Page;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -53,10 +54,11 @@ public class LoanInfoDao extends BaseDao implements ILoanInfoDao {
 	}
 
 	@Override
-	public List<LoanInfo> queryLoanInfos(String userid) throws Exception {
-		String sql = "select * from loaninfo where userId=?";
+	public Page<LoanInfo> queryLoanInfos(Page<LoanInfo> page,String userid) throws Exception {
+		String sql = "select * from loaninfo where userId=? limit ?,?";
 
-		ResultSet rs = super.executeQuery(sql, new Object[] { userid });
+		ResultSet rs = super.executeQuery(sql, new Object[] { userid,(page.getPageNo() - 1) * page.getPageCount(),
+				page.getPageCount()  });
 
 		List<LoanInfo> loanInfo = new ArrayList<LoanInfo>();
 
@@ -66,19 +68,36 @@ public class LoanInfoDao extends BaseDao implements ILoanInfoDao {
 			loanInfo2.setLoanId(rs.getInt("loanId"));
 			loanInfo2.setUserId(rs.getInt("userid"));
 			loanInfo2.setLoanMoney(rs.getDouble("loanMoney"));
-			loanInfo2.setLoanDate(rs.getDate("loanDate"));
+			loanInfo2.setLoanDate(rs.getTimestamp("loanDate"));
 			loanInfo2.setBackDate(rs.getInt("backDate"));
 			loanInfo2.setlMoney(rs.getDouble("lmoney"));
 			loanInfo2.setAllMoney(rs.getDouble("allmoney"));
 			loanInfo2.setRate(rs.getDouble("rate"));
-			loanInfo2.setThisDate(rs.getDate("thisDate"));
+			loanInfo2.setThisDate(rs.getTimestamp("thisDate"));
+
 			loanInfo2.setIs_loan(rs.getInt("is_loan"));
 			loanInfo2.setCards(rs.getString("cards"));
 			
 			loanInfo.add(loanInfo2);
 		}
 
-		return loanInfo;
+		//构造page对象
+		page.setResultList(loanInfo);//
+		page.setTotalCount(this.getTotalNews(userid));//设置总记录数
+		return page;
+	}
+
+	private Long getTotalNews(String id) throws Exception {
+		String sql = "select count(1) from loanInfo where userId=?";
+		ResultSet rs = super.executeQuery(sql, new Object[] {id});
+
+		//循环遍历，构建数据集合
+		Long total = 0L;
+		while (rs.next()) {
+			total = rs.getLong(1);
+		}
+
+		return total;
 	}
 
 	@Override

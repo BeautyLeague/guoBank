@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     <title>My JSP 'deposit.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -28,6 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link href="<%=path %>/css/deposit.css" rel="stylesheet">
         <script src="<%=path %>/js/jquery-1.12.4.js"></script>
         <script src="<%=path %>/js/overall.js"></script>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmts"%>
         <script>
         var moneys="";
         var cardss="";
@@ -95,34 +96,78 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             });
 
          }
-		
-         $.get("<%=path%>/QueryLoanInfoServlet", function (result) {
-         
-                    for(var i=0;i<result.length;i++){
-                    var but="";
-                    
-                    if(result[i].is_loan==0){
-                    	but = "<input type='button' value='还款' onclick='huankuan(\""+result[i].allMoney+"\",\""+result[i].cards+"\",this,\""+result[i].loanId+"\")'>";
-                    }else{
-                    	but = "<input type='button' value='已还款' disabled='disabled'>";
-                    }
-                    
-						var temp= "<ul>"
-								  +"<li>"+result[i].loanId+"</li>"
-								  +"<li>"+result[i].loanMoney+"</li>"
-								  +"<li>"+result[i].cards+"</li>"
-								  +"<li>"+result[i].loanDate+"</li>"
-								  +"<li>"+result[i].allMoney+"</li>"
-								  +"<li>"+but+"</li>"										
-								  +"</ul>";
-					     		$("#divul").append(temp);
-					}                                                
-                },"json")
-                
-                
-        
+
         });
-        
+
+
+        pageInfo(1);
+
+        function pageInfo(y){
+            $("#divul").html(" ");
+            $.get("<%=path%>/QueryLoanInfoServlet?pageNo="+y, function (results) {
+
+                for(var i=0;i<results.resultList.length;i++){
+                    var but="";
+                    var  result=results.resultList[i];
+                    if(result.is_loan==0){
+                        but = "<input type='button' value='还款' onclick='huankuan(\""+result.allMoney+"\",\""+result.cards+"\",this,\""+result.loanId+"\")'>";
+                    }else{
+                        but = "<input type='button' value='已还款' disabled='disabled'>";
+                    }
+                    var temp= "<ul>"
+                        +"<li>"+result.loanId+"</li>"
+                        +"<li>"
+                        +"<fmt:formatNumber value="3242342342" type="currency"/>"
+                        +"</li>"
+                        +"<li>"+result.cards+"</li>"
+                        +"<li>"+result.loanDate+"</li>"
+                        +"<li>"+result.allMoney+"</li>"
+                        +"<li>"+but+"</li>"
+                        +"</ul>";
+                    $("#divul").append(temp);
+                }
+                $("#divul").append("<div id='page'></div>");
+                var pageStr="";
+                pageStr=pageStr+"<p style='display: inline-block;margin-left: 23%' align='left'>"
+                    +"共"
+                    +results.totalCount
+                    +"条数据,当前页数：["
+                    +results.pageNo
+                    +"/"+results.totalPage+"]&nbsp;";
+
+                var pageTemp1="";
+                if(results.pageNo>1){
+                    pageTemp1="<div onclick='pageInfo(1)'><a href='javascript:void(0);' >首页</a></div>"
+                        +"<div onClick='pageInfo("+(results.pageNo-1)+")'><a href='javascript:void(0);' >上一页</a></div>";
+                }else{
+                    pageTemp1="<div style='background: darkkhaki;'><a href='javascript:void(0);' >首页</a></div>"
+                        +"<div style='background: darkkhaki;'><a href='javascript:void(0);' >上一页</a></div>";
+                }
+                for(var i=1;i<=results.totalPage;i++){
+                    if(i==results.pageNo){
+                        pageTemp1=pageTemp1+"<div style='background: darkkhaki;'><a href='javascript:void(0);' >"+i+"</a></div>";
+                    }else{
+                        pageTemp1=pageTemp1+"<div onclick='pageInfo("+i+")'><a href='javascript:void(0);' >"+i+"</a></div>";
+                    }
+
+                }
+
+                var pageTemp2="";
+                if(results.pageNo<results.totalPage){
+                    pageTemp2="<div onclick='pageInfo("+(results.pageNo+1)+")'><a href='javascript:void(0);' >下一页</a></div>"
+                        +"<div onClick='pageInfo("+results.totalPage+")'><a href='javascript:void(0);' >末页</a></div>";
+                }else{
+                    pageTemp2="<div style='background: darkkhaki;'><a href='javascript:void(0);' >下一页</a></div>"
+                        +"<div style='background: darkkhaki;'><a href='javascript:void(0);' >末页</a></div>";
+                }
+
+
+                pageStr=pageStr+"</p>";
+                $("#page").append(pageStr+pageTemp1+pageTemp2);
+            },"json")
+
+        }
+
         function huankuan(money,cards,btn,loanids){
        loanid=loanids;
        	moneys=money;
@@ -132,10 +177,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        	$("#moveBar").css({"display":"inline-block","left":value.x-200,"top":value.y-50});
                       
         }
-        
-        
-        
-        
+
         function getMousePos(event) {
 		    var e = event || window.event;
 		    var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
@@ -148,78 +190,93 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <title>存款</title>
     </head>
 <style>
-
-#dkul1 li{
-	display: inline-block;
-	width:16%;
-	height: 40px;
-	font-size: 18px;
-	font-weight: bold;
-	text-align: center;
-	
-}
-#dkul1{
-	
-	border-bottom: 1px solid #000000;
-}
-#divul ul{
-border-bottom: 1px solid; 
-}
-#divul ul li{	
-	display: inline-block;	
-	width:16%;
-	height: 100px;	
-	font-size: 18px;
-	font-weight: bold;
-	text-align: center;
-	line-height: 100px;
-}
-#divul ul li input{
-height: 40px;
-width:100px; 
-}
-#divul ul li input:hover{
-cursor: pointer;
-}
-		#moveBar {
-        
-        z-index:999; 
+    #dkul1 li{
         display: inline-block;
-	    position: absolute;
-	    width: 400px;
-	    height: 100px;
-	    left:600px;
-	    top:180px;
-	    background: white;
-	    color:#000;
-	    border: solid 1px #000;
-	    display:none; 
-	    }
-	    #banner {
-	    
-	    background: #ddd;
-	    cursor: move;
-	    height: 40px;
-	    line-height: 40px;
-	    font-size: 18px;
-	    font-weight: bold;
-	    }
-	    #banner img{
-	    margin-left: 270px;
-	    height:40px;
-	    float:left;
-	    }
-	    #buttonmm{
-	    margin-top:10px;
-	    height: 30px;
-		width:100px; 
-	    }
+        width:16%;
+        height: 40px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+
+    }
+    #dkul1{
+
+        border-bottom: 1px solid #000000;
+    }
+    #divul ul{
+    border-bottom: 1px solid;
+    }
+    #divul ul li{
+        display: inline-block;
+        width:16%;
+        height: 100px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 100px;
+    }
+    #divul ul li input{
+    height: 40px;
+    width:100px;
+    }
+    #divul ul li input:hover{
+    cursor: pointer;
+    }
+    #moveBar {
+
+    z-index:999;
+    display: inline-block;
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    left:600px;
+    top:180px;
+    background: white;
+    color:#000;
+    border: solid 1px #000;
+    display:none;
+    }
+    #banner {
+
+    background: #ddd;
+    cursor: move;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    }
+    #banner img{
+    margin-left: 270px;
+    height:40px;
+    float:left;
+    }
+    #buttonmm{
+    margin-top:10px;
+    height: 30px;
+    width:100px;
+    }
+    #page{
+        margin-top: 20px;
+    }
+    #page div{
+        cursor: pointer;
+        margin-left: 10px;
+        display: inline-block;
+        height: 70px;
+        width: 70px;
+        line-height: 70px;
+        text-align: center;
+        border: 1px solid;
+    }
+    #page a{
+        text-decoration: none;
+    }
 </style>
     <body>
     <div id="moveBar">
         <div id="banner"><img src="/img/zfmm.png"><span id="p">支付密码</span></div>
         <div id="content">
-        <input type="text" id="pwd" placeholder="请输入支付密码" style="height:30px;width:300px"><input id="buttonmm" type="button" value="确定">
+        <input type="password" id="pwd" placeholder="请输入支付密码" style="height:30px;width:300px"><input id="buttonmm" type="button" value="确定">
         </div>
     </div>
 <header>

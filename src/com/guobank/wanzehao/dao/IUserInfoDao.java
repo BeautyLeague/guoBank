@@ -12,4 +12,8 @@ public interface IUserInfoDao {
 	public void addUserInfo(UserInfo uInfo) throws Exception;
 	
 	public UserInfo queryUserInfo(String load) throws Exception;
+
+	public void  updatePass(String userId) throws Exception;
+
+	public void  addRecord() throws  Exception;
 }

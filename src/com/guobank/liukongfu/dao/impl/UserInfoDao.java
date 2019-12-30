@@ -32,12 +32,19 @@ public class UserInfoDao extends BaseDao implements IUserInfoDao {
 			userInfo.setPwd(rs.getString("pwd"));
 			userInfo.setUserName(rs.getString("userName"));
 			userInfo.setSex(rs.getString("sex"));
-			
+
 			userInfos.add(userInfo);
 			
 		}
 		return userInfos;
 
 	}
-	
+
+	@Override
+	public void updateLeven(Integer id) throws Exception {
+		String sql="update userinfo set leven=leven+1 where userid=?";
+
+		super.executeUpdate(sql,new  Object[]{id});
+	}
+
 }

@@ -1,11 +1,14 @@
 package com.guobank.liukongfu.service.impl;
 
 import com.guobank.liukongfu.dao.ILoanInfoDao;
+import com.guobank.liukongfu.dao.IUserInfoDao;
 import com.guobank.liukongfu.dao.impl.LoanInfoDao;
+import com.guobank.liukongfu.dao.impl.UserInfoDao;
 import com.guobank.liukongfu.entity.BankCard;
 import com.guobank.liukongfu.entity.LoanInfo;
 import com.guobank.liukongfu.entity.TransInfo;
 import com.guobank.liukongfu.service.ILoanInfoService;
+import com.guobank.liukongfu.util.Page;
 
 import java.text.DecimalFormat;
 
@@ -99,9 +102,9 @@ public class LoanInfoService implements ILoanInfoService {
 	}
 
 	@Override
-	public List<LoanInfo> queryLoanInfos(String userid) throws Exception {
+	public Page<LoanInfo> queryLoanInfos(Page<LoanInfo> page, String userid) throws Exception {
 		
-		return iLoanInfoDao.queryLoanInfos(userid);
+		return iLoanInfoDao.queryLoanInfos(page,userid);
 	}
 
 	@Override
@@ -121,7 +124,6 @@ public class LoanInfoService implements ILoanInfoService {
 	public String isPwd(String cardid,String pwd,String userid) throws Exception {
 		
 		List<BankCard> list =iLoanInfoDao.cardIds(userid);
-		System.out.println(list);
 		String pwds ="";
 		String result="";
 		for (BankCard bankCard : list) {
@@ -161,6 +163,28 @@ public class LoanInfoService implements ILoanInfoService {
 		iLoanInfoDao.addTransInfo(transInfo);
 
 		iLoanInfoDao.updateis_hk(loanid);
+
+		return result;
+	}
+	IUserInfoDao iUserInfoDao = new UserInfoDao();
+	@Override
+	public String shengji(String cardid, double money,Integer id) throws Exception {
+		String result="";
+
+		//修改银行卡金额
+		double bankMoney= iLoanInfoDao.queryMoney(cardid);
+		bankMoney=bankMoney-money;
+		iLoanInfoDao.updateBankMoney(bankMoney, cardid);
+		result="恭喜您升级成功！银行卡"+cardid+"还剩"+bankMoney+"元";
+		//添加交易信息
+		TransInfo transInfo = new TransInfo();
+		transInfo.setTypeId(7);
+		transInfo.setTrandsMoney(money);
+		transInfo.setTrandsDate(new Date());
+		transInfo.setTrandsInfos(result);
+		transInfo.setBankCardId(cardid);
+		iLoanInfoDao.addTransInfo(transInfo);
+		iUserInfoDao.updateLeven(id);
 
 		return result;
 	}

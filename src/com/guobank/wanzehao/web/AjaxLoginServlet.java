@@ -22,8 +22,6 @@ public class AjaxLoginServlet extends HttpServlet {
 
 		String load = request.getParameter("username");
 		String pwd = request.getParameter("password");
-		System.out.println(load);
-		System.out.println(pwd);
 		String result=null;
 		try {
 			String uname = iUserInfoService.is_Load(load, pwd);
@@ -40,7 +38,6 @@ public class AjaxLoginServlet extends HttpServlet {
 		}finally{
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
-			System.out.println(result);
 			out.write(result);
 			out.close();
 		}

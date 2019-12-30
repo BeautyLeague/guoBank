@@ -9,118 +9,186 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<base href="<%=basePath%>">
+	<base href="<%=basePath%>">
 
-<title>My JSP 'deposit.jsp' starting page</title>
+	<title>My JSP 'deposit.jsp' starting page</title>
 
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-<style>
-.button:hover {
-	cursor: pointer;
-}
-</style>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="/css/header.css" rel="stylesheet">
-<link href="/css/footer.css" rel="stylesheet">
-<link href="/css/deposit.css" rel="stylesheet">
-<script src="/js/jquery-1.12.4.js"></script>
-<script src="/js/overall.js"></script>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        -->
+	<style>
+		.button:hover {
+			cursor: pointer;
+		}
+	</style>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link href="/css/header.css" rel="stylesheet">
+		<link href="/css/footer.css" rel="stylesheet">
+		<link href="/css/deposit.css" rel="stylesheet">
+		<script src="/js/jquery-1.12.4.js"></script>
+		<script src="/js/overall.js"></script>
 
-<script type="text/javascript">
-	
-	 function cardBlur() {
-            var $obj = $("#bankcardId");
-            if ($.trim($obj.val()).length === 0) {
-                $obj.next().text("卡号不能为空");
-                $obj.removeClass("inputOk");
-                $obj.addClass("inputError");
-                return false;
-            } else if ($.trim($obj.val()).length !== 18) {
-                $obj.next().text("卡号必须为18位");
-                $obj.removeClass("inputOk");
-                $obj.addClass("inputError");
-                return false;
-            } else {
-            	var cardId =  $("#bankcardId").val();
-             $.post("<%=path%>/YZCardIdServlet","bankCardId="+cardId+"",function(result){
-           
-            	if (result === "true") {
-                        $obj.next().text("");
-                        $obj.removeClass("inputError");
-                        $obj.addClass("inputOk");
-                        return true;
-                    } else if(result==="false"){
-                        $obj.next().text("该卡号不存在");
-                        $obj.removeClass("inputOk");
-                        $obj.addClass("inputError");
-                        return false;
-                    }else{ 	
-                    	$obj.next().text("该卡号是借记卡");
-                        $obj.removeClass("inputOk");
-                        $obj.addClass("inputError");
-                        return false;
-                    }
-            	})
-            
-            }
-return true;
-        }
-        
-        function moneyBlur() {
-            var $obj = $("#money");
-        if ($.trim($obj.val()).length === 0) {
-            $obj.next().text("贷款金额不能为空");
+		<script type="text/javascript">
 
-        } else if (isNaN($.trim($obj.val()))) {
-            $obj.next().text("请输入数子");
-        } else if ($.trim($obj.val()) < 3000) {
-            $obj.next().text("金额必须大于3000");
-        } else {
-            $obj.next().text("");
-            $obj.removeClass("inputError");
-            $obj.addClass("inputOk");
-            return true;
-        }
+			function cardBlur() {
+				var $obj = $("#bankcardId");
+				if ($.trim($obj.val()).length === 0) {
+					$obj.next().text("卡号不能为空");
+					$obj.removeClass("inputOk");
+					$obj.addClass("inputError");
+					return false;
+				} else if ($.trim($obj.val()).length !== 18) {
+					$obj.next().text("卡号必须为18位");
+					$obj.removeClass("inputOk");
+					$obj.addClass("inputError");
+					return false;
+				} else {
+					var cardId =  $("#bankcardId").val();
+					$.post("<%=path%>/YZCardIdServlet","bankCardId="+cardId+"",function(result){
+
+						if (result === "true") {
+							$obj.next().text("");
+							$obj.removeClass("inputError");
+							$obj.addClass("inputOk");
+							return true;
+						} else if(result==="false"){
+							$obj.next().text("该卡号不存在");
+							$obj.removeClass("inputOk");
+							$obj.addClass("inputError");
+							return false;
+						}else{
+							$obj.next().text("该卡号是借记卡");
+							$obj.removeClass("inputOk");
+							$obj.addClass("inputError");
+							return false;
+						}
+					})
+
+				}
 				return true;
-        }
-        
-        
-        function submit() {
-        
-        if(window.confirm('请问您是否确定贷款吗？')){
-       
-	       	if (cardBlur()&&moneyBlur()) {
+			}
 
-				         var json = {"bankcardId":$.trim($("#bankcardId").val()),
-				             "money": $.trim($("#money").val()),"loadDate":$.trim($("#DKDate").val())}
+			function idBlur() {
+				var $obj = $("#cardId");
+				if ($.trim($obj.val()).length === 0) {
+					$obj.next().text("身份证号不能为空");
+					$obj.removeClass("inputOk");
+					$obj.addClass("inputError");
+					return false;
+				} else if ($.trim($obj.val()).length !== 18) {
+					$obj.next().text("身份证号必须为18位");
+					$obj.removeClass("inputOk");
+					$obj.addClass("inputError");
+					return false;
+				} else {
+					var cardId =  $("#cardId").val();
+					$.post("<%=path%>/YZIDServlet","cardId="+cardId+"",function(result){
 
-				         $.post("<%=path%>/loanMoneyServlet", json, function(result) {
+						if (result === "true") {
+							$obj.next().text("");
+							$obj.removeClass("inputError");
+							$obj.addClass("inputOk");
+							return true;
+						} else if(result==="false"){
+							$obj.next().text("身份证输入错误");
+							$obj.removeClass("inputOk");
+							$obj.addClass("inputError");
+							return false;
+						}
+					})
+
+				}
+				return true;
+			}
+
+			function moneyBlur() {
+				var $obj = $("#money");
+				if ($.trim($obj.val()).length === 0) {
+					$obj.next().text("贷款金额不能为空");
+					$obj.removeClass("inputOk");
+					$obj.addClass("inputError");
+					return  false;
+				} else if (isNaN($.trim($obj.val()))) {
+					$obj.next().text("请输入数字");
+					$obj.removeClass("inputOk");
+					$obj.addClass("inputError");
+					return  false;
+				} else if ($.trim($obj.val()) < 3000) {
+					$obj.next().text("金额必须大于3000");
+					$obj.removeClass("inputOk");
+					$obj.addClass("inputError");
+					return  false;
+				} else {
+					if(${sessionScope.user.leven}==1&&$.trim($obj.val()) >100000){
+						$obj.next().text("您的用户等级为1，最多贷款100000元");
+						$obj.removeClass("inputOk");
+						$obj.addClass("inputError");
+						return  false;
+					}else if(${sessionScope.user.leven}==2&&$.trim($obj.val()) >200000){
+						$obj.next().text("您的用户等级为2，最多贷款200000元");
+						$obj.removeClass("inputOk");
+						$obj.addClass("inputError");
+						return  false;
+					}else if(${sessionScope.user.leven}==3&&$.trim($obj.val()) >300000){
+						$obj.next().text("您的用户等级为3，最多贷款300000元");
+						$obj.removeClass("inputOk");
+						$obj.addClass("inputError");
+						return  false;
+					}else if(${sessionScope.user.leven}==4&&$.trim($obj.val()) >400000){
+						$obj.next().text("您的用户等级为4，最多贷款400000元");
+						$obj.removeClass("inputOk");
+						$obj.addClass("inputError");
+						return  false;
+					}else if(${sessionScope.user.leven}==5&&$.trim($obj.val()) >500000){
+						$obj.next().text("您的用户等级为5，最多贷款500000元");
+						$obj.removeClass("inputOk");
+						$obj.addClass("inputError");
+						return  false;
+					}else{
+						$obj.next().text("");
+						$obj.removeClass("inputError");
+						$obj.addClass("inputOk");
+						return true;
+					}
+				}
+				return true;
+			}
+
+
+			function submit() {
+
+				if(window.confirm('请问您是否确定贷款吗？')){
+
+					if (cardBlur()&&moneyBlur()&&idBlur()) {
+
+						var json = {"bankcardId":$.trim($("#bankcardId").val()),
+							"money": $.trim($("#money").val()),"loadDate":$.trim($("#DKDate").val())}
+
+						$.post("<%=path%>/loanMoneyServlet", json, function(result) {
 							alert(result);
 							window.location = "wanzehao/index.jsp";
 						})
-			}else{
-			alert("请正确填写贷款信息！");
-			}
-		} 
-		
-	}
-</script>
+					}else{
+						alert("请正确填写贷款信息！");
+					}
+				}
 
-<title>网银贷款</title>
-</head>
+			}
+		</script>
+
+		<title>网银贷款</title>
+	</head>
 
 <body>
-	<header>
+<header>
 	<div class="header_div">
 
 		<ul>
@@ -136,57 +204,62 @@ return true;
 		</div>
 	</div>
 	</div>
-	</header>
-	<div class="title">
-		<ul>
-			<li><img src="/img/cunzhu.png" width="198" height="50"></li>
-			<li>
-				<p>|</p></li>
-			<li>
-				<p>个人网上银行——网银贷款</p></li>
-		</ul>
+</header>
+<div class="title">
+	<ul>
+		<li><img src="/img/cunzhu.png" width="198" height="50"></li>
+		<li>
+			<p>|</p></li>
+		<li>
+			<p>个人网上银行——网银贷款</p></li>
+	</ul>
 
-	</div>
+</div>
 
 
-	<div class="contene">
-		<div class="form">
-			<div class="card">
-				<p>请输入贷款银行卡号:</p>
-				<input id="bankcardId" type="text" size="30" onblur="cardBlur()">
-				<span class="error_span"></span>
-			</div>
-			<div class="price">
-				<p>请输入贷款金额:</p>
-				<input id="money" type="text" size="30" onblur="moneyBlur()">
-				<span class="error_span"></span>
-			</div>
-			<div class="pwd">
-				<p>请选择贷款期限:</p>
-				<select name="DKDate"
+<div class="contene">
+	<div class="form" style="width: 800px;margin-left: 40%">
+		<div class="card">
+			<p>请输入身份证号码:</p>
+			<input id="cardId" type="text" size="30" onblur="idBlur()">
+			<span class="error_span"></span>
+		</div>
+		<div class="card">
+			<p>请输入贷款银行卡号:</p>
+			<input id="bankcardId" type="text" size="30" onblur="cardBlur()">
+			<span class="error_span"></span>
+		</div>
+		<div class="price">
+			<p>请输入贷款金额:</p>
+			<input id="money" type="text" size="30" onblur="moneyBlur()">
+			<span class="error_span"></span>
+		</div>
+		<div class="pwd">
+			<p>请选择贷款期限:</p>
+			<select name="DKDate"
 					style="width:222px;border:1px solid #6E6E6D;height:26px"
 					id="DKDate">
-					<option value="1">1年</option>
-					<option value="2">2年</option>
-					<option value="3">3年</option>
-					<option value="4">4年</option>
-					<option value="5">5年</option>
-					<option value="6">6年</option>
-					<option value="7">7年</option>
-					<option value="8">8年</option>
-					<option value="9">9年</option>
-					<option value="10">10年</option>
-				</select>
-			</div>
-			<div class="button">
-				<input type="button" value="确认" onclick="submit()">
+				<option value="1">1年</option>
+				<option value="2">2年</option>
+				<option value="3">3年</option>
+				<option value="4">4年</option>
+				<option value="5">5年</option>
+				<option value="6">6年</option>
+				<option value="7">7年</option>
+				<option value="8">8年</option>
+				<option value="9">9年</option>
+				<option value="10">10年</option>
+			</select>
+		</div>
+		<div class="button" style="margin-left: 150px">
+			<input type="button" value="确认" onclick="submit()">
 
-			</div>
 		</div>
 	</div>
+</div>
 
 
-	<footer>
+<footer>
 	<div class="footer_div">
 		<div class="service">
 			<ul>
@@ -209,7 +282,7 @@ return true;
 		</div>
 	</div>
 
-	</footer>
+</footer>
 
 
 </body>

@@ -12,7 +12,7 @@ public class CloseuserinfoServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.getSession().setAttribute("user",request.getSession().getAttribute("user"));
-		request.getRequestDispatcher("/wanzehao/index.jsp").forward(request, response);
+		request.getRequestDispatcher("mingzilongqueryUserinfoServlet").forward(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

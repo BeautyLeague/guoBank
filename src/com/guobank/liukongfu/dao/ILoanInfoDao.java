@@ -4,6 +4,7 @@ package com.guobank.liukongfu.dao;
 import com.guobank.liukongfu.entity.BankCard;
 import com.guobank.liukongfu.entity.LoanInfo;
 import com.guobank.liukongfu.entity.TransInfo;
+import com.guobank.liukongfu.util.Page;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface ILoanInfoDao {
 	
 	public List<BankCard> cardIds(String userid) throws Exception;
 	
-	public List<LoanInfo> queryLoanInfos(String userid) throws Exception;
+	public Page<LoanInfo> queryLoanInfos(Page<LoanInfo> page, String userid) throws Exception;
 	
 	public void addTransInfo(TransInfo trInfo) throws Exception;
 	

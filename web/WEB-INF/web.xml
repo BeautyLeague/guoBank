@@ -282,6 +282,7 @@
 
 
 
+
     <servlet>
         <servlet-name>mingzilongaddUserinfoServlet</servlet-name>
         <servlet-class>com.guobank.minzilong.web.addUserinfoServlet</servlet-class>
@@ -315,6 +316,95 @@
     <servlet-mapping>
         <servlet-name>mingzilongqueryUserinfoServlet</servlet-name>
         <url-pattern>/mingzilongqueryUserinfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>mingzilongqueryUserServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.queryUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mingzilongqueryUserServlet</servlet-name>
+        <url-pattern>/mingzilongqueryUserServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>mingzilongCloseUserServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.CloseUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mingzilongCloseUserServlet</servlet-name>
+        <url-pattern>/mingzilongCloseUserServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>mingzilongqueryBankServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.queryBankServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mingzilongqueryBankServlet</servlet-name>
+        <url-pattern>/mingzilongqueryBankServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>mingzilongupdPwdServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.updPwdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mingzilongupdPwdServlet</servlet-name>
+        <url-pattern>/mingzilongupdPwdServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdatePathServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.UpdatePathServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdatePathServlet</servlet-name>
+        <url-pattern>/UpdatePathServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>YZIDServlet</servlet-name>
+        <servlet-class>com.guobank.wanzehao.web.YZIDServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>YZIDServlet</servlet-name>
+        <url-pattern>/YZIDServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>YZpassServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.YZpassServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>YZpassServlet</servlet-name>
+        <url-pattern>/YZpassServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateMoneyServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.UpdateMoneyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateMoneyServlet</servlet-name>
+        <url-pattern>/UpdateMoneyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>addInfoServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.addInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addInfoServlet</servlet-name>
+        <url-pattern>/addInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>YzPwdServlet</servlet-name>
+        <servlet-class>com.guobank.minzilong.web.YzPwdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>YzPwdServlet</servlet-name>
+        <url-pattern>/YzPwdServlet</url-pattern>
     </servlet-mapping>
 
 

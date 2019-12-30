@@ -19,7 +19,7 @@ public class UserInfoService implements IUserInfoService {
 		List<UserInfo> list = iUserInfoDao.queryUserInfos();
 		
 		for (UserInfo userInfo : list) {
-			System.out.println(userInfo);
+
 			if (userInfo.getPwd().equals(pwd) && userInfo.getPho().equals(lond)
 					|| userInfo.getPwd().equals(pwd)
 					&& userInfo.getId().equals(lond)) {

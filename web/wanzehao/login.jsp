@@ -49,14 +49,14 @@
             margin-top: 30px;
         }
 
-        #zc input {
+        #zc1 input {
             width: 300px;
             height: 30px;
             line-height: 30px;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
-        #zc input[type=button] {
+        #zc1 input[type=button] {
             background-color: #3BBDA9;
             color: white;
             font-weight: bold;
@@ -157,14 +157,12 @@
     <div id="banner"><img src="/img/wjmm.png"><span id="p">忘记密码？</span></div>
     <div id="content">
         <form action="" id="wjmm2" style="text-align: center">
-            <input type="text" id="pho3" maxlength="11" placeholder="密保手机号"><input type="hidden" id="pho6" value="">
-            <input type="text" id="wjmmyzm" placeholder="验证码" style="width:150px"><input type="hidden" id="yzm2"
-                                                                                         value=""><input type="button"
-                                                                                                         value="获取验证码"
-                                                                                                         id="btn4"
-                                                                                                         style="width:150px;paging-top:5px;height:32px"><br>
-            <input type="text" id="pass3" placeholder="密码" disabled>
-            <input type="button" value="获取密码" id="but5">
+            <input type="text" id="pho3" maxlength="11" placeholder="密保手机号">
+            <input type="hidden" id="pho6" value="">
+            <input type="text" id="wjmmyzm" placeholder="验证码" style="width:150px">
+            <input type="hidden" id="yzm2" value="">
+            <input type="button" value="获取验证码" id="btn4" style="width:150px;paging-top:5px;height:32px"><br>
+            <input type="button" value="重置密码" id="but5">
         </form>
 
     </div>
@@ -208,8 +206,7 @@
             <div id="div20"
                  style="font-size: 20px;font-weight: bold;display: inline-block;border-bottom:2px #00D3C4 solid; line-height: 50px;width:150px;height:50px;margin:0px;margin-left:15px;text-align: center;">
                 <a id="dl">登&nbsp;&nbsp;录</a></div>
-            <div style="font-size: 20px;font-weight: bold;width:150px;height:50px;margin:0px; line-height: 50px;border-bottom:1px #DDDDDD solid;display: inline-block;text-align: center;"
-                 id="div21"><a id="zc">注&nbsp;&nbsp;册</a></div>
+            <div style="font-size: 20px;font-weight: bold;width:150px;height:50px;margin:0px; line-height: 50px;border-bottom:1px #DDDDDD solid;display: inline-block;text-align: center;" id="div21"><a id="zc">注&nbsp;&nbsp;册</a></div>
 
             <div id="divdl">
                 <form action="" id="liss" style="text-align: center">
@@ -223,16 +220,16 @@
             </div>
 
             <div id="divzc" style="display:none;">
-                <form action="" id="zc" style="text-align: center">
+                <form action="" id="zc1" style="text-align: center">
                     <input type="text" id="uname" placeholder="请输入昵称">
+                    <input type="text" id="cardId" placeholder="请输入身份证号码" maxlength="18">
                     <input type="password" id="password1" placeholder="请输入6~15密码"><br>
                     <input type="password" id="pwd" placeholder="确认密码"><br>
-                    <input type="text" id="pho" name="phone" placeholder="请输入手机号" maxlength="11"><input type="hidden"
-                                                                                                     id="pho2" value=""><br>
-                    <input type="text" id="is_ho" placeholder="验证码" style="width:150px"><input type="hidden" id="yzm"
-                        type="button" value="获取验证码" id="btn3" style="width:150px;paging-top:5px;height:32px"><br>
+                    <input type="text" id="pho" name="phone" placeholder="请输入手机号" maxlength="11">
+                    <input type="hidden" id="pho2" value=""><br>
+                    <input type="text" id="is_ho" placeholder="验证码" style="width:150px">
+                    <input type="button" value="获取验证码" id="btn3" style="width:150px;paging-top:5px;height:32px"><br>
                     <input type="button" value="注册" id="btn2">
-
                 </form>
             </div>
 
@@ -398,10 +395,19 @@
             var pwd = $("#pwd").val();
             var pho = $("#pho").val();
             var pho2 = $("#pho2").val();
+            var cardId = $("#cardId").val();
             var Name = /[\u4E00-\u9FA5]/g;
 
             if (uname == "") {
                 alert("请输入昵称！！！");
+                return false;
+            }
+            if (cardId == "") {
+                alert("请输入身份证号码！！！");
+                return false;
+            }
+            if (cardId.length!=18) {
+                alert("身份证必须输入18位数！！！");
                 return false;
             }
             if (password == "") {
@@ -449,7 +455,7 @@
             $.ajax({
                 type: "post",
                 url: "<%=path%>/AjaxAddUserInfoServlet",
-                data: {"uname": uname, "pwd": pwd, "pho": pho},
+                data: {"uname": uname, "pwd": pwd, "pho": pho,"cardId":cardId},
                 dataType: "text",
                 success: function (result) {
                     alert(result);
@@ -497,7 +503,6 @@
             dataType: "text",
             success: function (result) {
                 $("#pho2").val(result);
-                alert($("#pho2").val());
             }
         })
 
@@ -573,7 +578,8 @@
             data: {"pho": pho3},
             dataType: "text",
             success: function (result) {
-                $("#pass3").val(result);
+                alert(result);
+                window.location="/wanzehao/login.jsp";
             }
         })
 
