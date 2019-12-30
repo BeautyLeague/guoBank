@@ -45,7 +45,7 @@
             var user = "用户";
             var shen = "想注册成为管理员";
             for (var i = 0; i < result.length; i++) {
-                var element = "<tr class='data'><td>" + user + "</td><td>" + result[i].adminEmail + "</td><td>" + shen + "</td><td><a href='javascript:void(0)'  adminEmail="+result.adminEmail+" >通过</a></td><td><a href='javascript:void(0)' onclick='adelete(this)' adminEmail="+result.adminEmail+" >否认</a></td></tr>";
+                var element = "<tr class='data'><td>" + user + "</td><td>" + result[i].adminEmail + "</td><td>" + shen + "</td><td><a href='javascript:void(0)' onclick='activation(this)' >通过</a></td><td><a href='javascript:void(0)' onclick='adelete(this)'  >否认</a></td></tr>";
                 elements += element;
             }
             ;
@@ -57,13 +57,27 @@
     function adelete(obj){
         var flag = confirm("是否否认此账号成为管理员用户","提示");
         if(flag){
-            var adminEmail= $(obj).attr("adminEmail");
+            var adminEmail= $(obj).parent().prev().prev().prev().text();
             $.post("DeleteServlet","adminEmail="+adminEmail,function(result){
                 if(result === "false"){
                     alert("已经成功否定该账号成为管理员用户");
                     $(obj).parent().parent().remove();
                 }else{
-                    alert("否定失败失败");
+                    alert("否定失败");
+                }
+            });
+        }
+    };
+    function activation(obj){
+        var flag = confirm("是否激活此账号成为管理员用户","提示");
+        if(flag){
+            var adminEmail= $(obj).parent().prev().prev().text();
+            $.post("AdminInfoServlet?action=activationAdmin","adminEmail="+adminEmail,function(result){
+                if(result === true || result === "true"){
+                    alert("已经成功激活该账号成为管理员用户");
+                    $(obj).parent().parent().remove();
+                }else{
+                    alert("激活失败");
                 }
             });
         }

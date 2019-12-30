@@ -21,10 +21,12 @@ import java.util.Properties;
 public class EmailUtil implements Runnable{
     private String email;//收件人邮箱
     private String registerMessage;//信息
+    private String title;//邮件头部信息
 
-    public EmailUtil(String email,String registerMessage){
+    public EmailUtil(String email,String registerMessage,String title){
         this.email = email;
         this.registerMessage = registerMessage;
+        this.title = title;
     }
 
     @Override
@@ -63,7 +65,7 @@ public class EmailUtil implements Runnable{
             // 2.2设置接收人
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             // 2.3设置邮件主题
-            message.setSubject("账号激活");
+            message.setSubject(title);
             // 2.4设置邮件内容
             String content = "<html><head></head><body><h1>"+registerMessage+"</h1><h3><a href='http://localhost:8080/BackstageLogin.jsp'>http://localhost:8080/BackstageLogin.jsp</href></h3></body></html>";
             message.setContent(content, "text/html;charset=UTF-8");

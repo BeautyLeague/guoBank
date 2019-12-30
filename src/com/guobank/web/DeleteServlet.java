@@ -2,6 +2,7 @@ package com.guobank.web;
 
 import com.guobank.service.IAdminLogin;
 import com.guobank.service.impl.AdminLoginService;
+import com.guobank.util.EmailUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +19,12 @@ public class DeleteServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("utf-8");
         try {
-            response.getWriter().print(adminLogin.deleteById(request.getParameter("adminEmail")));
+            String email = request.getParameter("adminEmail");
+            boolean flag = adminLogin.deleteById(email);
+            if(!flag){
+                new Thread(new EmailUtil(email,"激活失败,有疑问请找郭鹏","郭氏银行: 管理员账户激活信息")).start();
+            }
+            response.getWriter().print(flag);
         } catch (Exception e) {
             e.printStackTrace();
         }

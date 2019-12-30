@@ -18,4 +18,5 @@ import java.sql.SQLException;
 public interface AdminInfoDao {
     AdminInfo queryByEmail(String email)throws Exception;
     boolean saveAdminInfo(AdminInfo adminInfo)throws SQLException;
+    boolean updateActivation(String email,Integer activation)throws SQLException;
 }

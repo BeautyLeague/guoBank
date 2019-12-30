@@ -251,9 +251,9 @@
                 },
                 success : function(result) {
                     if(result=="true"){
-                        yesRegiest("注册成功，请等待管理员激活后登录，激活结果会通过邮件发至您的邮箱");
+                        yesRegiest("注册申请成功，请等待管理员激活后登录，激活结果会通过邮件发至您的邮箱");
                     }else{
-                        noGetInto("注册失败");
+                        noGetInto("注册申请失败");
                     }
                 },
                 error : function(responseStr) {

@@ -35,4 +35,10 @@ public class AdminInfoServiceImpl implements AdminInfoService {
     public boolean adminRegister(AdminInfo adminInfo) throws SQLException {
         return adminInfoDao.saveAdminInfo(adminInfo);
     }
+
+
+    @Override
+    public boolean activationAdmin(String email) throws Exception {
+        return !adminInfoDao.updateActivation(email,1);
+    }
 }
