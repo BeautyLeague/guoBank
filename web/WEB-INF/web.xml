@@ -279,6 +279,9 @@
 
 
 
+
+
+
     <servlet>
         <servlet-name>mingzilongaddUserinfoServlet</servlet-name>
         <servlet-class>com.guobank.minzilong.web.addUserinfoServlet</servlet-class>
@@ -340,5 +343,23 @@
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SelectAdminServlet</servlet-name>
+        <servlet-class>com.guobank.web.SelectAdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectAdminServlet</servlet-name>
+        <url-pattern>/SelectAdminServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>com.guobank.web.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
     </servlet-mapping>
 </web-app>

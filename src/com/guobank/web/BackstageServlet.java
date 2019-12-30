@@ -21,7 +21,7 @@ public class BackstageServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         request.setCharacterEncoding("utf-8");
                 try {
-                    List<User> user = backstageService.query();
+                   List<User> user = backstageService.query();
                     response.getWriter().print(JSON.toJSONStringWithDateFormat(user, "yyyy-MM-dd"));
 
                 } catch (Exception e) {

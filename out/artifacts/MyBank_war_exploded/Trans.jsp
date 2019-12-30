@@ -84,7 +84,7 @@
             }else {
                 $.post("/SelectBankIdServlet", 'card=' + document.getElementById("ka").value, function (result) {
                     if (result === "false") {
-                        document.getElementById("ka_error").innerText = "收账银行卡不存在";
+                        document.getElementById("ka_error").innerText = "转账的银行卡不存在";
                         return  false;
                     } else {
                         document.getElementById("ka_error").innerText = "";
@@ -280,8 +280,6 @@
 </script>
 
 <script language="JavaScript">
-
-
     function kaa() {
         if (document.getElementById("ka").value == document.getElementById("card").value) {
             document.getElementById("kahao_error").innerText = "两个卡号不能一致";
@@ -300,6 +298,11 @@
                 if(result!="密码错误" && result!="卡号"+document.getElementById("ka").value+"已挂失，无法进行转账" &&result!="卡号"+document.getElementById("card").value+"已挂失，无法进行转账" && result!="金额不足"){
                    alert("卡号"+document.getElementById("ka").value+"向卡号"+document.getElementById("card").value+"转出金额"+document.getElementById("money").value)
                     Add();
+                }else if(result=="密码错误"){
+                    alert(result);
+                }else
+                {
+                    alert(result);
                 }
             });
 

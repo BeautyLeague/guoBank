@@ -104,7 +104,6 @@
                 }
             }
             return false;
-
         }
         // input的提示文字在获得焦点的时候将文字往上移
         $(".context div input").bind("focus",function(){
