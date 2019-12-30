@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -59,6 +60,19 @@ public class AdminInfoServlet extends HttpServlet {
                   }
               }
               response.getWriter().print(adminInfoService.adminRegister(adminInfo));
+            }else if("loginCheck".equals(request.getParameter("action"))){
+                response.getWriter().print(request.getSession().getAttribute("adminEmail")!=null);
+            }else if("getAdminPortrait".equals(request.getParameter("action"))){
+                InputStream is = adminInfoService.getAdminPortrait(request.getSession().getAttribute("adminEmail").toString());
+                int len = 0;
+                byte[] bytes = new byte[1024];
+                OutputStream out = response.getOutputStream();
+                while ((len=is.read(bytes))!=-1){
+                    out.write(bytes,0,len);
+                }
+                is.close();
+                out.flush();
+                out.close();
             }
         }catch (Exception e){
             e.printStackTrace();

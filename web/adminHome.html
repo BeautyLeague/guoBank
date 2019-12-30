@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="css/adminHome.css" rel="stylesheet">
+        <title>管理员首页</title>
+        <script src="js/jquery-1.12.4.js"></script>
+        <script src="js/loginCheck.js"></script>
+    </head>
+
+    <body>
+
+        <div class="context">
+            <div class="menu">
+                <ul>
+                    <li><img src="img/guobank.png" width="195" height="50px" title="郭氏银行"></li>
+                    <li><img src="AdminInfoServlet?action=getAdminPortrait" width="50" height="50px" title="头像" style="border-radius: 50%;margin-top: 4px;"></li>
+                    <li><a href="backstage.html" target="info">用户信息</a></li>
+                    <li><a href="displaydata.html" target="info">统计图</a></li>
+                </ul>
+            </div>
+            <div class="function">
+                <iframe name="info" id="info" src="backstage.html" frameborder="0"></iframe>
+            </div>
+        </div>
+    </body>
+
+
+</html>

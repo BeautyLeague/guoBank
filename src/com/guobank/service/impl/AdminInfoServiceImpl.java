@@ -5,6 +5,7 @@ import com.guobank.dao.impl.AdminInfoDaoImpl;
 import com.guobank.entity.AdminInfo;
 import com.guobank.service.AdminInfoService;
 
+import java.io.InputStream;
 import java.sql.SQLException;
 
 /**
@@ -23,6 +24,11 @@ public class AdminInfoServiceImpl implements AdminInfoService {
     @Override
     public boolean checkEmail(String email) throws Exception {
         return adminInfoDao.queryByEmail(email) != null ;
+    }
+
+    @Override
+    public InputStream getAdminPortrait(String email) throws Exception {
+        return adminInfoDao.queryByEmail(email).getAdminPortrait();
     }
 
     @Override

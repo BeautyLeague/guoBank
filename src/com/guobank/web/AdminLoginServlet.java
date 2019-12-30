@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {
     private IAdminLogin adminLogin=new AdminLoginService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,6 +19,8 @@ public class AdminLoginServlet extends HttpServlet {
             String email=request.getParameter("email");
             String pwd=request.getParameter("pwd");
             adminLogin.Login(email,pwd);
+
+            request.getSession().setAttribute("adminEmail",email);
             response.getWriter().write("登录成功");
         }catch (Exception e){
             response.getWriter().write(e.getMessage());

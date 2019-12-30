@@ -2,6 +2,7 @@ package com.guobank.service;
 
 import com.guobank.entity.AdminInfo;
 
+import java.io.InputStream;
 import java.sql.SQLException;
 
 /**
@@ -18,4 +19,5 @@ import java.sql.SQLException;
 public interface AdminInfoService {
     boolean checkEmail(String email)throws Exception;
     boolean adminRegister(AdminInfo adminInfo)throws SQLException;
+    InputStream getAdminPortrait(String email)throws Exception;
 }
