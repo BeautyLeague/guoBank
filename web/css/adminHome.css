@@ -19,6 +19,9 @@ html,body,.context{
 .menu ul{
     height: 100%;
     background-color: aquamarine;
+
+}
+.menu ul li{
     cursor: pointer;
 }
 .menu ul li:not(:first-of-type){
@@ -41,4 +44,22 @@ html,body,.context{
 .function iframe{
     width: 100%;
     height: 100%;
+}
+
+
+#adminPortrait{
+    position: relative;
+}
+
+.adminInfo{
+    background: rgb(69, 242, 255);
+    height: 80px;
+    position: absolute;
+    left: 110px;
+    border-radius: 10px;
+    top: 90px;
+}
+.adminInfo p{
+    font-size: 10px;
+    padding: 5px 15px;
 }
