@@ -6,33 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d76a3e5-03f0-47a6-8576-a67c9184b8e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/guobank/web/DeleteServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/guobank/web/SelectAdminServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/SelectAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/BackstageLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/BackstageLogin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/Trans.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/Trans.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/dao/IAdminLoginDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/dao/IAdminLoginDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/dao/impl/AdminLoginDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/dao/impl/AdminLoginDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/service/IAdminLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/service/IAdminLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/service/impl/AdminLoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/service/impl/AdminLoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/dao/IAdminLoginDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/dao/IAdminLoginDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/dao/impl/AdminLoginDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/dao/impl/AdminLoginDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/service/IAdminLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/service/IAdminLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/service/impl/AdminLoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/service/impl/AdminLoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/web/BackstageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/web/BackstageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/BackstageLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/BackstageLogin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Trans.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Trans.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/dao/IAdminLoginDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/dao/IAdminLoginDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/dao/impl/AdminLoginDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/dao/impl/AdminLoginDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/service/IAdminLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/service/IAdminLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/service/impl/AdminLoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/service/impl/AdminLoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/header.css" afterDir="false" />
-    </list>
+    <list default="true" id="1d76a3e5-03f0-47a6-8576-a67c9184b8e7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,9 +172,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577666023011</updated>
-      <workItem from="1577666042755" duration="5600000" />
+      <workItem from="1577666042755" duration="5882000" />
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="否定激活">
+      <created>1577672132379</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577672132380</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +203,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="完成跟新功能" />
     <MESSAGE value="后台登录验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="后台登录验证" />
+    <MESSAGE value="否定激活" />
+    <option name="LAST_COMMIT_MESSAGE" value="否定激活" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577407840958">
