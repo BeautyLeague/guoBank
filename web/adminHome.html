@@ -19,8 +19,8 @@
                     <li><img src="img/guobank.png" width="195" height="50px" title="郭氏银行"></li>
                     <li><img id="adminPortrait" src="AdminInfoServlet?action=getAdminPortrait" width="50" height="50px" title="头像" style="border-radius: 50%;margin-top: 4px;">
                         <div class="adminInfo" style="display: none">
-                            <p>小明</p>
-                            <p>2582672760@qq.com</p>
+                            <p id="adminName">小明</p>
+                            <p id="adminEmail">2582672760@qq.com</p>
                             <img id="exit" src="img/exit.png" style="width: 30px;">
                         </div>
                     </li>
@@ -39,18 +39,20 @@
 <script>
     $(function(){
 
-        // $("AdminInfoServlet?action=getAdminInfo",function (result) {
-        //
-        // });
+        $.post("AdminInfoServlet?action=getAdminInfo",function (result) {
+            $("#adminPortrait").attr("title",""+result.adminName+"\n"+result.adminEmail+"");
+            $("#adminName").text(result.adminName);
+            $("#adminEmail").text(result.adminEmail);
+        },"JSON");
 
-        $("#adminPortrait").attr("title","123\nminPortrait");
+
 
         $("#adminPortrait").click(function () {
             $(".adminInfo").toggle();
         })
 
         $("#exit").click(function () {
-            var flag = confirm("提示","确认退出?");
+            var flag = confirm("确认退出?");
             if(flag){
 
             }

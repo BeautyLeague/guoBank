@@ -41,4 +41,9 @@ public class AdminInfoServiceImpl implements AdminInfoService {
     public boolean activationAdmin(String email) throws Exception {
         return !adminInfoDao.updateActivation(email,1);
     }
+
+    @Override
+    public AdminInfo getAdminInfo(String email) throws Exception {
+        return adminInfoDao.queryByEmail(email);
+    }
 }

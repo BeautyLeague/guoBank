@@ -21,4 +21,5 @@ public interface AdminInfoService {
     boolean adminRegister(AdminInfo adminInfo)throws SQLException;
     InputStream getAdminPortrait(String email)throws Exception;
     boolean activationAdmin(String email)throws Exception;
+    AdminInfo getAdminInfo(String email)throws Exception;
 }

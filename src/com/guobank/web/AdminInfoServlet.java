@@ -1,5 +1,6 @@
 package com.guobank.web;
 
+import com.alibaba.fastjson.JSON;
 import com.guobank.entity.AdminInfo;
 import com.guobank.service.AdminInfoService;
 import com.guobank.service.impl.AdminInfoServiceImpl;
@@ -82,6 +83,11 @@ public class AdminInfoServlet extends HttpServlet {
                     new Thread(new EmailUtil(email, "激活成功,欢迎加入郭氏银行","郭氏银行: 管理员账户激活信息")).start();
                 }
                 response.getWriter().write(flag.toString());
+            }else if("getAdminInfo".equals(request.getParameter("action"))){
+                String email = request.getSession().getAttribute("adminEmail").toString();
+                AdminInfo adminInfo = adminInfoService.getAdminInfo(email);
+                adminInfo.setAdminPwd("");
+                response.getWriter().write(JSON.toJSONString(adminInfo));
             }
         } catch (Exception e) {
             e.printStackTrace();
