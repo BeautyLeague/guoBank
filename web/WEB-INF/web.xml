@@ -362,4 +362,13 @@
         <servlet-name>DeleteServlet</servlet-name>
         <url-pattern>/DeleteServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ExitServlet</servlet-name>
+        <servlet-class>com.guobank.web.ExitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExitServlet</servlet-name>
+        <url-pattern>/ExitServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
