@@ -46,4 +46,18 @@ public class AdminInfoServiceImpl implements AdminInfoService {
     public AdminInfo getAdminInfo(String email) throws Exception {
         return adminInfoDao.queryByEmail(email);
     }
+
+    @Override
+    public boolean updateAdminInfoName(String email, String name) throws Exception {
+        AdminInfo adminInfo = adminInfoDao.queryByEmail(email);
+        adminInfo.setAdminName(name);
+        return adminInfoDao.updateAdmin(adminInfo);
+    }
+
+    @Override
+    public boolean updateAdminPortrait(String email, InputStream is) throws Exception {
+        AdminInfo adminInfo = adminInfoDao.queryByEmail(email);
+        adminInfo.setAdminPortrait(is);
+        return adminInfoDao.updateAdmin(adminInfo);
+    }
 }

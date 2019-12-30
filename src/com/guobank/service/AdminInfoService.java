@@ -22,4 +22,6 @@ public interface AdminInfoService {
     InputStream getAdminPortrait(String email)throws Exception;
     boolean activationAdmin(String email)throws Exception;
     AdminInfo getAdminInfo(String email)throws Exception;
+    boolean updateAdminInfoName(String email,String name)throws Exception;
+    boolean updateAdminPortrait(String email,InputStream is)throws Exception;
 }

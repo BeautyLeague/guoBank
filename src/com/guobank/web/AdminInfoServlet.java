@@ -80,14 +80,32 @@ public class AdminInfoServlet extends HttpServlet {
                 String email = request.getParameter("adminEmail");
                 Boolean flag = adminInfoService.activationAdmin(email);
                 if (flag) {
-                    new Thread(new EmailUtil(email, "激活成功,欢迎加入郭氏银行","郭氏银行: 管理员账户激活信息")).start();
+                    new Thread(new EmailUtil(email, "激活成功,欢迎加入郭氏银行", "郭氏银行: 管理员账户激活信息")).start();
                 }
                 response.getWriter().write(flag.toString());
-            }else if("getAdminInfo".equals(request.getParameter("action"))){
+            } else if ("getAdminInfo".equals(request.getParameter("action"))) {
                 String email = request.getSession().getAttribute("adminEmail").toString();
                 AdminInfo adminInfo = adminInfoService.getAdminInfo(email);
                 adminInfo.setAdminPwd("");
                 response.getWriter().write(JSON.toJSONString(adminInfo));
+            } else if ("updateName".equals(request.getParameter("action"))) {
+                String name = request.getParameter("adminName");
+                String email = request.getSession().getAttribute("adminEmail").toString();
+                adminInfoService.updateAdminInfoName(email, name);
+            } else if ("updateAdminPortrait".equals(request.getParameter("action"))) {
+                String email = request.getSession().getAttribute("adminEmail").toString();
+                DiskFileItemFactory factory = new DiskFileItemFactory();
+                ServletFileUpload upload = new ServletFileUpload(factory);
+                //解析request，将form表单的各个字段封装为FileItem对象
+                List<FileItem> fileItems = upload.parseRequest(request);
+                InputStream is = null;
+                for (FileItem fileItem : fileItems) {
+                    //不是文件类型
+                    if (!fileItem.isFormField()) {
+                        is = fileItem.getInputStream();
+                    }
+                }
+                adminInfoService.updateAdminPortrait(email,is);
             }
         } catch (Exception e) {
             e.printStackTrace();

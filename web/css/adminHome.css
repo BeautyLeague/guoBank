@@ -62,4 +62,5 @@ html,body,.context{
 .adminInfo p{
     font-size: 10px;
     padding: 5px 15px;
+    cursor: initial;
 }

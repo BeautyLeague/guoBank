@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : pengliang
@@ -52,5 +54,11 @@ public class AdminInfoDaoImpl extends BaseDao implements AdminInfoDao {
     public boolean updateActivation(String email,Integer activation) throws SQLException {
         String sql = "update adminInfo set activation = ? where adminEmail = ?";
         return super.execute(sql,new Object[]{activation,email});
+    }
+
+    @Override
+    public boolean updateAdmin(AdminInfo adminInfo) throws Exception {
+        String sql = "update admininfo set adminName = ? , adminPwd = ? , adminPortrait = ? , activation = ? where adminEmail = ?";
+        return super.execute(sql,new Object[]{adminInfo.getAdminName(),adminInfo.getAdminPwd(),adminInfo.getAdminPortrait(),adminInfo.getActivation(),adminInfo.getAdminEmail()});
     }
 }

@@ -18,8 +18,9 @@
                 <ul>
                     <li><img src="img/guobank.png" width="195" height="50px" title="郭氏银行"></li>
                     <li><img id="adminPortrait" src="AdminInfoServlet?action=getAdminPortrait" width="50" height="50px" title="头像" style="border-radius: 50%;margin-top: 4px;">
+                        <input type="file" id="file" hidden accept=".jpg,.png,.jpeg,.gif">
                         <div class="adminInfo" style="display: none">
-                            <p id="adminName">小明</p>
+                            <p id="adminName" contenteditable="false">小明</p>
                             <p id="adminEmail">2582672760@qq.com</p>
                             <img id="exit" src="img/exit.png" style="width: 30px;">
                         </div>
@@ -47,9 +48,7 @@
 
 
 
-        $("#adminPortrait").click(function () {
-            $(".adminInfo").toggle();
-        })
+
 
         $("#exit").click(function () {
             var flag = confirm("确认退出?");
@@ -57,6 +56,69 @@
                     window.location.href="ExitServlet";
             }
         })
+
+        $("#adminName").dblclick(function () {
+            $(this).attr("contenteditable","true");
+        });
+        $("#adminName").blur(function () {
+            $(this).attr("contenteditable","false");
+            $.post("AdminInfoServlet?action=updateName","adminName="+$(this).text());
+        });
+        // $("#adminPortrait").dblclick(function () {
+        //     alert(this)
+        // });
+        var timer = null;
+        $("#adminPortrait").click(function () {
+            clearTimeout(timer);
+            // 定时器  300ms 一次性定时器
+            timer = setTimeout(function(){
+                $(".adminInfo").toggle();
+            }, 300);
+        });
+
+        var imgSuffixs = new Array(".jpg", ".png", ".jpeg", ".gif");
+        $('#adminPortrait').dblclick(function(event) {
+            clearTimeout(timer);
+            $("#file").click();
+        });
+
+        $("#file").change(function () {
+            //获取选择的文件  如果用户点了取消没选择文件的话 就是上一个选择的文件
+            var imgFile = document.getElementById("file").files[0];
+            //获取文件后缀  文件的格式
+            var suffix = imgFile.name.substring(imgFile.name.lastIndexOf('.'));
+            //判断是否是图片格式
+            if (contain(imgSuffixs, suffix)) {
+                var fr = new FileReader();
+                fr.onload = function () {
+                    $("#adminPortrait").attr("src", fr.result);
+                };
+                // 注意要先设置回调再读取文件
+                fr.readAsDataURL(imgFile);
+                var formData = new FormData();
+                formData.append("adminPortrait",imgFile);
+                $.ajax({
+                    url : "AdminInfoServlet?action=updateAdminPortrait",
+                    type : 'POST',
+                    data : formData,
+                    // 告诉jQuery不要去处理发送的数据
+                    processData : false,
+                    // 告诉jQuery不要去设置Content-Type请求头
+                    contentType : false,
+                });
+            }
+        });
+
+
+//判断array数组中是否存在element
+        function contain(array, element) {
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] == element) {
+                    return true;
+                }
+            }
+            return false;
+        }
     })
 </script>
 </html>
