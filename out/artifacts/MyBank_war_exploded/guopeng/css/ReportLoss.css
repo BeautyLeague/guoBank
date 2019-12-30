@@ -10,7 +10,7 @@
 }
 .bottom{
 	 margin:auto;
-	margin-top:50px;
+	margin-top:100px;
 	 width: 80%;
      height: 50px;
     
@@ -18,7 +18,7 @@
 ul {
 	 text-align: center; 
 }
-ul li{
+.footer_ul li{
 	   padding: 10px 5px;
        display: inline-block;
        margin:auto;

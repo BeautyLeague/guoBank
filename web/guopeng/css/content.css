@@ -28,15 +28,15 @@ ul li{
 }
 
 .main_left{
-    width: 250px;
+    width: 150px;
     height: 100%;
     float:left;
     background:#2fa3a1;
     cursor:pointer;
 }
 .content_ul{
-	width: 90%;
-	height: 80%;
+	width: 70%;
+	height: 100%;
 	margin:0 auto;
 	margin-top: 20;
 }
