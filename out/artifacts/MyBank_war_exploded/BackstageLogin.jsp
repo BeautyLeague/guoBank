@@ -283,7 +283,7 @@
         setInterval(function(){
             i--;
             if(i==0){
-                window.location.href="adminHome.jsp";
+                window.location.href="adminHome.html";
             }
             $(".registeLayer").text(""+message+",即将跳转主页面:"+i);
 

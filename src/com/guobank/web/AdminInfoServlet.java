@@ -59,6 +59,8 @@ public class AdminInfoServlet extends HttpServlet {
                   }
               }
               response.getWriter().print(adminInfoService.adminRegister(adminInfo));
+            }else if("loginCheck".equals(request.getParameter("action"))){
+                response.getWriter().print(request.getSession().getAttribute("adminEmail")!=null);
             }
         }catch (Exception e){
             e.printStackTrace();
