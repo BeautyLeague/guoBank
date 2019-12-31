@@ -1,0 +1,196 @@
+
+
+
+
+.title {
+    width: 100%;
+    height: 100px;
+    background: ghostwhite;
+}
+
+.title ul {
+    padding-top: 30px;
+    overflow: hidden;
+    margin-left: 20%;
+}
+
+.title ul li {
+    float: left;
+    margin-right: 20px;
+}
+
+.title p {
+    line-height: 50px;
+    font-size: 20px;
+}
+
+
+
+
+
+.content{
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.helpTitle{
+    font-size: 25px;
+    font-weight: 400;
+    border-left: 10px rgb(116, 116, 116) solid;
+    padding-left: 10px;
+}
+.tips{
+    display: inline-block;
+    line-height: 30px;
+    width: 308px;
+    color: white;
+    background: url(../img/index_title_box.gif);
+    padding-left: 10px;
+    padding-bottom: 20px;
+    position: relative;
+    top: -5px;
+}
+
+
+
+
+
+
+.questionType{
+    border-bottom: 3px #e4e4e4 solid;
+}
+.questionType .type{
+    margin:auto;
+    width: 80%;
+    height: 31px;
+}
+.questionType .type .ulType{
+    float: right;
+    overflow: hidden;
+}
+
+.questionType .type .ulType li{
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    float: right;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+
+
+/* .questionType .type .ulType li:hover{
+    border-bottom: 2px rgb(32, 181, 250) solid;
+    color:rgb(32, 181, 250) ;
+} */
+.questionTypeSelected{
+    border-bottom: 2px rgb(32, 181, 250) solid;
+    color:rgb(32, 181, 250) ;
+}
+
+
+.questionTypeContent{
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.questionTypeContent .typeOne img{
+    cursor: pointer;
+}
+
+.questionTypeContent .typeTwo,.questionTypeContent .typeThree{
+    overflow: hidden;
+    margin-top: 30px;
+
+    width: 800px;
+}
+.questionTypeContent .typeTwo ul,.questionTypeContent .typeThree ul{
+
+    overflow: hidden;
+    padding-left: 30px;
+}
+.questionTypeContent .typeTwo ul li,.questionTypeContent .typeThree ul li{
+    cursor: pointer;
+    float: left;
+    width:350px;
+   line-height: 25px;
+    font-size: 12px;
+    list-style: disc;
+}
+.questionTypeContent .typeTwo ul li:hover,.questionTypeContent .typeThree ul li:hover{
+    color: blue;
+}
+
+
+
+
+
+.cardProcess{
+    width: 100%;
+    height: 100px;
+    background: rgb(231, 231, 231);
+    margin-bottom: 30px;
+}
+
+.cardProcess ul{
+    overflow: hidden;
+    margin: auto;
+    width: 900px;
+}
+.cardProcess ul li{
+    margin: 23px;
+    margin-left: 80px;
+    float: left;
+    cursor: pointer;
+}
+.cardProcess ul li img{
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.cardProcess ul li span{
+    color: darkgray;
+    font-size: 20px;
+    font-weight: 600;
+}
+.cardProcess ul li span:hover{
+    color: darkslateblue;
+}
+
+
+
+
+
+
+.service{
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+}
+.service .serviceInfo{
+    float: left;
+    margin-top: 20px;
+}
+.service .serviceInfo .info>li{
+    display: inline-block;
+    margin-left: 30px;
+}
+.service .serviceInfo .info>li ul li:first-of-type{
+    margin-bottom: 10px;
+    font-size: 19px;
+    font-weight: 500;
+}
+.service .serviceInfo .info>li ul li:not(:first-of-type){
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: rgb(126, 125, 123);
+}
+.service .serviceInfo .info li{
+    cursor: pointer;
+}

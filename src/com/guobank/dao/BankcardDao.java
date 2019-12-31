@@ -19,4 +19,5 @@ import java.sql.SQLException;
 public interface BankcardDao {
     Bankcard getBankcardById(String bankCardId) throws Exception;//通过银行卡号获取
     boolean updateBankcardNyByObject(Bankcard bankcard)throws SQLException;//通过实体类对象更新
+    Bankcard getBankcardByUserIdAndBankCardId(String bankCard,Integer userId)throws Exception;
 }

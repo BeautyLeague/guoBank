@@ -27,19 +27,19 @@ public class TransinfoServiceImpl implements TransinfoService{
 
    private TransinfoDao transinfoDao = new TransinfoDaoImpl();
     @Override
-    public Page<Transinfo> queryTransinfo(Integer pageNo) throws SQLException {
-        return transinfoDao.queryTransinfo(pageNo);
+    public Page<Transinfo> queryTransinfo(Integer pageNo,Integer userId) throws SQLException {
+        return transinfoDao.queryTransinfo(pageNo,userId);
     }
 
 
     @Override
-    public Page<Transinfo> queryTransinfoByType(String typeName,Integer pageNo) throws SQLException {
-        return transinfoDao.queryTransinfoByType(typeName,pageNo);
+    public Page<Transinfo> queryTransinfoByType(String typeName,Integer pageNo,Integer userId) throws SQLException {
+        return transinfoDao.queryTransinfoByType(typeName,pageNo,userId);
     }
 
     @Override
-    public Page<Transinfo> queryTransinfoByDate(String startDate, String endDate,Integer pageNo) throws SQLException {
-        return transinfoDao.queryTransinfoByDate(startDate,endDate,pageNo);
+    public Page<Transinfo> queryTransinfoByDate(String startDate, String endDate,Integer pageNo,Integer userId) throws SQLException {
+        return transinfoDao.queryTransinfoByDate(startDate,endDate,pageNo,userId);
 
     }
 

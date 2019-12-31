@@ -71,9 +71,7 @@
 							return false;
 						}
 					})
-
 				}
-				return true;
 			}
 
 			function idBlur() {
@@ -104,9 +102,7 @@
 							return false;
 						}
 					})
-
 				}
-				return true;
 			}
 
 			function moneyBlur() {
@@ -167,7 +163,7 @@
 
 				if(window.confirm('请问您是否确定贷款吗？')){
 
-					if (cardBlur()&&moneyBlur()&&idBlur()) {
+					if ($("#bankcardId").next().text()==""&&moneyBlur()&&$("#cardId").next().text()=="") {
 
 						var json = {"bankcardId":$.trim($("#bankcardId").val()),
 							"money": $.trim($("#money").val()),"loadDate":$.trim($("#DKDate").val())}
@@ -180,7 +176,6 @@
 						alert("请正确填写贷款信息！");
 					}
 				}
-
 			}
 		</script>
 

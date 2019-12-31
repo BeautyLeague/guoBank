@@ -20,9 +20,9 @@ import java.util.List;
 */
 
 public interface TransinfoService{
-    Page<Transinfo> queryTransinfo(Integer pageNo)throws SQLException;
-    Page<Transinfo> queryTransinfoByType(String typeName,Integer pageNo)throws SQLException;
-    Page<Transinfo> queryTransinfoByDate(String startDate,String endDate,Integer pageNo)throws SQLException;
+    Page<Transinfo> queryTransinfo(Integer pageNo,Integer userId)throws SQLException;
+    Page<Transinfo> queryTransinfoByType(String typeName,Integer pageNo,Integer userId)throws SQLException;
+    Page<Transinfo> queryTransinfoByDate(String startDate,String endDate,Integer pageNo,Integer userId)throws SQLException;
     List<String[]> queryStatisticsWithin3Months()throws SQLException;
     List<String[]> queryUserInformationWithin3Months()throws SQLException;
     void addTransInfo(Transinfo transinfo)throws SQLException;

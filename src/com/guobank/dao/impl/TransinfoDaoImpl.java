@@ -27,15 +27,15 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
     private Page<Transinfo> transinfoPage = new Page<>();
 
     @Override
-    public Page<Transinfo> queryTransinfo(Integer pageNo) throws SQLException {
+    public Page<Transinfo> queryTransinfo(Integer pageNo,Integer userId) throws SQLException {
         transinfoPage.setPageNo(pageNo);
-        String sql = "SELECT tinfo.*,ttype.typeName FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId  ORDER BY tinfo.trandsDate desc limit " + ((transinfoPage.getPageNo() - 1) * transinfoPage.getPageCount()) + "," + (transinfoPage.getPageCount());
+        String sql = "SELECT tinfo.*,ttype.typeName FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId  where bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?)   ORDER BY tinfo.trandsDate desc limit " + ((transinfoPage.getPageNo() - 1) * transinfoPage.getPageCount()) + "," + (transinfoPage.getPageCount());
         System.out.println(sql);
-        String sqlCount = "SELECT count(1) as count FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId";
-        ResultSet rs = super.query(sql,null);
+        String sqlCount = "SELECT count(1) as count FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId  where bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?) ";
+        ResultSet rs = super.query(sql,new Object[]{userId});
 
         try {
-            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, null)));
+            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{userId})));
             add(rs);
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,13 +45,13 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
 
 
     @Override
-    public Page<Transinfo> queryTransinfoByType(String typeName, Integer pageNo) throws SQLException {
+    public Page<Transinfo> queryTransinfoByType(String typeName, Integer pageNo,Integer userId) throws SQLException {
         transinfoPage.setPageNo(pageNo);
-        String sql = "SELECT tinfo.*,ttype.typeName FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where typeName= ?  ORDER BY tinfo.trandsDate desc limit " + ((transinfoPage.getPageNo() - 1) * transinfoPage.getPageCount()) + "," + (transinfoPage.getPageCount());
-        String sqlCount = "SELECT count(1) as count FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where typeName= ?";
-        ResultSet rs = super.query(sql, new Object[]{typeName});
+        String sql = "SELECT tinfo.*,ttype.typeName FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where typeName= ?  and  bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?)  ORDER BY tinfo.trandsDate desc limit " + ((transinfoPage.getPageNo() - 1) * transinfoPage.getPageCount()) + "," + (transinfoPage.getPageCount());
+        String sqlCount = "SELECT count(1) as count FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where typeName= ? and  bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?) ";
+        ResultSet rs = super.query(sql, new Object[]{typeName,userId});
         try {
-            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{typeName,})));
+            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{typeName,userId})));
             add(rs);
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,16 +60,16 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
     }
 
     @Override
-    public Page<Transinfo> queryTransinfoByDate(String startDate, String endDate, Integer pageNo) throws SQLException {
+    public Page<Transinfo> queryTransinfoByDate(String startDate, String endDate, Integer pageNo,Integer userId) throws SQLException {
         transinfoPage.setPageNo(pageNo);
-        String sql = "SELECT tinfo.*,ttype.typeName FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where trandsDate>= ? and trandsDate<= ?   ORDER BY tinfo.trandsDate desc limit " + ((transinfoPage.getPageNo() - 1) * transinfoPage.getPageCount()) + "," + (transinfoPage.getPageCount());
-        String sqlCount = "SELECT count(1) as count FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where trandsDate>= ? and trandsDate<= ?";
-        ResultSet rs = super.query(sql, new Object[]{startDate, endDate});
+        String sql = "SELECT tinfo.*,ttype.typeName FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where trandsDate>= ? and trandsDate<= ? and  bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?)  ORDER BY tinfo.trandsDate desc limit " + ((transinfoPage.getPageNo() - 1) * transinfoPage.getPageCount()) + "," + (transinfoPage.getPageCount());
+        String sqlCount = "SELECT count(1) as count FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where trandsDate>= ? and trandsDate<= ? and  bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?) ";
+        ResultSet rs = super.query(sql, new Object[]{startDate, endDate,userId});
         List<Transinfo> transinfos = null;
         System.out.println(startDate);
         System.out.println(endDate);
         try {
-            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{startDate, endDate})));
+            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{startDate, endDate,userId})));
             add(rs);
         } catch (Exception e) {
             e.printStackTrace();

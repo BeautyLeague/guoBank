@@ -45,4 +45,18 @@ public class BankcardDaoImpl extends BaseDao implements BankcardDao {
     }
 
 
+    @Override
+    public Bankcard getBankcardByUserIdAndBankCardId(String bankCard, Integer userId) throws Exception{
+        String sql = "select * from bankcard where bankCardId = ? and userid = ?";
+        ResultSet rs = super.query(sql,new Object[]{bankCard,userId});
+        Bankcard bankcard = null;
+        if(rs.next()){
+            bankcard = new Bankcard();
+            for (Field field : Bankcard.class.getDeclaredFields()){
+                field.setAccessible(true);
+                field.set(bankcard,rs.getObject(field.getName()));
+            }
+        }
+        return bankcard;
+    }
 }

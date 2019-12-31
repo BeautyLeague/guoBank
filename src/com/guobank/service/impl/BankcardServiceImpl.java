@@ -71,6 +71,8 @@ public class BankcardServiceImpl implements BankcardService {
         bankcardDao.updateBankcardNyByObject(bankcard);
     }
 
-
-
+    @Override
+    public Bankcard getBankcardByUserIdAndBankCardId(String bankCard, Integer userId) throws Exception {
+        return bankcardDao.getBankcardByUserIdAndBankCardId(bankCard,userId);
+    }
 }
