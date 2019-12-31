@@ -373,7 +373,6 @@
                 dataType: "text",
                 success: function (result) {
                     alert(result);
-
                     if (result == "登录成功") {
                         //如果登录成功则跳转主页面
                         window.location = "/wanzehao/index.jsp";
@@ -442,8 +441,7 @@
                 alert("电话号码必须是11位数");
                 return false;
             }
-            if (136479 != isho) {
-                alert(yzm);
+            if (pho2 != isho) {
                 alert("验证码输入错误");
                 return false;
             }
@@ -458,7 +456,7 @@
                 data: {"uname": uname, "pwd": pwd, "pho": pho,"cardId":cardId},
                 dataType: "text",
                 success: function (result) {
-                    alert(result);
+                    alert(result)
                     if (result == "注册成功") {
                         window.location = "wanzehao/login.jsp";
                     }
@@ -511,12 +509,11 @@
             url: "<%=path%>/SMSServlet",
             data: {"phone": pho},
             success: function (result) {
-                var layer = layui.layer;
                 if (result.length > 5) {
-                    $("#yzm").val(result);
+                    $("#pho2").val(result);
                 }
                 if (result == -41) {
-                    layer.msg('手机号不能为空！', {icon: 2});
+                   alert("手机号不能为空！");
                 }
             }
         })
