@@ -461,4 +461,13 @@
         <servlet-name>ExitServlet</servlet-name>
         <url-pattern>/ExitServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BankIdsServlet</servlet-name>
+        <servlet-class>com.guobank.web.BankIdsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BankIdsServlet</servlet-name>
+        <url-pattern>/BankIdsServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

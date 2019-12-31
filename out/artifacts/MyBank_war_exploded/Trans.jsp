@@ -146,11 +146,13 @@
                 return false;
             }
             else {
-                $.post("/SelectBankIdServlet", 'card=' + document.getElementById("card").value, function (result) {
+                $.post("/BankIdsServlet", 'card=' + document.getElementById("card").value, function (result) {
+
+                    alert(result);
                     if (result === "false") {
                         document.getElementById("kahao_error").innerText = "收账银行卡不存在";
                         return false;
-                    } else {
+                    } else  {
                         document.getElementById("kahao_error").innerText = "";
                         return true;
                     }
@@ -300,8 +302,10 @@
                     Add();
                 }else if(result=="密码错误"){
                     alert(result);
-                }else
+                }else if(result=="金额不足")
                 {
+                    alert(result);
+                }else{
                     alert(result);
                 }
             });

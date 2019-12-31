@@ -16,9 +16,9 @@ public class SelectDao extends BaseDao implements ISelectDao {
 
     //查询余额方法
     @Override
-    public Bankcard SelectPrice(String bankId, double money) throws Exception {
-        String sql = "select money from bankCard where bankCardId=? ";
-        ResultSet rs = super.executeQuery(sql, new Object[]{bankId});
+    public Bankcard SelectPrice(String bankId, double money,Integer userId) throws Exception {
+        String sql = "select money from bankCard where bankCardId=? and userid=? ";
+        ResultSet rs = super.executeQuery(sql, new Object[]{bankId,userId});
         List<Bankcard> list = new ArrayList<Bankcard>();
         Bankcard bankCard = new Bankcard();
         while (rs.next()) {
@@ -45,7 +45,26 @@ public class SelectDao extends BaseDao implements ISelectDao {
     }
 
     @Override
-    public Bankcard SelectBankID(String bankId) throws Exception {
+    public Bankcard SelectBankID(String bankId,Integer userId) throws Exception {
+        String sql = "select * from bankCard where bankCardid = ? and  userid=?";
+        ResultSet rs = super.executeQuery(sql,new Object[]{bankId,userId});
+        Bankcard bankCard = null;
+        if (rs.next()) {
+            bankCard  = new Bankcard();
+            bankCard.setBankCardid(rs.getString("bankCardid"));
+            bankCard.setMoney(rs.getFloat("money"));
+            bankCard.setAddress(rs.getString("address"));
+            bankCard.setCardTypeid(rs.getInt("cardtypeid"));
+            bankCard.setDate(rs.getDate("date"));
+            bankCard.setIs_Ds(rs.getInt("is_ds"));
+            bankCard.setPass(rs.getInt("pass"));
+            bankCard.setUserid(rs.getInt("userid"));
+        }
+        return bankCard;
+    }
+
+    @Override
+    public Bankcard SelectBankIDs(String bankId) throws Exception {
         String sql = "select * from bankCard where bankCardid = ?";
         ResultSet rs = super.executeQuery(sql,new Object[]{bankId});
         Bankcard bankCard = null;
