@@ -6,6 +6,7 @@ import com.guobank.entity.Transinfo;
 import com.guobank.service.TransinfoService;
 import com.guobank.service.impl.TransinfoServiceImpl;
 import com.guobank.util.Page;
+import com.guobank.wanzehao.entity.UserInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,11 +33,16 @@ public class TransinfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-
+        Integer userId = null;
+        try {
+            userId = ((UserInfo)request.getSession().getAttribute("user")).getUserId();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Integer pageNo = request.getParameter("pageNo")==null?1:Integer.valueOf(request.getParameter("pageNo"));
         if("query".equals(request.getParameter("action")) ){
             try {
-                Page<Transinfo> transinfoList = transinfoService.queryTransinfo(pageNo);
+                Page<Transinfo> transinfoList = transinfoService.queryTransinfo(pageNo,userId);
                 response.getWriter().write(JSON.toJSONStringWithDateFormat(transinfoList,"YYYY年MM月dd日 HH点mm分ss秒"));
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -44,7 +50,7 @@ public class TransinfoServlet extends HttpServlet {
         }else if("queryByType".equals(request.getParameter("action"))){
             String typeName = request.getParameter("typeName");
             try {
-                Page<Transinfo> transinfoList = transinfoService.queryTransinfoByType(typeName,pageNo);
+                Page<Transinfo> transinfoList = transinfoService.queryTransinfoByType(typeName,pageNo,userId);
                 response.getWriter().write(JSON.toJSONStringWithDateFormat(transinfoList,"YYYY年MM月dd日 HH点mm分ss秒"));
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -55,7 +61,7 @@ public class TransinfoServlet extends HttpServlet {
             startDate+=" 00:00:00";
             endDate+=" 23:59:59";
             try {
-                Page<Transinfo> transinfoList = transinfoService.queryTransinfoByDate(startDate,endDate,pageNo);
+                Page<Transinfo> transinfoList = transinfoService.queryTransinfoByDate(startDate,endDate,pageNo,userId);
                 response.getWriter().write(JSON.toJSONStringWithDateFormat(transinfoList,"YYYY年MM月dd日 HH点mm分ss秒"));
             } catch (SQLException e) {
                 e.printStackTrace();

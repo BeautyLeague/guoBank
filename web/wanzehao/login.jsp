@@ -261,9 +261,9 @@
             <ul id="uls">
 
                 <li><img src="/img/HKVFAXY%5BINC0UU7CE0NG6L9.png"><br><a href="">证书下载</a></li>
-                <li><img src="/img/66$U%60C%5DRTTW%5DBUEIH8C97PL.png"><br><a href="">问题大全</a></li>
+                <li><img src="/img/66$U%60C%5DRTTW%5DBUEIH8C97PL.png"><br><a href="/guopeng/QuestionList.jsp">问题大全</a></li>
                 <li><img src="/img/H(8D$OA~Q902K3G8QPZ%25ESN.png"><br><a href="">登录</a></li>
-                <li><img src="/img/}HU`A21X4~6ISIQ3V(}NX$W.png"><br><a href="">常见问题</a></li>
+                <li><img src="/img/}HU`A21X4~6ISIQ3V(}NX$W.png"><br><a href="/help.html">常见问题</a></li>
             </ul>
 
         </div>

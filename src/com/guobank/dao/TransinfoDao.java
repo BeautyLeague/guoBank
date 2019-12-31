@@ -18,9 +18,9 @@ import java.util.List;
  * @date Date : 2019年11月19日 8:51
  */
 public interface TransinfoDao {
-    Page<Transinfo> queryTransinfo(Integer pageNo)throws SQLException;
-    Page<Transinfo> queryTransinfoByType(String typeName,Integer pageNo)throws SQLException;
-    Page<Transinfo> queryTransinfoByDate(String startDate,String endDate,Integer pageNo)throws SQLException;
+    Page<Transinfo> queryTransinfo(Integer pageNo,Integer userId)throws SQLException;
+    Page<Transinfo> queryTransinfoByType(String typeName,Integer pageNo,Integer userId)throws SQLException;
+    Page<Transinfo> queryTransinfoByDate(String startDate,String endDate,Integer pageNo,Integer userId)throws SQLException;
 
     List<String[]> queryStatisticsWithin3Months()throws SQLException;
     List<String[]> queryUserInformationWithin3Months()throws SQLException;

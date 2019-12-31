@@ -2,7 +2,9 @@ package com.guobank.web;
 
 import com.guobank.dao.BankcardDao;
 import com.guobank.entity.Bankcard;
+import com.guobank.service.BankcardService;
 import com.guobank.service.impl.BankcardServiceImpl;
+import com.guobank.wanzehao.entity.UserInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,17 +25,22 @@ import java.io.IOException;
  * @date Date : 2019年11月08日 14:41
  */
 public class BankcardServlet extends HttpServlet {
-   private BankcardServiceImpl bankcardService = new BankcardServiceImpl();
+   private BankcardService bankcardService = new BankcardServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        Integer userId = null;
+        try {
+            userId = ((UserInfo)request.getSession().getAttribute("user")).getUserId();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //判断卡号是否存在
         if ("inspectBankcardId".equals(request.getParameter("action"))) {
             try {
-
-                Bankcard bankcard = bankcardService.getBankcardById(request.getParameter("bankCardId"));
+                Bankcard bankcard = bankcardService.getBankcardByUserIdAndBankCardId(request.getParameter("bankCardId"),userId);
                 if (bankcard== null) {
                     response.getWriter().write("该卡号不存在");
                 } else if(bankcard.getIs_Ds()==1){

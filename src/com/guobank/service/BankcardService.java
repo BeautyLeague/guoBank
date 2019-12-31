@@ -17,4 +17,5 @@ public interface BankcardService {
     Bankcard getBankcardById(String bankCardId) throws Exception;
     Bankcard depositByObject(Bankcard bankcard) throws Exception;
     Bankcard tackMoney(Bankcard bankcard) throws Exception;
+    Bankcard getBankcardByUserIdAndBankCardId(String bankCard,Integer userId)throws Exception;
 }
