@@ -148,7 +148,6 @@
             else {
                 $.post("/BankIdsServlet", 'card=' + document.getElementById("card").value, function (result) {
 
-                    alert(result);
                     if (result === "false") {
                         document.getElementById("kahao_error").innerText = "收账银行卡不存在";
                         return false;

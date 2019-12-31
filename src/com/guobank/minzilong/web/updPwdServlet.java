@@ -22,7 +22,10 @@ public class updPwdServlet extends HttpServlet {
         userInfo.setPho(pho);
         try{
             this.iUserinfoService.updepwd(userInfo);
-            response.sendRedirect("/mingzilongqueryUserinfoServlet");
+            request.getSession().removeAttribute("uname");
+            request.setAttribute("message","修改成功！请重新登录！");
+            request.getRequestDispatcher("/wanzehao/index.jsp").forward(request, response);
+            //response.sendRedirect("/mingzilongqueryUserinfoServlet");
            // request.getRequestDispatcher("/minzilong/pass.jsp").forward(request,response);
         }catch(Exception e){
             e.printStackTrace();
