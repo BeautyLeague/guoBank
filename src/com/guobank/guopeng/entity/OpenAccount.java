@@ -12,6 +12,16 @@ public class OpenAccount {
 	private int is_ds;//是否挂失
 	private String address;//开户地址
 	private Date date;//开户时间
+	private UserInfo userInfo;
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+
 	public String getBankCardId() {
 		return bankCardId;
 	}

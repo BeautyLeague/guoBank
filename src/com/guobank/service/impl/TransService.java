@@ -16,9 +16,9 @@ public class TransService implements ItransService {
 
 
     @Override
-    public Boolean update(Float money, String bankID,Integer pass,String card) throws Exception {
-        Bankcard zhuanCard = selectDao.SelectBankID(bankID);
-        Bankcard shouCard = selectDao.SelectBankID(card);
+    public Boolean update(Float money, String bankID,Integer userId,Integer pass,String card) throws Exception {
+        Bankcard zhuanCard = selectDao.SelectBankID(bankID,userId);
+        Bankcard shouCard = selectDao.SelectBankID(card,userId);
         if(!zhuanCard.getPass().equals(pass)){
             throw new Exception("密码错误");
         }

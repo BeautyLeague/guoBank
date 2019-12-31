@@ -11,10 +11,10 @@ public class SelectService implements ISelectService {
     SelectDao selectDao=new SelectDao();
 
     @Override
-    public Bankcard SelectPrice(String bankId,double money) throws Exception {
-        Bankcard shouCard = selectDao.SelectBankID(bankId);
+    public Bankcard SelectPrice(String bankId,double money,Integer userId) throws Exception {
+        Bankcard shouCard = selectDao.SelectBankID(bankId,userId);
 
-        return selectDao.SelectPrice(bankId,money);
+        return selectDao.SelectPrice(bankId,money, userId);
     }
 
     @Override
@@ -23,8 +23,13 @@ public class SelectService implements ISelectService {
     }
 
     @Override
-    public Bankcard SelectBankID(String bankId) throws Exception {
-        return selectDao.SelectBankID(bankId);
+    public Bankcard SelectBankID(String bankId,Integer userId) throws Exception {
+        return selectDao.SelectBankID(bankId,userId);
+    }
+
+    @Override
+    public Bankcard SelectBankIDs(String bankId) throws Exception {
+        return selectDao.SelectBankIDs(bankId);
     }
 
 }
