@@ -120,7 +120,7 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
 
     @Override
     public List<String[]> queryStatisticsWithin3Months() throws SQLException {
-        String sql = "select td.typeName,sum(trandsmoney) as sumMoney ,MONTH(trandsDate) as month from transinfo as ti,trandstype as td where td.typeId = ti.typeId and  td.typeid in(1,2,4) and trandsDate>DATE_SUB(CURDATE(), INTERVAL 3 MONTH) GROUP BY DATE_FORMAT(trandsDate,'%Y%m'),td.typeid ORDER BY td.typeid,trandsDate";
+        String sql = "select td.typeName,sum(trandsmoney) as sumMoney ,MONTH(trandsDate) as month from transinfo as ti,trandstype as td where td.typeId = ti.typeId and  td.typeid in(1,2,4) and date_format(ti.trandsDate,'%y-%m') > date_format(DATE_SUB(CURDATE(), INTERVAL 3 MONTH),'%y-%m') GROUP BY DATE_FORMAT(trandsDate,'%Y%m'),td.typeid ORDER BY td.typeid,trandsDate\n";
         ResultSet rs = super.executeQuery(sql,null);
         List<String[]> stringList = new ArrayList<>();
         while (rs.next()){
@@ -136,7 +136,7 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
 
     @Override
     public List<String[]> queryUserInformationWithin3Months() throws SQLException {
-        String sql = "select rt.TypeName as typename ,count(1) as count ,MONTH(r.RecordDate) as month from record as r,recordtype  as rt where r.RecordTypeId = rt.RecordTypeId and  rt.RecordTypeId in(1,2,3) and r.RecordDate>DATE_SUB(CURDATE(), INTERVAL 3 MONTH) GROUP BY DATE_FORMAT(r.RecordDate,'%Y%m') , rt.RecordTypeId ORDER BY rt.RecordTypeId , r.RecordDate";
+        String sql = "select rt.TypeName as typename ,count(1) as count ,MONTH(r.RecordDate) as month from record as r,recordtype  as rt where r.RecordTypeId = rt.RecordTypeId and rt.RecordTypeId in(1,2,3) and date_format(r.RecordDate,'%y-%m') > date_format(DATE_SUB(CURDATE(), INTERVAL 3 MONTH),'%y-%m') GROUP BY DATE_FORMAT(r.RecordDate,'%Y%m') , rt.RecordTypeId ORDER BY rt.RecordTypeId , r.RecordDate";
         ResultSet rs = super.executeQuery(sql,null);
         
         List<String[]> stringList = new ArrayList<>();
