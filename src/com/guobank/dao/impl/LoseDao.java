@@ -12,4 +12,10 @@ public class LoseDao extends BaseDao implements ILoseDao {
         String sql="update bankcard set is_ds=1 where bankCardId=?";
         super.executeUpdate(sql,new Object[]{bankCardId});
     }
+
+    @Override
+    public void Thaw(String bankCardId) throws Exception {
+        String sql="update bankcard set is_ds=0 where bankCardId=?";
+        super.executeUpdate(sql,new Object[]{bankCardId});
+    }
 }

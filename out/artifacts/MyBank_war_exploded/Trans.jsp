@@ -148,7 +148,6 @@
             else {
                 $.post("/BankIdsServlet", 'card=' + document.getElementById("card").value, function (result) {
 
-                    alert(result);
                     if (result === "false") {
                         document.getElementById("kahao_error").innerText = "收账银行卡不存在";
                         return false;
@@ -172,7 +171,6 @@
             }else {
                 document.getElementById("trans_error").innerText = "";
                 return true;
-
             }
         }
 
@@ -206,7 +204,6 @@
                 trans.value = "";
             }
         }
-
 
     </script>
 </head>
@@ -341,7 +338,6 @@
 </script>
 <header>
     <div class="header_div">
-
         <ul>
             <li>
                 <a href="wanzehao/index.jsp">网站首页</a>
@@ -380,34 +376,34 @@
         <div class="kahao">
             <p>转账卡号:</p>
             <i class="kas"></i>
-            <input type="text" value="请输入您的卡号" class="katu" id="ka" onfocus="konfocus(this)" onblur="ka()">
+            <input type="text" value="请输入您的卡号" class="katu" id="ka" onfocus="konfocus(this)" onblur="ka()"style="color: black">
             <span style="color: red;" id="ka_error"></span>
-        </div>
+           </div>
 
         <div class="pwd">
             <p>支付密码:</p>
             <i class="pwds"></i>
-            <input type="password" value="" class="ptu" id="pwd" onfocus="ponfocus(this)" onblur="pwd()">
+            <input type="password" value="" class="ptu" id="pwd" onfocus="ponfocus(this)" onblur="pwd()"style="color: black">
             <span style="color: red" id="pwd_error"></span>
         </div>
 
         <div class="price">
             <p>转账金额:</p>
             <i class="prices"></i>
-            <input type="pa" value="请输入转账金额" class="qtu" id="money" onfocus="jonfocus(this)" onblur="moneys()">
+            <input type="pa" value="请输入转账金额" class="qtu" id="money" onfocus="jonfocus(this)" onblur="moneys()"style="color: black">
             <span style="color:red;" id="qian_error"></span>
         </div>
 
         <div class="bzkahao">
             <p>收账卡号:</p>
             <i class="z"></i>
-            <input type="text" onblur="kahaoBlur()" value="请输入收账的卡号" onfocus="kanfocus(this)" class="ktu" id="card">
+            <input type="text" onblur="kahaoBlur()" value="请输入收账的卡号" onfocus="kanfocus(this)" class="ktu" id="card"style="color: black">
             <span style="color: red;" id="kahao_error"></span>
         </div>
         <div class="beizhu">
             <p>转账备注:</p>
             <i class="bei" ></i>
-            <input type="text" style="width: 200px; height: 30px" id="transInfos" value="请输入你的备注" onblur="transInfo()" class="beitu" onfocus="transFoucs(this)">
+            <input type="text" style="width: 200px; color: black; height: 30px" id="transInfos"  value="请输入你的备注"  onblur="transInfo()" class="beitu"  onfocus="transFoucs(this)" >
             <span style="color: red;" id="trans_error"></span>
 
         </div>

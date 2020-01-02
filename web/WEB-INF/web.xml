@@ -470,4 +470,13 @@
         <servlet-name>BankIdsServlet</servlet-name>
         <url-pattern>/BankIdsServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ThawServlet</servlet-name>
+        <servlet-class>com.guobank.web.ThawServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThawServlet</servlet-name>
+        <url-pattern>/ThawServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

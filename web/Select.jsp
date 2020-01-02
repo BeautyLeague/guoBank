@@ -235,18 +235,18 @@
             <p>卡号:</p>
             <i class="kas"></i>
             <input type="text" onblur="kaBlur(this)" onfocus="konfocus(this)" placeholder="请输入您的卡号" class="katu"
-                   id="card">
+                   id="card" style="color: black">
             <span style="color: red;" id="ka_error"></span>
         </div>
         <div class="name">
             <p>姓名:</p>
             <i class="user"></i>
-            <input type="text" disabled class="ntu" id="name">
+            <input type="text" disabled class="ntu" id="name" style="color: black">
             <span style="color: red;" id="name_error"></span>
         </div>
         <div>
             <p>余额:</p>
-            <input id="price" type="text" disabled>
+            <input id="price" type="text" disabled style="color: black">
 
         </div>
         <div class="button">

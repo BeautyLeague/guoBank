@@ -11,4 +11,9 @@ public class LoseService implements ILoseService {
     public void Lose(String bankCardId) throws Exception {
         loseDao.Lose(bankCardId);
     }
+
+    @Override
+    public void Thaw(String bankCardId) throws Exception {
+        loseDao.Thaw(bankCardId);
+    }
 }
