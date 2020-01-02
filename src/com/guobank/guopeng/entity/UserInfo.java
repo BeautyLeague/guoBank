@@ -9,7 +9,7 @@ public class UserInfo {
 	private String sex;	//性别
 	private Integer age;	//年龄
 	private Integer leven;	//信用等级
-	private Integer pho;	//电话
+	private String pho;	//电话
 	private String id;	//身份证号
 	private Date bornDate;	//用户注册时间
 	private String userName;
@@ -49,10 +49,10 @@ public class UserInfo {
 	public void setLeven(Integer leven) {
 		this.leven = leven;
 	}
-	public Integer getPho() {
+	public String getPho() {
 		return pho;
 	}
-	public void setPho(Integer pho) {
+	public void setPho(String pho) {
 		this.pho = pho;
 	}
 	public String getId() {
