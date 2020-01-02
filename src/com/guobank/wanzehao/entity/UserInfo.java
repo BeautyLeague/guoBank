@@ -1,8 +1,9 @@
 package com.guobank.wanzehao.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class UserInfo {
+public class UserInfo implements Serializable {
 
 	//�û�Id
 	private Integer userId;

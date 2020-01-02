@@ -29,13 +29,13 @@ public class SMSServlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		System.out.println(phone);
 		// 生成随机验证码
-//		Integer smsCode = ((int) ((Math.random() * 9 + 1) * 100000));
-//		String smsText = "验证码：" + smsCode;
-		// 调用方法然后强制转换类型
-//		Integer result = Integer.parseInt(httpClientUtil.ClientUtil(phone,
-//				smsText, Uid, key));
-		 Integer result=1;
-		 Integer smsCode=123123;
+		Integer smsCode = ((int) ((Math.random() * 9 + 1) * 100000));
+		String smsText = "验证码：" + smsCode;
+		 //调用方法然后强制转换类型
+		Integer result = Integer.parseInt(httpClientUtil.ClientUtil(phone,
+				smsText, Uid, key));
+//		 Integer result=1;
+//		 Integer smsCode=123123;
 		if (result > 0) {
 			System.out.println("成功发送短信");
 
