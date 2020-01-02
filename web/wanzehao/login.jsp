@@ -375,7 +375,7 @@
                     alert(result);
                     if (result == "登录成功") {
                         //如果登录成功则跳转主页面
-                        window.location = "/wanzehao/index.jsp";
+                        window.location.href = "/wanzehao/index.jsp";
                     }
                 },
                 error: function (err) {

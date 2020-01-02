@@ -358,5 +358,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 			
  			setInterval("show()",3000);
+
+
+
+	var message01="${message}";
+	if (message01!="" &&message01!=null){
+		alert(message01);
+	}
+
 </script>
 </html>
