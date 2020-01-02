@@ -27,9 +27,12 @@
                         "</ul>";
                 for (var j =  0; j < result[i].bankcard.length;j++){
                     var ds;
+                    var put;
                     if(result[i].bankcard[j].is_Ds==0){
+                        put="<input type='button' value='冻结' style='color:red;' onclick='lose(this)'>";
                         ds="否";
                     }else {
+                        put = "<input type='button' value='解冻' style='color:red;' onclick='Thaw(this)'>";
                         ds="是";
                     }
                     var userInfoBankUl = "<ul class='cardInfo'>"+
@@ -38,7 +41,7 @@
                     "<li>"+result[i].bankcard[j].address+"</li>" +
                     "<li>"+result[i].bankcard[j].date+"</li>" +
                     "<li>"+ds+"</li>" +
-                    "<li><input type='button' value='冻结' style='color:red;' onclick='lose(this)'></li>"+
+                    "<li>"+put+"</li>"+
                     "</ul>"
                     userInfoBank+=userInfoBankUl;
                 }
@@ -60,8 +63,28 @@
                 }else if(result=="冻结成功"){
                     alert("冻结该银行卡成功！");
                     $(obj).parent().prev().text("是");
+                    $(obj).val("解冻");
+                    $(obj).attr("onclick","Thaw(this)")
                 }else{
                     alert("冻结该银行卡失败");
+                }
+            })
+        }
+    }
+
+    function Thaw(obj) {
+        var flag=confirm("请问您是否确认解冻此卡号，解冻之后该卡号恢复正常操作","提示");
+        if(flag){
+            $.post("ThawServlet","bankcardId="+$(obj).parent().prev().prev().prev().prev().prev().text(),function (result) {
+                if($(obj).parent().prev().text()=="否"){
+                    alert("此卡号已是解冻状态，不能再次进行解冻操作")
+                }else if(result=="解冻成功"){
+                    alert("解冻该银行卡成功！");
+                    $(obj).parent().prev().text("否");
+                    $(obj).val("冻结");
+                    $(obj).attr("onclick","lose(this)")
+                }else{
+                    alert("解冻该银行卡失败");
                 }
             })
         }
@@ -141,8 +164,6 @@
                 </li>
             </ul>
         </div>
-
-
 
 
         <div class="content">
