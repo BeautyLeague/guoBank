@@ -7,20 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f6d901c-00df-403f-b638-d5b93367fb6c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/web/isGSServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/IUserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/IUserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/information.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/wanzehao/information.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/IUserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/IUserInfoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/UserInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/guobank/liukongfu/dao/impl/UserInfoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/IUserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/IUserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/guobank/liukongfu/dao/impl/UserInfoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/wanzehao/information.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/wanzehao/information.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MyBank_war_exploded/WEB-INF/classes/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Trans.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Trans.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -295,7 +284,7 @@
       <workItem from="1577752344193" duration="13054000" />
       <workItem from="1577925219397" duration="15332000" />
       <workItem from="1578011586965" duration="3453000" />
-      <workItem from="1578015768170" duration="711000" />
+      <workItem from="1578015768170" duration="1549000" />
     </task>
     <task id="LOCAL-00003" summary="退出">
       <created>1577690661758</created>
@@ -346,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578013706230</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="挂失卡号不能进行贷款">
+      <created>1578016612049</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1578016612049</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,6 +351,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -363,6 +384,11 @@
           </value>
         </entry>
       </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
@@ -378,7 +404,8 @@
     <MESSAGE value="只能是此用户下的卡号才能进行查询和转账功能" />
     <MESSAGE value="解冻" />
     <MESSAGE value="sss" />
-    <option name="LAST_COMMIT_MESSAGE" value="sss" />
+    <MESSAGE value="挂失卡号不能进行贷款" />
+    <option name="LAST_COMMIT_MESSAGE" value="挂失卡号不能进行贷款" />
   </component>
   <component name="WindowStateProjectService">
     <state x="452" y="56" key="#Tomcat_8.5.40" timestamp="1577418466576">
