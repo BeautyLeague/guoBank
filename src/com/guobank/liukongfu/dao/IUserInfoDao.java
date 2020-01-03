@@ -11,4 +11,6 @@ public interface IUserInfoDao {
 	public List<UserInfo> queryUserInfos() throws Exception;
 
 	public void updateLeven(Integer id) throws  Exception;
+
+	public int querygs(String cardId) throws Exception;
 }

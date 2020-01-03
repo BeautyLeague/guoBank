@@ -52,25 +52,39 @@
 					return false;
 				} else {
 					var cardId =  $("#bankcardId").val();
-					$.post("<%=path%>/YZCardIdServlet","bankCardId="+cardId+"",function(result){
+					$.post("<%=path%>/isGSServlet","bankCardId="+cardId+"",function(result) {
 
 						if (result === "true") {
-							$obj.next().text("");
-							$obj.removeClass("inputError");
-							$obj.addClass("inputOk");
-							return true;
+							$.post("<%=path%>/YZCardIdServlet","bankCardId="+cardId+"",function(result){
+
+								if (result === "true") {
+									$obj.next().text("");
+									$obj.removeClass("inputError");
+									$obj.addClass("inputOk");
+									return true;
+								} else if(result==="false"){
+									$obj.next().text("该卡号不存在");
+									$obj.removeClass("inputOk");
+									$obj.addClass("inputError");
+									return false;
+								}else{
+									$obj.next().text("该卡号是借记卡");
+									$obj.removeClass("inputOk");
+									$obj.addClass("inputError");
+									return false;
+								}
+							})
 						} else if(result==="false"){
-							$obj.next().text("该卡号不存在");
-							$obj.removeClass("inputOk");
-							$obj.addClass("inputError");
-							return false;
-						}else{
-							$obj.next().text("该卡号是借记卡");
+							$obj.next().text("该卡号已挂失，无法贷款");
 							$obj.removeClass("inputOk");
 							$obj.addClass("inputError");
 							return false;
 						}
+
+
+
 					})
+
 				}
 			}
 
