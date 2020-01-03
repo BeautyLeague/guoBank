@@ -149,7 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<img src="/img/one.png" id="img2"/>客服服务|
 			<img src="/img/two.png" id="img3"/>119329
 			</span>
-            <a href="BackstageLogin.jsp">管理员登录/注册</a>
+            <a href="BackstageLogin.jsp" id="a2">管理员登录/注册</a>
 			<div id="div2" style="width: 220px;">
 
 				<c:if test="${sessionScope.uname!=null }">
@@ -161,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				
 				<c:if test="${sessionScope.uname==null }">
-					<a href="/wanzehao/login.jsp">登录/注册</a>
+					<a href="/wanzehao/login.jsp" id="a1">登录/注册</a>
 				</c:if>
 				<c:if test="${sessionScope.uname!=null }">
 					<a href="/mingzilongqueryUserinfoServlet">${sessionScope.uname }</a>
@@ -283,7 +283,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 	var i =1;
 	$(function()
-	{	
+	{
+		$("a").not("#a1,#a2").click(function () {
+			if (${sessionScope.user==null}){
+				alert("请先登录再进行功能操作！");
+				return false;
+			}
+		})
+
+
 	    $("#div12 ul li").mousemove(function()
 		{
 			i=$(this).html();

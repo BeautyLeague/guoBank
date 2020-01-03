@@ -43,15 +43,20 @@
             </div>
             <div class="form">
                 <div class="yzm">
-                    <input placeholder="验证码" type="text">
+                    <input placeholder="验证码" type="text" id="yzm">
                     <input  type="button" value="发送" onclick="sendEmail(this)">
                 </div>
                 <div class="newEmail">
-                    <input placeholder="请输入新的邮箱" type="text">
+                    <input placeholder="请输入新的邮箱" type="text" id="newEmail">
                 </div>
                 <div class="btn">
-                    <input  type="button" value="确认">
+                    <input  type="button" value="确认" id="updateEmailBtn" onclick="updateEmail()">
                 </div>
+            </div>
+
+
+            <div class="tips">
+                <span style="color: red" id="tipsInfo"></span>
             </div>
         </div>
         <div id="fade" class="black_overlay"></div>
@@ -68,6 +73,7 @@
         $(".registeLayer").show();
     }
     function sendEmail(obj){
+        $.post("AdminInfoServlet?action=getEmailCheckCode");
         $(obj).css("background","#a9a9a9");
         $(obj).attr("onclick","");
         var i = 59;
@@ -82,6 +88,46 @@
                 $(obj).val("发送");
             }
         },1000)
+    }
+
+    function updateEmail(){
+        if($("#yzm").val()===""){
+            $("#tipsInfo").text("验证码不能为空");
+        }else if($("#newEmail").val()===""){
+            $("#tipsInfo").text("邮箱不能为空");
+        }else if(!/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test($("#newEmail").val())){
+            $("#tipsInfo").text("邮箱格式错误");
+        }else{
+            var email = $("#newEmail").val();
+            $("#updateEmailBtn").removeAttr("onclick");
+            $.post("AdminInfoServlet?action=checkEmail","email="+email,function (result) {
+                if(result === "false"){
+                    $.post("AdminInfoServlet?action=checkCode","code="+$("#yzm").val(),function (result) {
+                        if(result==="true"){
+                            $.post("AdminInfoServlet?action=updateAdminEmail","email="+email,function (result) {
+                                $("#updateEmailBtn").attr("onclick","updateEmail()");
+                                if(resul==false){
+                                    $("#adminEmail").text(email);
+                                    alert("更新成功");
+                                    $(".black_overlay").hide();
+                                    $(".registeLayer").hide();
+                                }else{
+                                    alert("更新失败");
+                                    $("#newEmail").val("")
+                                    $("#yzm").val("")
+                                }
+                            })
+                        }else{
+                            $("#updateEmailBtn").attr("onclick","updateEmail()");
+                            $("#tipsInfo").text("验证码错误,请重新输入");
+                        }
+                    })
+                }else{
+                    $("#updateEmailBtn").attr("onclick","updateEmail()");
+                    $("#tipsInfo").text("该邮箱已存在，请更换邮箱");
+                }
+            })
+        }
     }
 
     $(function(){

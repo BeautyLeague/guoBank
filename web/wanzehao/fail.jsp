@@ -35,7 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         var btns="";
         var loanid="";
         $(function(){
-        
+
+
         $("#p").click(function(){
 		
 		$("#moveBar").css("display","none");

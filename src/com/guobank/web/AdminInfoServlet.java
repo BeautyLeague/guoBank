@@ -19,6 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author : pengliang
@@ -106,6 +107,27 @@ public class AdminInfoServlet extends HttpServlet {
                     }
                 }
                 adminInfoService.updateAdminPortrait(email,is);
+            }else if("getEmailCheckCode".equals(request.getParameter("action"))){
+                int code = new Random().nextInt(9999)+1000;
+                String adminEmail = request.getSession().getAttribute("adminEmail").toString();
+                request.getSession().setAttribute("updateEmailCode",code);
+                new Thread(new EmailUtil(adminEmail,"您的验证码是:<span style='color:red'>"+code+"</span>(请不要随意告诉他人)","郭氏有限银行后台")).start();
+            }else if("checkCode".equals(request.getParameter("action"))){
+                String code1 = request.getSession().getAttribute("updateEmailCode").toString();
+                String code2 = request.getParameter("code");
+                if(code1.equals(code2)){
+                    response.getWriter().write("true");
+                }else {
+                    response.getWriter().write("false");
+                }
+            }else if("updateAdminEmail".equals(request.getParameter("action"))){
+                    String newEmail = request.getParameter("email");
+                    String oldEmail = request.getSession().getAttribute("adminEmail").toString();
+                    boolean flag = adminInfoService.updateAdminEmail(newEmail,oldEmail);
+                    if(!flag){
+                        request.getSession().setAttribute("adminEmail",newEmail);
+                    }
+                    response.getWriter().println(flag);
             }
         } catch (Exception e) {
             e.printStackTrace();

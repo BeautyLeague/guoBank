@@ -43,7 +43,7 @@
         <table id="messid">
             <tr>
                 <td id="nu">昵称:</td>
-                <td style="font-size: 20px;text-align: left;color: #80E680;">${userinfo1.userName}</td>
+                <td style="font-size: 20px;text-align: left;color: #1E9FFF;">${userinfo1.userName}</td>
                 <td>性别:</td>
                 <c:if test="${userinfo1.sex=='男'}">
                     <td style="font-size: 20px;text-align: left; color: #1E9FFF;">男♂</td>
@@ -54,13 +54,13 @@
             </tr>
             <tr>
                 <td>年龄:</td>
-                <td style="font-size: 20px;text-align: left;color: #80E680;">${userinfo1.age}</td>
+                <td style="font-size: 20px;text-align: left;color: #1E9FFF;">${userinfo1.age}</td>
                 <td>等级:</td>
                 <td style="font-size: 20px;text-align: left;color: green;">${userinfo1.leven}</td>
             </tr>
             <tr>
                 <td>手机号:</td>
-                <td style="font-size: 20px;text-align: left; color: #80E680;">${userinfo1.pho}</td>
+                <td style="font-size: 20px;text-align: left; color: #1E9FFF;">${userinfo1.pho}</td>
                 <td>出生日期:</td>
                 <td style="font-size:20px;text-align: left;">${userinfo1.bornDate}</td>
             </tr>

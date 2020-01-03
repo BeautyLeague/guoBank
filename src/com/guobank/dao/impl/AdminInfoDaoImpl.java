@@ -61,4 +61,11 @@ public class AdminInfoDaoImpl extends BaseDao implements AdminInfoDao {
         String sql = "update admininfo set adminName = ? , adminPwd = ? , adminPortrait = ? , activation = ? where adminEmail = ?";
         return super.execute(sql,new Object[]{adminInfo.getAdminName(),adminInfo.getAdminPwd(),adminInfo.getAdminPortrait(),adminInfo.getActivation(),adminInfo.getAdminEmail()});
     }
+
+    @Override
+    public boolean updateAdminEmail(String newEmail, String oldEmail) throws SQLException {
+        String sql = "update admininfo set adminEmail = ? where adminEmail = ? ";
+
+        return super.execute(sql,new Object[]{newEmail,oldEmail});
+    }
 }

@@ -60,4 +60,9 @@ public class AdminInfoServiceImpl implements AdminInfoService {
         adminInfo.setAdminPortrait(is);
         return adminInfoDao.updateAdmin(adminInfo);
     }
+
+    @Override
+    public boolean updateAdminEmail(String newEmail, String oldEmail) throws SQLException {
+        return adminInfoDao.updateAdminEmail(newEmail,oldEmail);
+    }
 }

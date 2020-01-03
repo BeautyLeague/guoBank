@@ -3,6 +3,8 @@ package com.guobank.minzilong.web;
 import com.guobank.minzilong.entity.Bankcard;
 import com.guobank.minzilong.service.IBankcardService;
 import com.guobank.minzilong.service.impl.BankcardService;
+import com.guobank.minzilong.util.Page;
+import com.guobank.wanzehao.entity.UserInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,10 +22,18 @@ public class queryBankServlet extends HttpServlet {
      }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException  {
-        Integer userid=Integer.parseInt(request.getParameter("userId"));
-        try {
-            List<Bankcard> bankList=this.iBankcardService.queryBanklist(userid);
+            throws ServletException, IOException{
+        UserInfo userInfo = (UserInfo)request.getSession().getAttribute("user");
+        Integer useriud=userInfo.getUserId();
+        Page<Bankcard> page = new Page<Bankcard>();
+        String pageNo = request.getParameter("pageNo");
+        if (pageNo != null && !"".equals(page)) {
+            page.setPageNo(Integer.valueOf(pageNo));
+        }
+        try{
+            page = this.iBankcardService.queryAllNews(page,Integer.valueOf(useriud));
+            List<Bankcard> bankList=this.iBankcardService.queryBanklist(useriud);
+            request.setAttribute("page", page);
             request.setAttribute("bankList",bankList);
             request.getRequestDispatcher("/minzilong/account.jsp").forward(request,response);
         }catch (Exception e){

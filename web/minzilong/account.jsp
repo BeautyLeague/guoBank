@@ -9,6 +9,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link href="/css/acc.css" rel="stylesheet"  type="text/css"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+%>
 <html>
 <head>
     <title>用户卡号</title>
@@ -33,7 +36,7 @@
             <td>地址</td>
             <td>时间</td>
         </tr>
-        <c:forEach items="${bankList}" var="bank" varStatus="status">
+        <c:forEach items="${requestScope.page.resultList}" var="bank" varStatus="status">
             <tr>
                 <td>${bank.bankCardId}</td>
                 <c:if test="${bank.cardTypeId==1}">
@@ -56,10 +59,26 @@
                 <td>${bank.date}</td>
             </tr>
         </c:forEach>
+        <tr>
+            <td align="middle" colspan="5">
+                <c:if test="${page.pageNo>1}">
+                    <a href="/mingzilongqueryBankServlet?pageNo=1">首页</a>
+                    <a href="/mingzilongqueryBankServlet?pageNo=${page.pageNo-1}">上一页</a>
+                </c:if>
+                <c:if test="${page.pageNo<page.totalPage}">
+                    <a href="/mingzilongqueryBankServlet?pageNo=${page.pageNo+1}">下一页</a>
+                    <a href="/mingzilongqueryBankServlet?pageNo=${page.totalPage}">末页</a>
+                </c:if>
+                <br>
+                <a>
+                当前第${page.pageNo}页/共${page.totalPage}页
+                共${page.totalCount}条记录</a>
+            </td>
+        </tr>
     </table>
 </div>
 <div id="but">
-    <input type="button" value="返回" id="bu" onclick="JavaScript:history.go(-1)">
+    <a href="/mingzilongCloseuserinfoServlet"><input type="button" value="返回" id="bu"></a>
 </div>
 <div id="as">
     <a href="">网站声明</a>|<a href="">网站地图</a>|<a href="">联系我们</a>|<span>联系热线：<a style="color: coral">18170778835</a></span>

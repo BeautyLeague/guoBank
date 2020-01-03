@@ -20,4 +20,5 @@ public interface AdminInfoDao {
     boolean saveAdminInfo(AdminInfo adminInfo)throws SQLException;
     boolean updateActivation(String email,Integer activation)throws SQLException;
     boolean updateAdmin(AdminInfo adminInfo) throws Exception;
+    boolean updateAdminEmail(String newEmail,String oldEmail)throws SQLException;
 }

@@ -128,3 +128,6 @@ html,body,.context{
     outline:none;
     height: 25px;
 }
+.tips{
+    text-align: center;
+}

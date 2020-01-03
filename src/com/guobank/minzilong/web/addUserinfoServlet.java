@@ -23,7 +23,7 @@ public class addUserinfoServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-}
+	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -58,7 +58,7 @@ public class addUserinfoServlet extends HttpServlet {
 
 			this.iUserinfoService.addUserinfoService(userinfo);
 			request.getSession().setAttribute("user",userInfo1);
-			request.getRequestDispatcher("/wanzehao/index.jsp").forward(request, response);
+			request.getRequestDispatcher("/mingzilongCloseuserinfoServlet").forward(request, response);
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

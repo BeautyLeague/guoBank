@@ -53,5 +53,12 @@ table td{
     width: 250px;
 }
 #bu{
-font-size: 15px;
+font-size: 18px;
+}
+table tr a{
+    position:  relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    font-size: 20px;
 }

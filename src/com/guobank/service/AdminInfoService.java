@@ -24,4 +24,5 @@ public interface AdminInfoService {
     AdminInfo getAdminInfo(String email)throws Exception;
     boolean updateAdminInfoName(String email,String name)throws Exception;
     boolean updateAdminPortrait(String email,InputStream is)throws Exception;
+    boolean updateAdminEmail(String newEmail,String oldEmail)throws SQLException;
 }
