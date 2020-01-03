@@ -283,7 +283,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 	var i =1;
 	$(function()
-	{	
+	{
+
 	    $("#div12 ul li").mousemove(function()
 		{
 			i=$(this).html();
