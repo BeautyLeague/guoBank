@@ -55,7 +55,7 @@ public class LoanInfoDao extends BaseDao implements ILoanInfoDao {
 
 	@Override
 	public Page<LoanInfo> queryLoanInfos(Page<LoanInfo> page,String userid) throws Exception {
-		String sql = "select * from loaninfo where userId=? limit ?,?";
+		String sql = "select * from loaninfo where userId=? order by loanDate desc limit ?,?";
 
 		ResultSet rs = super.executeQuery(sql, new Object[] { userid,(page.getPageNo() - 1) * page.getPageCount(),
 				page.getPageCount()  });
