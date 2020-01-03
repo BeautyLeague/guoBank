@@ -116,13 +116,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         but = "<input type='button' value='已还款' disabled='disabled'>";
                     }
                     var temp= "<ul>"
-                        +"<li>"+result.loanId+"</li>"
+                        +"<li>"+i+"</li>"
                         +"<li>"
-                        +"<fmt:formatNumber value="3242342342" type="currency"/>"
-                        +"</li>"
+                        +result.loanMoney
+                        +"元</li>"
                         +"<li>"+result.cards+"</li>"
                         +"<li>"+result.loanDate+"</li>"
-                        +"<li>"+result.allMoney+"</li>"
+                        +"<li>"+result.allMoney+"元</li>"
                         +"<li>"+but+"</li>"
                         +"</ul>";
                     $("#divul").append(temp);

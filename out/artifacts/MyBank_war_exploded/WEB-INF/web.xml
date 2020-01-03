@@ -479,4 +479,15 @@
         <servlet-name>ThawServlet</servlet-name>
         <url-pattern>/ThawServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>isGSServlet</servlet-name>
+        <servlet-class>com.guobank.liukongfu.web.isGSServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>isGSServlet</servlet-name>
+        <url-pattern>/isGSServlet</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

@@ -47,4 +47,19 @@ public class UserInfoDao extends BaseDao implements IUserInfoDao {
 		super.executeUpdate(sql,new  Object[]{id});
 	}
 
+	@Override
+	public int querygs(String cardId) throws Exception {
+		Integer gs=0;
+		String sql = "select * from bankcard where bankCardId=?";
+
+		ResultSet rs = super.executeQuery(sql, new Object[] { cardId });
+
+		while (rs.next()) {
+
+			gs = rs.getInt("is_ds");
+		}
+
+		return gs;
+	}
+
 }

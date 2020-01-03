@@ -403,9 +403,9 @@
         <div class="beizhu">
             <p>转账备注:</p>
             <i class="bei" ></i>
-            <input type="text" style="width: 200px; color: black; height: 30px" id="transInfos"  value="请输入你的备注"  onblur="transInfo()" class="beitu"  onfocus="transFoucs(this)" >
-            <span style="color: red;" id="trans_error"></span>
 
+            <input type="text" style="width: 200px; color: black; height: 30px" id="transInfos"  value="请输入你的备注"  onblur="transInfo()" class="beitu"  onfocus="transFoucs(this)" >
+.
         </div>
 
         <div class="button">
