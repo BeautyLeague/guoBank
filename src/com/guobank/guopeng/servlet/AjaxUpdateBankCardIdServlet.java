@@ -2,6 +2,7 @@ package com.guobank.guopeng.servlet;
 
 import com.guobank.guopeng.service.IOpenAccountService;
 import com.guobank.guopeng.service.impl.OpenAccountService;
+import com.guobank.wanzehao.entity.UserInfo;
 
 import java.io.IOException;
 
@@ -25,12 +26,19 @@ public class AjaxUpdateBankCardIdServlet extends HttpServlet {
 		 response.setCharacterEncoding("utf-8");
 		 response.setContentType("text/html;charset=utf-8");
 		 String bankCardId = request.getParameter("bankCardId");
+		String phone = request.getParameter("phone");
 		 String result="";
 		 try {
-			 String updateBankCardId = iOpenAccountService.UpdateBankCardId(bankCardId);
-			 if (updateBankCardId=="挂失成功") {
+			 UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+			 Integer userId=	user.getUserId();
+			 String updateBankCardId = iOpenAccountService.UpdateBankCardId(bankCardId,phone,userId);
+			 if (updateBankCardId=="电话号码不一致") {
+				 result="电话号码不一致";
+			 }
+			 else if (updateBankCardId=="挂失成功") {
 				 result="挂失成功";
-			 }else{
+			 }
+			 else{
 				 result="银行卡已挂失";
 			 }
 		} catch (Exception e) {

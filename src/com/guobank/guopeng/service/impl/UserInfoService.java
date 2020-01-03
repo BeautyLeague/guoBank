@@ -22,4 +22,9 @@ public class UserInfoService implements IUserInfoService {
 		}
 	}
 
+	@Override
+	public UserInfo userById(int userId) throws Exception {
+		return  this.userInfoDao.userById(userId);
+	}
+
 }

@@ -97,7 +97,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							});
 						}else if(result=="银行卡已挂失"){
 							layer.msg('银行卡已挂失',{icon:2});
-						}else{
+						}else if(result=="电话号码不一致"){
+							layer.msg('请跟注册的电话号码一致',{icon:2});
+						}
+						else{
 							layer.msg('没有此银行卡号请重新输入',{icon:2});
 						}
 					},

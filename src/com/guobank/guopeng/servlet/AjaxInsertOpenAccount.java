@@ -29,20 +29,28 @@ public class AjaxInsertOpenAccount extends HttpServlet {
 		 int code = ((int) ((Math.random() * 9 + 1) * 100000));
 		 int Code = ((int) ((Math.random() * 9 + 1) * 100000));
 		 String bankCardId="642888"+code+Code;//银行卡号
+
+
 		 String address=request.getParameter("address");
-		 System.out.println(request.getParameter("monery"));
 		 double monery=Double.parseDouble(request.getParameter("monery"));
 		 int password=Integer.parseInt(request.getParameter("password"));
-		 int cardTypeId=Integer.parseInt(request.getParameter("cardTypeId"));
+		String phone = request.getParameter("phone");
+		int cardTypeId=Integer.parseInt(request.getParameter("cardTypeId"));
 		 System.out.println(bankCardId+","+address+","+password+","+monery+","+cardTypeId);
 		// String result="";
 		 String id="";
+
 		try {
 			UserInfo user = (UserInfo) request.getSession().getAttribute("user");
 			Integer userId=	user.getUserId();
 			System.out.println(userId);
-			iOpenAccountService.InsertOpenAccount(bankCardId, cardTypeId,userId, monery, password, address);
-			id=bankCardId;
+			String type = iOpenAccountService.InsertOpenAccount(bankCardId, cardTypeId, userId, monery, password, address, phone);
+			if (type=="开户成功"){
+				id=bankCardId;
+			}else{
+				id=type;
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

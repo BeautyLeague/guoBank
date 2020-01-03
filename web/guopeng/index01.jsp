@@ -116,16 +116,22 @@
 					data:$("#addGoodsForm").serialize(),
 					dataType:"json",
 					success:function(result){
-						layer.msg('开户成功<br>欢迎加入郭氏银行大家庭<br>您的卡号:'+result+'<br>请您妥善保管。', {
-					        time: 20000, //20s后自动关闭
-					        btn: ['好的','知道了','关闭']
-					      });
+						$("#addGoodsForm")[0].reset();
+						if (result=="电话号码不一致"){
+							layer.msg('请跟注册的电话号码一致',{icon:2});
+						}else{
+							layer.msg('开户成功<br>欢迎加入郭氏银行大家庭<br>您的卡号:'+result+'<br>请您妥善保管。', {
+								time: 20000, //20s后自动关闭
+								btn: ['好的','知道了','关闭']
+							});
+						}
 					},
 					 error:function(e){
+						 $("#addGoodsForm")[0].reset();
 				            layer.msg('提交失败',{icon:2})
 				     },
 				});
-				$("#addGoodsForm")[0].reset();
+
 				form.render();
 				return false;
 		});

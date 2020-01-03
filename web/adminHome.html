@@ -21,7 +21,7 @@
                         <input type="file" id="file" hidden accept=".jpg,.png,.jpeg,.gif">
                         <div class="adminInfo" style="display: none">
                             <p id="adminName" contenteditable="false">小明</p>
-                            <p id="adminEmail">2582672760@qq.com</p>
+                            <p id="adminEmail" ondblclick="emailDbClick()" onselectstart='return false;'>2582672760@qq.com</p>
                             <img id="exit" src="img/exit.png" style="width: 30px;">
                         </div>
                     </li>
@@ -34,10 +34,56 @@
                 <iframe name="info" id="info" src="backstage.html" frameborder="0"></iframe>
             </div>
         </div>
+
+
+
+        <div class="registeLayer">
+            <div class="close"  style="text-align: right;">
+                <img  src="img/close.png"  width="25" height="25" style="cursor: pointer;" onclick="imgClose()">
+            </div>
+            <div class="form">
+                <div class="yzm">
+                    <input placeholder="验证码" type="text">
+                    <input  type="button" value="发送" onclick="sendEmail(this)">
+                </div>
+                <div class="newEmail">
+                    <input placeholder="请输入新的邮箱" type="text">
+                </div>
+                <div class="btn">
+                    <input  type="button" value="确认">
+                </div>
+            </div>
+        </div>
+        <div id="fade" class="black_overlay"></div>
     </body>
 
 
 <script>
+    function imgClose(){
+        $(".black_overlay").hide();
+        $(".registeLayer").hide();
+    }
+    function emailDbClick(){
+        $(".black_overlay").show();
+        $(".registeLayer").show();
+    }
+    function sendEmail(obj){
+        $(obj).css("background","#a9a9a9");
+        $(obj).attr("onclick","");
+        var i = 59;
+        $(obj).val("发送("+i+")");
+       var time =  setInterval(function () {
+           i--;
+            $(obj).val("发送("+i+")");
+            if(i===0){
+                clearInterval(time);
+                $(obj).css("background","#00FFFF");
+                $(obj).attr("onclick","sendEmail(this)");
+                $(obj).val("发送");
+            }
+        },1000)
+    }
+
     $(function(){
 
         $.post("AdminInfoServlet?action=getAdminInfo",function (result) {
