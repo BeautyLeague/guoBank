@@ -272,7 +272,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             });
 
          }
- 
  		$("#div11").click(function(){
 		
 			$("#moveBar").css({"display":"inline-block","left":"200px","top":"800px"});

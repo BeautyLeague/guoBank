@@ -5,6 +5,7 @@ import com.guobank.entity.AdminInfo;
 import com.guobank.service.AdminInfoService;
 import com.guobank.service.impl.AdminInfoServiceImpl;
 import com.guobank.util.EmailUtil;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -123,11 +124,11 @@ public class AdminInfoServlet extends HttpServlet {
             }else if("updateAdminEmail".equals(request.getParameter("action"))){
                     String newEmail = request.getParameter("email");
                     String oldEmail = request.getSession().getAttribute("adminEmail").toString();
-                    boolean flag = adminInfoService.updateAdminEmail(newEmail,oldEmail);
+                    Boolean flag = adminInfoService.updateAdminEmail(newEmail,oldEmail);
                     if(!flag){
                         request.getSession().setAttribute("adminEmail",newEmail);
                     }
-                    response.getWriter().println(flag);
+                    response.getWriter().write(flag.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();

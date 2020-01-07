@@ -14,7 +14,8 @@ public class TuiChuServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.getSession().removeAttribute("uname");
-	
+		request.getSession().removeAttribute("user");
+
 		request.getRequestDispatcher("/wanzehao/index.jsp").forward(request, response);
 	}
 

@@ -402,7 +402,7 @@
         </div>
         <div class="beizhu">
             <p>转账备注:</p>
-            <i class="bei" ></i0
+            <i class="bei" ></i>
 
             <input type="text" style="width: 200px; color: black; height: 30px" id="transInfos"  value="请输入你的备注"  onblur="transInfo()" class="beitu"  onfocus="transFoucs(this)" >
 .

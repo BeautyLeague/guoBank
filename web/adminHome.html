@@ -106,7 +106,7 @@
                         if(result==="true"){
                             $.post("AdminInfoServlet?action=updateAdminEmail","email="+email,function (result) {
                                 $("#updateEmailBtn").attr("onclick","updateEmail()");
-                                if(resul==false){
+                                if(result==="false" || result === false){
                                     $("#adminEmail").text(email);
                                     alert("更新成功");
                                     $(".black_overlay").hide();
