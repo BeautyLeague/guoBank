@@ -38,6 +38,7 @@
     width: 185px;
     font-size: 19px;
     height: 53px;
+    color: white;
     background-color: hsl(197,70%,55%);
 
 }
@@ -45,6 +46,7 @@
     width: 185px;
     font-size: 19px;
     height: 53px;
+    color: white;
     background-color: hsl(197,70%,55%);
     margin-left: 10px;
 }

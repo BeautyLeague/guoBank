@@ -49,7 +49,7 @@
                     <td style="font-size: 20px;text-align: left; color: #1E9FFF;">男♂</td>
                 </c:if>
                 <c:if test="${userinfo1.sex=='女'}">
-                    <td style="font-size: 20px;text-align: left; color: red;">女♀</td>
+                    <td style="font-size: 20px;text-align: left; color: #1E9FFF;">女♀</td>
                 </c:if>
             </tr>
             <tr>
@@ -62,7 +62,7 @@
                 <td>手机号:</td>
                 <td style="font-size: 20px;text-align: left; color: #1E9FFF;">${userinfo1.pho}</td>
                 <td>出生日期:</td>
-                <td style="font-size:20px;text-align: left;">${userinfo1.bornDate}</td>
+                <td style="font-size:20px;text-align: left;  color: #1E9FFF;">${userinfo1.bornDate}</td>
             </tr>
         </table>
         <a href="/mingzilongqueryBankServlet?userId=${userinfo1.userId}" id="x">显示账号所有银行卡号</a>
