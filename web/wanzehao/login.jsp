@@ -559,7 +559,7 @@
             alert("请输入验证码");
             return false;
         }
-        if (190283 != mmyzm) {
+        if (yzm != mmyzm) {
             alert("验证码输入错误");
             return false;
         }
@@ -617,10 +617,8 @@
         $.ajax({
             type: "post",
             url: "<%=path%>/SMSServlet",
-            data: {"pho": pho},
+            data: {"phone": pho},
             success: function (result) {
-                var layer = layui.layer;
-
                 if (result.length > 5) {
                     $("#yzm2").val(result);
 
