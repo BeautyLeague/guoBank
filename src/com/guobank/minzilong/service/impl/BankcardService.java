@@ -10,6 +10,7 @@ import java.util.List;
 
 public class BankcardService implements IBankcardService {
     private IBankcardDao iBankcardDao=new BankcardDao();
+    //查询用户名下所有卡号
     @Override
     public List<Bankcard> queryBanklist(int userId) throws Exception {
         return this.iBankcardDao.queryBanklist(userId);
@@ -19,11 +20,10 @@ public class BankcardService implements IBankcardService {
     public Bankcard queryBank(int userId) throws Exception {
         return null;
     }
-
+   //卡号页面分页
     @Override
     public Page<Bankcard> queryAllNews(Page<Bankcard> page,Integer userId) throws Exception {
         return this.iBankcardDao.queryAllNews(page,userId);
     }
-
 
 }

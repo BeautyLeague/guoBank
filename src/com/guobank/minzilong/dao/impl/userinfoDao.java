@@ -11,8 +11,8 @@ import java.util.List;
 
 
 public class userinfoDao extends BaseDao implements IUserinfoDao {
-  
-	
+
+	//查询用户信息
 	@Override
 	public List<UserInfo> queryUserinfo()throws Exception {
 		// TODO Auto-generated method stub
@@ -34,6 +34,7 @@ public class userinfoDao extends BaseDao implements IUserinfoDao {
 		return userlist;
 	}
 
+	//修改用户信息
 	@Override
 	public void addUserinfo(UserInfo userinfo) throws Exception {
 		// TODO Auto-generated method stub
@@ -48,6 +49,7 @@ public class userinfoDao extends BaseDao implements IUserinfoDao {
 				                               ,userinfo.getPho()});
 	}
 
+	//使用id查询用户信息
 	@Override
 	public UserInfo querUser(int userid) throws Exception {
 		String sql="SELECT * FROM userinfo where userId=?";
@@ -67,6 +69,7 @@ public class userinfoDao extends BaseDao implements IUserinfoDao {
 		return userinfo2;
 	}
 
+	//使用电话号码修改密码
 	@Override
 	public void updepwd(UserInfo userInfo) throws Exception {
 		 String sql="UPDATE userinfo SET pwd=? WHERE pho=? ";
@@ -76,17 +79,11 @@ public class userinfoDao extends BaseDao implements IUserinfoDao {
 		 });
 	}
 
+	//使用id修改电话号码
 	@Override
 	public void updatePath(String path,Integer id) throws Exception {
 		String sql="update userinfo set path=? where userid=?";
 		super.executeUpdate(sql,new Object[]{path,id});
 	}
-
-
-//	@Override
-//	public String ispwd(String pwd, String userid) throws Exception {
-//		return null;
-//	}
-
 
 }

@@ -116,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         but = "<input type='button' value='已还款' disabled='disabled'>";
                     }
                     var temp= "<ul>"
-                        +"<li>"+i+"</li>"
+                        +"<li>"+(i+1)+"</li>"
                         +"<li>"
                         +result.loanMoney
                         +"元</li>"

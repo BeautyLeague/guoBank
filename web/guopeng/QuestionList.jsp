@@ -40,7 +40,7 @@
 	<div class="header_div">
 
 		<ul>
-			<li><a href="javascript:void(0)">网站首页</a>
+			<li><a href="wanzehao/index.jsp">网站首页</a>
 			</li>
 			<li>｜</li>
 			<li><a href="javascript:void(0)">网点查询</a>

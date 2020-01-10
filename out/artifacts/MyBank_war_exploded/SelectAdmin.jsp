@@ -89,7 +89,7 @@
 
         <ul>
             <li>
-                <a href="wanzehao/index.jsp">网站首页</a>
+                <a href="wanzehao/index.jsp" target="_blank">网站首页</a>
             </li>
             <li>
                 ｜
@@ -133,7 +133,6 @@
 
 <footer>
     <div class="footer_div">
-        <hr>
         <div class="service">
             <ul>
                 <li>

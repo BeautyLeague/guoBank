@@ -3,12 +3,12 @@ package com.guobank.minzilong.entity;
 import java.util.Date;
 
 public class Bankcard {
-    public String bankCardId;
-    public int cardTypeId;
-    public int is_ds;
-    public String address;
-    public Date date;
-   public int userId;
+    public String bankCardId;//卡号
+    public int cardTypeId; //卡号类型
+    public int is_ds; //是否挂失
+    public String address;//地址
+    public Date date;//日期
+    public int userId;//用户id
 
     public int getUserId() {
         return userId;
@@ -57,6 +57,5 @@ public class Bankcard {
     public void setAddress(String address) {
         this.address = address;
     }
-
 
 }

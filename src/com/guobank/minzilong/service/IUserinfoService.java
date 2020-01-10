@@ -10,11 +10,10 @@ import java.util.List;
 public interface IUserinfoService {
 	public List<UserInfo> queryUserinfolisList() throws Exception;
   
-	 public void addUserinfoService(UserInfo userinfo)throws Exception;
+	public void addUserinfoService(UserInfo userinfo)throws Exception;
 
 	public UserInfo querUser(int userid) throws Exception;
 
 	public void updepwd(UserInfo userInfo) throws Exception;
 
-//	public String ispwd(String pwd,String userid) throws Exception;
 }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankcardDao extends BaseDao implements IBankcardDao {
+    //查询用户名下的所有卡号
     @Override
     public List<Bankcard> queryBanklist(int userId) throws Exception {
         String sql="SELECT * FROM bankcard where userId=?";
@@ -29,6 +30,7 @@ public class BankcardDao extends BaseDao implements IBankcardDao {
         return banklist;
     }
 
+    //卡号页面分页
     @Override
     public Page<Bankcard> queryAllNews(Page<Bankcard> page,Integer userId) throws Exception {
         String sql = "select * from Bankcard where userId=? limit ?,?";
@@ -51,6 +53,7 @@ public class BankcardDao extends BaseDao implements IBankcardDao {
         page.setTotalCount(getTotalRole(userId));// 设置总记录數
         return page;
     }
+
     /**
      * 获取记录数
      *
@@ -67,22 +70,5 @@ public class BankcardDao extends BaseDao implements IBankcardDao {
         }
         return total;
     }
-
-//    @Override
-//    public Bankcard queryBank(int userId) throws Exception {
-//        String sql="SELECT * FROM bankcard where userId=？";
-//        ResultSet rst=super.executeQuery(sql,new Object[]{userId});
-//        List<Bankcard> banklist1=new ArrayList<Bankcard>();
-//        while(rst.next()){
-//            Bankcard bankcard=new Bankcard();
-//            bankcard.setBankCardId(rst.getString("bankCardId"));
-//            bankcard.setCardTypeId(rst.getInt("cardTypeId"));
-//            bankcard.setIs_ds(rst.getInt("is_ds"));
-//            bankcard.setAddress(rst.getString("address"));
-//            bankcard.setDate(rst.getDate("date"));
-//            banklist1.add(bankcard);
-//        }
-//        return banklist1;
-//    }
 
 }

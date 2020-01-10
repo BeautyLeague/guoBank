@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Userinfo implements Serializable{
-	private int userId;
-	private String userName;
-	private String sex;
-	private  Integer age;
-	private Integer leven;
-	private String pho;
-	private String id;
-	private Date bornDate;
+	private int userId; //用户id
+	private String userName; //用户昵称
+	private String sex;//性别
+	private  Integer age;//年龄
+	private Integer leven;//等级
+	private String pho;//电话号码
+	private String id;//身份证号码
+	private Date bornDate;//日期
 	
 	public int getuserId() {
 		return userId;

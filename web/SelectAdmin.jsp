@@ -133,7 +133,6 @@
 
 <footer>
     <div class="footer_div">
-        <hr>
         <div class="service">
             <ul>
                 <li>

@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   overflow-x: hidden;
 	   }
 	   #ss{
-	   margin-left:450px;
+	   margin-left:30%;
 	   margin-top:30px;
 	   display: inline-block;
 	   }
@@ -172,10 +172,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			
 			
-			<div id="div3" style="margin-left: 230px;">
-				<a href="#">郭氏集团|</a>
-				<a href="#">国内分行|</a>
-				<a href="#">关于本行</a>
+			<div id="div3" style="margin-left: 1%">
+				<a href="/guopeng/QuestionList.jsp">问题大全</a>
 			</div>
 			
 		</div>
