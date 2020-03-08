@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+/**
+ * 修改个人信息工具类
+ */
 public class addUserinfoServlet extends HttpServlet {
 
 	private IUserinfoService iUserinfoService=new UserinfoServlce();

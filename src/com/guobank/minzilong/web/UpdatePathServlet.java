@@ -19,7 +19,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 /**
- *
+ *上传头像
  */
 @WebServlet(name = "UpdatePathServlet")
 public class UpdatePathServlet extends HttpServlet {

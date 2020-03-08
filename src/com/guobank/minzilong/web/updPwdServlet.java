@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 修改密码
+ */
 @WebServlet(name = "updPwdServlet")
 public class updPwdServlet extends HttpServlet {
     private IUserinfoService iUserinfoService=new UserinfoServlce();

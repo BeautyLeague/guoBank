@@ -15,7 +15,6 @@ public class UserinfoServlce implements IUserinfoService {
 	public List<UserInfo> queryUserinfolisList() throws Exception {
 		// TODO Auto-generated method stub
 		return this.iUserinfoDao.queryUserinfo();
-
 	}
 
 	//修改用户信息

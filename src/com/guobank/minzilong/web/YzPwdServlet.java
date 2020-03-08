@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- *
+ *验证原密码是否正确
  */
 @WebServlet(name = "YzPwdServlet")
 public class YzPwdServlet extends HttpServlet {

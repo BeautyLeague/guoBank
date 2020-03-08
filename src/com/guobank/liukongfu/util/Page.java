@@ -12,7 +12,7 @@ import java.util.List;
 public class Page<T> {
 
 	protected int pageNo = 1;// 页码（默认第1页）
-	protected int pageCount = 4;// 每页记录条数
+	protected int pageCount = 10;// 每页记录条数
 	protected int totalPage;// 总页数
 	protected long totalCount = -1;// 总记录条数
 	protected List<T> resultList;// 存放查询结果

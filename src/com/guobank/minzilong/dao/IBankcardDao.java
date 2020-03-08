@@ -4,6 +4,9 @@ import com.guobank.minzilong.entity.Bankcard;
 import com.guobank.minzilong.util.Page;
 import java.util.List;
 
+/**
+ * 银行卡号业务类
+ */
 public interface IBankcardDao {
     //查询用户名下所有卡号
     public List<Bankcard>queryBanklist(int userId)throws Exception;

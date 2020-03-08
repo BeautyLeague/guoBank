@@ -6,6 +6,9 @@ import com.guobank.wanzehao.entity.UserInfo;
 
 import java.util.List;
 
+/**
+ * 个人用户信息业务类
+ */
 public interface IUserinfoDao {
   //查询用户信息
   public List<UserInfo> queryUserinfo()throws Exception;

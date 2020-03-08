@@ -190,6 +190,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</a>
 			</div>
 		</form>
+
 		<form id="user" action="/mingzilongaddUserinfoServlet" method="post">
 			<div id="kname">
 			昵称:&nbsp;<input type="text" id="userName" name="userName" style="width: 264px; height:36px ;" value="${userinfo.userName}"/>
@@ -206,6 +207,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        <input type="radio"name="sex" value="女" checked="checked"/>女<br/>
 		        </c:if>
 		 </div>
+
 		 <div id="kage">
 		          年龄:&nbsp;<input type="number" min="1" name="age" style="width: 60px; height:36px;" value="${userinfo.age}"/><br/>
 		</div>
@@ -216,7 +218,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		      手机号:&nbsp;<input type="tel"name="pho" id="pho" style="width: 215px; height:36px;" value="${userinfo.pho}" readonly="readonly"/><br/>
 		</div>
 		<div id="kdate">
-		 	 出生年月:&nbsp;<input type="datetime" name="bornDate"  id="bornDate" style="width: 270px; height:36px;"value="${userinfo.bornDate}" /><br/>
+		 	 出生日期:&nbsp;<input type="datetime" name="bornDate"  id="bornDate" style="width: 270px; height:36px;"value="${userinfo.bornDate}" /><br/>
 		</div>
 		 <div id="kbutton">
 		<input type="button"  value="更  改" style="width: 70px; height:40px;" id="sub"/>

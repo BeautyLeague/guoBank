@@ -20,6 +20,7 @@ public class BankcardService implements IBankcardService {
     public Bankcard queryBank(int userId) throws Exception {
         return null;
     }
+
    //卡号页面分页
     @Override
     public Page<Bankcard> queryAllNews(Page<Bankcard> page,Integer userId) throws Exception {

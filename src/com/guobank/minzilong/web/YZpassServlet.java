@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- *
+ *验证支付密码
  */
 @WebServlet(name = "YZpassServlet")
 public class YZpassServlet extends HttpServlet {
