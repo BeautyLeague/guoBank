@@ -341,24 +341,24 @@
     <div class="context" hidden="hidden">
         <div class="AllText">
 
-            <div class="sendText">
-                <div class="sendUserInfo">
-                    <p class="name">小明</p>
-                    <img src="img/2.jpg" class="portrait">
-                </div>
-                <div class="sendUserText">
-                    <p>你好</p>
-                </div>
-            </div>
-            <div class="receiveText">
-                <div class="receiveUserInfo">
-                    <p class="name">小明</p>
-                    <img src="img/2.jpg" class="portrait">
-                </div>
-                <div class="receiveUserText">
-                    <p>你好</p>
-                </div>
-            </div>
+<%--            <div class="sendText">--%>
+<%--                <div class="sendUserInfo">--%>
+<%--                    <p class="name">小明</p>--%>
+<%--                    <img src="img/2.jpg" class="portrait">--%>
+<%--                </div>--%>
+<%--                <div class="sendUserText">--%>
+<%--                    <p>你好</p>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="receiveText">--%>
+<%--                <div class="receiveUserInfo">--%>
+<%--                    <p class="name">小明</p>--%>
+<%--                    <img src="img/2.jpg" class="portrait">--%>
+<%--                </div>--%>
+<%--                <div class="receiveUserText">--%>
+<%--                    <p>你好</p>--%>
+<%--                </div>--%>
+<%--            </div>--%>
         </div>
         <div class="out">
             <textarea id="text"></textarea>
@@ -376,6 +376,10 @@
     var wb;
 
     function kefuClick() {
+        if("${sessionScope.uname}"===""){
+            alert("请先登陆");
+            return;
+        }
         $("#kefuImg").hide();
         $(".context").show();
         var wsURL = "ws://localhost:8080/testWebSocket/user/1/-1";
@@ -387,10 +391,14 @@
                 $(".AllText").append("<div class=\"textTips\">\n" +
                     "                <p>客服以处理,现在可以开始聊天了</p>\n" +
                     "            </div>")
-            }else{
+            }else if(result.data=="false"){
+                $(".AllText").append("<div class=\"textTips\">\n" +
+                    "                <p>客服以关闭连接</p>\n" +
+                    "            </div>")
+            } else{
                 $(".AllText").append("<div class=\"sendText\">\n" +
                     "                <div class=\"sendUserInfo\">\n" +
-                    "                    <p class=\"name\">小明</p>\n" +
+                    "                    <p class=\"name\">客服</p>\n" +
                     "                    <img src=\"img/2.jpg\" class=\"portrait\">\n" +
                     "                </div>\n" +
                     "                <div class=\"sendUserText\">\n" +
@@ -412,8 +420,8 @@
 
         $(".AllText").append(" <div class=\"receiveText\">\n" +
             "                <div class=\"receiveUserInfo\">\n" +
-            "                    <p class=\"name\">小明</p>\n" +
-            "                    <img src=\"img/2.jpg\" class=\"portrait\">\n" +
+            "                    <p class=\"name\">${sessionScope.uname}</p>\n" +
+            "                    <img src=\"${sessionScope.user.path}\" class=\"portrait\">\n" +
             "                </div>\n" +
             "                <div class=\"receiveUserText\">\n" +
             "                    <p>"+$("#text").val()+"</p>\n" +
@@ -424,6 +432,8 @@
 
     function closeWB() {
         wb.close();
+        $(".context").hide();
+        $("#kefuImg").show();
     }
 </script>
 

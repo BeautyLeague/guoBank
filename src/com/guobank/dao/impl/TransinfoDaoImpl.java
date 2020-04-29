@@ -6,10 +6,13 @@ import com.guobank.entity.Trandstype;
 import com.guobank.entity.Transinfo;
 import com.guobank.util.Page;
 
+import javax.xml.crypto.Data;
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,12 +30,12 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
     private Page<Transinfo> transinfoPage = new Page<>();
 
     @Override
-    public Page<Transinfo> queryTransinfo(Integer pageNo,Integer userId) throws SQLException {
+    public Page<Transinfo> queryTransinfo(Integer pageNo, Integer userId) throws SQLException {
         transinfoPage.setPageNo(pageNo);
         String sql = "SELECT tinfo.*,ttype.typeName FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId  where bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?)   ORDER BY tinfo.trandsDate desc limit " + ((transinfoPage.getPageNo() - 1) * transinfoPage.getPageCount()) + "," + (transinfoPage.getPageCount());
         System.out.println(sql);
         String sqlCount = "SELECT count(1) as count FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId  where bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?) ";
-        ResultSet rs = super.query(sql,new Object[]{userId});
+        ResultSet rs = super.query(sql, new Object[]{userId});
 
         try {
             transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{userId})));
@@ -45,13 +48,13 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
 
 
     @Override
-    public Page<Transinfo> queryTransinfoByType(String typeName, Integer pageNo,Integer userId) throws SQLException {
+    public Page<Transinfo> queryTransinfoByType(String typeName, Integer pageNo, Integer userId) throws SQLException {
         transinfoPage.setPageNo(pageNo);
         String sql = "SELECT tinfo.*,ttype.typeName FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where typeName= ?  and  bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?)  ORDER BY tinfo.trandsDate desc limit " + ((transinfoPage.getPageNo() - 1) * transinfoPage.getPageCount()) + "," + (transinfoPage.getPageCount());
         String sqlCount = "SELECT count(1) as count FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where typeName= ? and  bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?) ";
-        ResultSet rs = super.query(sql, new Object[]{typeName,userId});
+        ResultSet rs = super.query(sql, new Object[]{typeName, userId});
         try {
-            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{typeName,userId})));
+            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{typeName, userId})));
             add(rs);
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,16 +63,16 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
     }
 
     @Override
-    public Page<Transinfo> queryTransinfoByDate(String startDate, String endDate, Integer pageNo,Integer userId) throws SQLException {
+    public Page<Transinfo> queryTransinfoByDate(String startDate, String endDate, Integer pageNo, Integer userId) throws SQLException {
         transinfoPage.setPageNo(pageNo);
         String sql = "SELECT tinfo.*,ttype.typeName FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where trandsDate>= ? and trandsDate<= ? and  bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?)  ORDER BY tinfo.trandsDate desc limit " + ((transinfoPage.getPageNo() - 1) * transinfoPage.getPageCount()) + "," + (transinfoPage.getPageCount());
         String sqlCount = "SELECT count(1) as count FROM `transinfo` as tinfo inner JOIN trandstype as ttype on tinfo.typeId=ttype.typeId where trandsDate>= ? and trandsDate<= ? and  bankcardid in (SELECT bankcard.bankcardid FROM bankcard  inner JOIN userinfo on bankcard.userId = userinfo.userId where userinfo.userid = ?) ";
-        ResultSet rs = super.query(sql, new Object[]{startDate, endDate,userId});
+        ResultSet rs = super.query(sql, new Object[]{startDate, endDate, userId});
         List<Transinfo> transinfos = null;
         System.out.println(startDate);
         System.out.println(endDate);
         try {
-            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{startDate, endDate,userId})));
+            transinfoPage.setTotalCount(queryCount(super.query(sqlCount, new Object[]{startDate, endDate, userId})));
             add(rs);
         } catch (Exception e) {
             e.printStackTrace();
@@ -103,8 +106,8 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
     }
 
 
-    private Integer queryCount(ResultSet rs)throws Exception{
-        if(rs.next()){
+    private Integer queryCount(ResultSet rs) throws Exception {
+        if (rs.next()) {
             return rs.getInt(1);
         }
         return 0;
@@ -114,38 +117,59 @@ public class TransinfoDaoImpl extends BaseDao implements TransinfoDao {
     @Override
     public void addTransInfo(Transinfo transinfo) throws SQLException {
         String sql = "insert into transinfo values(default,(select typeid from trandstype where typeName = ?),?,now(),?,?)";
-        super.execute(sql,new Object[]{transinfo.getTrandstype().getTypeName(),transinfo.getBankcardid(),transinfo.getTrandsmoney(),transinfo.getTrandsinfos()});
+        super.execute(sql, new Object[]{transinfo.getTrandstype().getTypeName(), transinfo.getBankcardid(), transinfo.getTrandsmoney(), transinfo.getTrandsinfos()});
     }
 
 
     @Override
     public List<String[]> queryStatisticsWithin3Months() throws SQLException {
         String sql = "select td.typeName,sum(trandsmoney) as sumMoney ,MONTH(trandsDate) as month from transinfo as ti,trandstype as td where td.typeId = ti.typeId and  td.typeid in(1,2,4) and date_format(ti.trandsDate,'%y-%m') > date_format(DATE_SUB(CURDATE(), INTERVAL 3 MONTH),'%y-%m') GROUP BY DATE_FORMAT(trandsDate,'%Y%m'),td.typeid ORDER BY td.typeid,trandsDate\n";
-        ResultSet rs = super.executeQuery(sql,null);
-        List<String[]> stringList = new ArrayList<>();
-        while (rs.next()){
-            String[] strings = new String[3];
-            strings[0] = rs.getString("typeName");
-            strings[1] = rs.getString("sumMoney");
-            strings[2] = rs.getString("month");
-
-            stringList.add(strings);
+        ResultSet rs = super.executeQuery(sql, null);
+        List<String[]> stringList = new ArrayList<String[]>() {{
+                add(new String[]{"存款", "0", String.valueOf(getMonth(0))});
+                add(new String[]{"存款", "0", String.valueOf(getMonth(-1))});
+                add(new String[]{"存款", "0", String.valueOf(getMonth(-2))});
+                add(new String[]{"取款", "0", String.valueOf(getMonth(0))});
+                add(new String[]{"取款", "0", String.valueOf(getMonth(-1))});
+                add(new String[]{"取款", "0", String.valueOf(getMonth(-2))});
+                add(new String[]{"贷款", "0", String.valueOf(getMonth(0))});
+                add(new String[]{"贷款", "0", String.valueOf(getMonth(-1))});
+                add(new String[]{"贷款", "0", String.valueOf(getMonth(-2))});
+        }};
+        int i = 0;
+        while (rs.next()) {
+            stringList.get(i)[1] = rs.getString("sumMoney");
+            i++;
         }
         return stringList;
+    }
+
+    private int getMonth(int month) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, month);
+        return calendar.get(Calendar.MONTH) + 1;
     }
 
     @Override
     public List<String[]> queryUserInformationWithin3Months() throws SQLException {
         String sql = "select rt.TypeName as typename ,count(1) as count ,MONTH(r.RecordDate) as month from record as r,recordtype  as rt where r.RecordTypeId = rt.RecordTypeId and rt.RecordTypeId in(1,2,3) and date_format(r.RecordDate,'%y-%m') > date_format(DATE_SUB(CURDATE(), INTERVAL 3 MONTH),'%y-%m') GROUP BY DATE_FORMAT(r.RecordDate,'%Y%m') , rt.RecordTypeId ORDER BY rt.RecordTypeId , r.RecordDate";
-        ResultSet rs = super.executeQuery(sql,null);
-        
-        List<String[]> stringList = new ArrayList<>();
-        while (rs.next()){
-            String[] strings = new String[3];
-            strings[0] = rs.getString("typename");
-            strings[1] = rs.getString("count");
-            strings[2] = rs.getString("month");
-            stringList.add(strings);
+        ResultSet rs = super.executeQuery(sql, null);
+
+        List<String[]> stringList = new ArrayList<String[]>() {{
+            add(new String[]{"注册", "0", String.valueOf(getMonth(0))});
+            add(new String[]{"注册", "0", String.valueOf(getMonth(-1))});
+            add(new String[]{"注册", "0", String.valueOf(getMonth(-2))});
+            add(new String[]{"开户", "0", String.valueOf(getMonth(0))});
+            add(new String[]{"开户", "0", String.valueOf(getMonth(-1))});
+            add(new String[]{"开户", "0", String.valueOf(getMonth(-2))});
+            add(new String[]{"销户", "0", String.valueOf(getMonth(0))});
+            add(new String[]{"销户", "0", String.valueOf(getMonth(-1))});
+            add(new String[]{"销户", "0", String.valueOf(getMonth(-2))});
+        }};
+        int i = 0;
+        while (rs.next()) {
+            stringList.get(i)[1] = rs.getString("count");
+            i++;
         }
         return stringList;
     }

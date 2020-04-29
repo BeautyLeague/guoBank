@@ -33,16 +33,16 @@ public class TransinfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        Integer userId = null;
+        UserInfo user = null;
         try {
-            userId = ((UserInfo)request.getSession().getAttribute("user")).getUserId();
+            user = ((UserInfo)request.getSession().getAttribute("user"));
         } catch (Exception e) {
             e.printStackTrace();
         }
         Integer pageNo = request.getParameter("pageNo")==null?1:Integer.valueOf(request.getParameter("pageNo"));
         if("query".equals(request.getParameter("action")) ){
             try {
-                Page<Transinfo> transinfoList = transinfoService.queryTransinfo(pageNo,userId);
+                Page<Transinfo> transinfoList = transinfoService.queryTransinfo(pageNo,user.getUserId());
                 response.getWriter().write(JSON.toJSONStringWithDateFormat(transinfoList,"YYYY年MM月dd日 HH点mm分ss秒"));
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -50,7 +50,7 @@ public class TransinfoServlet extends HttpServlet {
         }else if("queryByType".equals(request.getParameter("action"))){
             String typeName = request.getParameter("typeName");
             try {
-                Page<Transinfo> transinfoList = transinfoService.queryTransinfoByType(typeName,pageNo,userId);
+                Page<Transinfo> transinfoList = transinfoService.queryTransinfoByType(typeName,pageNo,user.getUserId());
                 response.getWriter().write(JSON.toJSONStringWithDateFormat(transinfoList,"YYYY年MM月dd日 HH点mm分ss秒"));
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -61,7 +61,7 @@ public class TransinfoServlet extends HttpServlet {
             startDate+=" 00:00:00";
             endDate+=" 23:59:59";
             try {
-                Page<Transinfo> transinfoList = transinfoService.queryTransinfoByDate(startDate,endDate,pageNo,userId);
+                Page<Transinfo> transinfoList = transinfoService.queryTransinfoByDate(startDate,endDate,pageNo,user.getUserId());
                 response.getWriter().write(JSON.toJSONStringWithDateFormat(transinfoList,"YYYY年MM月dd日 HH点mm分ss秒"));
             } catch (SQLException e) {
                 e.printStackTrace();

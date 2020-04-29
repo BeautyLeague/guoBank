@@ -26,9 +26,9 @@ import java.util.*;
 public class KeFuWebSocket {
 
 
-    public static List<KeFuWebSocket> socketList = new ArrayList<KeFuWebSocket>();
+    public static List<KeFuWebSocket> socketList = new Vector<KeFuWebSocket>();
 
-    public static List<KeFuWebSocket> requests = new ArrayList<KeFuWebSocket>();
+    public static List<KeFuWebSocket> requests = new Vector<>();
 
     private UserInfoService userInfoService = new UserInfoService();
 
@@ -117,14 +117,41 @@ public class KeFuWebSocket {
     @OnClose
     public void onClose(Session session) {
         try {
-            for (KeFuWebSocket item : socketList) {
-                synchronized (this) {
-                    if (item.session == session) {
-                        socketList.remove(item);
-                        requests.remove(item);
+//            Iterator<KeFuWebSocket> iterator = socketList.iterator();
+//            while (iterator.hasNext()){
+//                KeFuWebSocket item = iterator.next();
+//                if(item.session == session){
+//
+//                    for (KeFuWebSocket socket : socketList) {
+//                        try {
+//                            if (objectSessionId.equals(socket.sessionId)) {
+//                                socket.session.getBasicRemote().sendText("false");
+//                            }
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                    iterator.remove();
+//                    requests.remove(item);
+//                }
+//            }
+            requests.remove(this);
+            socketList.remove(this);
+            for (KeFuWebSocket socket : socketList) {
+                try {
+                    if (objectSessionId.equals(socket.sessionId)) {
+                        socket.session.getBasicRemote().sendText("false");
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
+//            for (KeFuWebSocket item : socketList) {
+//                if (item.session == session) {
+//                    socketList.remove(item);
+//                    requests.remove(item);
+//                }
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }

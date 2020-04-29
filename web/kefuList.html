@@ -116,16 +116,22 @@
         .sendText, .receiveText {
             overflow: hidden;
         }
+        .textTips {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.23);
+            border-radius: 50px;
+        }
     </style>
 
     <script>
         $(function () {
             $.post("/KeFuServlet?action=getAllUserRequest", function (result) {
+                $(".tab").remove();
                 for (var i = 0; i < result.length; i++) {
                     $(".tab").append("<tr class=\"data\">\n" +
-                        "        <td>"+result[i].entity.userId+"</td>\n" +
-                        "        <td>"+result[i].date+"</td>\n" +
-                        "        <td><input type=\"button\" value=\"聊天\" onclick='kefuClick("+result[i].sessionId+")'></td>\n" +
+                        "        <td>" + result[i].entity.userName + "</td>\n" +
+                        "        <td>" + result[i].date + "</td>\n" +
+                        "        <td><input type=\"button\" value=\"聊天\" onclick='kefuClick(" + result[i].sessionId + ",this)'></td>\n" +
                         "    </tr>")
                 }
             }, "JSON");
@@ -134,20 +140,32 @@
 
         var wb;
 
-        function kefuClick(sessionId) {
+        function kefuClick(sessionId,obj) {
+            $(obj).parent().parent().remove();
+            var name;
             $(".kefu").show();
-            var wsURL = "ws://localhost:8080/testWebSocket/admin/1/"+sessionId;
+            $.post("AdminInfoServlet?action=getAdminInfo", function (result) {
+                name = result.adminName;
+            });
+
+            var wsURL = "ws://localhost:8080/testWebSocket/admin/1/" + sessionId;
 
             wb = new WebSocket(wsURL);
 
-            wb.onmessage = function(result){
+            wb.onmessage = function (result) {
+                if(result.data === "false"){
+                    $(".AllText").append("<div class=\"textTips\">\n" +
+                        "                <p>用户已关闭连接</p>\n" +
+                        "            </div>");
+                    return;
+                }
                 $(".AllText").append(" <div class=\"sendText\">\n" +
                     "                <div class=\"sendUserInfo\">\n" +
-                    "                    <p class=\"name\">小明</p>\n" +
+                    "                    <p class=\"name\">用户</p>\n" +
                     "                    <img src=\"img/2.jpg\" class=\"portrait\">\n" +
                     "                </div>\n" +
                     "                <div class=\"sendUserText\">\n" +
-                    "                    <p>"+result.data+"</p>\n" +
+                    "                    <p>" + result.data + "</p>\n" +
                     "                </div>\n" +
                     "            </div>")
             };
@@ -160,18 +178,21 @@
             wb.send($("#text").val());
             $(".AllText").append(" <div class=\"receiveText\">\n" +
                 "                <div class=\"receiveUserInfo\">\n" +
-                "                    <p class=\"name\">小明</p>\n" +
-                "                    <img src=\"img/2.jpg\" class=\"portrait\">\n" +
+                "                    <p class=\"name\">" + name + "</p>\n" +
+                "                    <img src=\"AdminInfoServlet?action=getAdminPortrait\" class=\"portrait\">\n" +
                 "                </div>\n" +
                 "                <div class=\"receiveUserText\">\n" +
-                "                    <p>"+$("#text").val()+"</p>\n" +
+                "                    <p>" + $("#text").val() + "</p>\n" +
                 "                </div>\n" +
                 "            </div>")
             $("#text").val("");
         }
+
         function closeWB() {
             wb.close();
+            $(".kefu").hide();
         }
+
     </script>
 </head>
 <body>
@@ -228,27 +249,10 @@
 </table>
 
 
-<div class="kefu"  hidden="hidden">
+<div class="kefu" hidden="hidden">
     <div class="context" id="context">
         <div class="AllText">
-            <div class="sendText">
-                <div class="sendUserInfo">
-                    <p class="name">小明</p>
-                    <img src="img/2.jpg" class="portrait">
-                </div>
-                <div class="sendUserText">
-                    <p>你好</p>
-                </div>
-            </div>
-            <div class="receiveText">
-                <div class="receiveUserInfo">
-                    <p class="name">小明</p>
-                    <img src="img/2.jpg" class="portrait">
-                </div>
-                <div class="receiveUserText">
-                    <p>你好</p>
-                </div>
-            </div>
+
         </div>
         <div class="out">
             <textarea id="text"></textarea>
