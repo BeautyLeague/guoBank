@@ -135,12 +135,13 @@ public class KeFuWebSocket {
 //                    requests.remove(item);
 //                }
 //            }
-            requests.remove(this);
-            socketList.remove(this);
+
             for (KeFuWebSocket socket : socketList) {
                 try {
                     if (objectSessionId.equals(socket.sessionId)) {
                         socket.session.getBasicRemote().sendText("false");
+                        requests.remove(socket);
+                        socketList.remove(socket);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

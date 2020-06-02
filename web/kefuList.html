@@ -126,7 +126,7 @@
     <script>
         $(function () {
             $.post("/KeFuServlet?action=getAllUserRequest", function (result) {
-                $(".tab").remove();
+                $(".tab .data").remove();
                 for (var i = 0; i < result.length; i++) {
                     $(".tab").append("<tr class=\"data\">\n" +
                         "        <td>" + result[i].entity.userName + "</td>\n" +
