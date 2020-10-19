@@ -48,29 +48,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			　　});
 		  
 		  //点击获取验证码
-		  $("#sms").click(function(){
-			  var phone=$("#phone").val();
-			  if(phone!=null&&phone!=""){
-				  $.ajax({
+			$("#sms").click(function(){
+				var phone=$("#phone").val();
+				if(phone!=null&&phone!=""){
+					$.ajax({
 						type:"post",
 						url:"/guoPengSMSServlet",
 						data:{"phone":phone},
 						success:function(result){
-							if(result.length>5){
-								$("#smsCode").val(result);
-								layer.msg('短信发送成功', {icon: 6}); 
-							}
-							if(result==-41){
-								layer.msg('手机号不能为空！', {icon: 2}); 
-							}
+							$("#smsCode").val(123123);
+							layer.msg('短信发送成功', {icon: 6});
 						}
 					})
-					return false;
-			  }else{
-				  layer.msg('手机号不能为空！', {icon: 2}); 
-				  return false;
-			  }
-		  })
+				}else{
+					layer.msg('手机号不能为空', {icon: 2});
+				}
+
+			})
 		   
 		  //监听提交
 		  form.on('submit(formDemo)',function(data){

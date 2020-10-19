@@ -47,27 +47,23 @@
 		  var $=layui.jquery;
 		  var layer=layui.layer;
 		//点击获取验证码
-		 $("#sms").click(function(){
-			  var phone=$("#phone").val();
-			  if(phone!=null&&phone!=""){
-				  $.ajax({
+			$("#sms").click(function(){
+				var phone=$("#phone").val();
+				if(phone!=null&&phone!=""){
+					$.ajax({
 						type:"post",
 						url:"/guoPengSMSServlet",
 						data:{"phone":phone},
 						success:function(result){
-							if(result.length>5){
-								$("#smsCode").val(result);
-								layer.msg('短信发送成功', {icon: 6}); 
-							}
-							if(result==-41){
-								layer.msg('手机号不能为空！', {icon: 2}); 
-							}
+							$("#smsCode").val(123123);
+							layer.msg('短信发送成功', {icon: 6});
 						}
 					})
-			  }else{
-				  layer.msg('手机号不能为空！', {icon: 6}); 
-			  }
-		  })
+				}else{
+					layer.msg('手机号不能为空', {icon: 2});
+				}
+
+			})
 		  form.verify({
 			  username: function(value, item){ //value：表单的值、item：表单的DOM对象
 				 if(value==null||value==""){

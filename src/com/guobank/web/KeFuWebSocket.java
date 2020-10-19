@@ -136,17 +136,21 @@ public class KeFuWebSocket {
 //                }
 //            }
 
-            for (KeFuWebSocket socket : socketList) {
+            synchronized (this) {
                 try {
-                    if (objectSessionId.equals(socket.sessionId)) {
-                        socket.session.getBasicRemote().sendText("false");
-                        requests.remove(socket);
-                        socketList.remove(socket);
+                    for (KeFuWebSocket socket : socketList) {
+                        if (objectSessionId.equals(socket.sessionId)) {
+                            socket.session.getBasicRemote().sendText("false");
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                } finally {
+                    requests.remove(this);
+                    socketList.remove(this);
                 }
             }
+
 //            for (KeFuWebSocket item : socketList) {
 //                if (item.session == session) {
 //                    socketList.remove(item);

@@ -14,7 +14,7 @@ public class BankcardDao extends BaseDao implements IBankcardDao {
     //查询用户名下的所有卡号
     @Override
     public List<Bankcard> queryBanklist(int userId) throws Exception {
-        String sql="SELECT * FROM bankcard where userId=?";
+        String sql="SELECT * FROM bankcard  where userId=? ";
         ResultSet rst=super.executeQuery(sql,new Object[]{userId});
         List<Bankcard> banklist=new ArrayList<Bankcard>();
         while(rst.next()){
@@ -33,7 +33,7 @@ public class BankcardDao extends BaseDao implements IBankcardDao {
     //卡号页面分页
     @Override
     public Page<Bankcard> queryAllNews(Page<Bankcard> page,Integer userId) throws Exception {
-        String sql = "select * from Bankcard where userId=? limit ?,?";
+        String sql = "select * from Bankcard where userId=? order by date desc limit ?,? ";
         ResultSet rs = super.executeQuery(sql,
                 new Object[] {userId,(page.getPageNo()-1) * page.getPageCount(),
                         page.getPageCount()});

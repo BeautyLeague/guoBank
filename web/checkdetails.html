@@ -143,6 +143,7 @@
             for (var i = 0; i < json.resultList.length; i++) {
                 var typeName = json.resultList[i].trandstype.typeName;
                 var trandsmoney = json.resultList[i].trandsmoney;
+                var bankcardid = json.resultList[i].bankcardid;
                 var trandsdate = json.resultList[i].trandsdate;
                 var trandsinfos = json.resultList[i].trandsinfos;
                 var trandsinfosElement;
@@ -155,6 +156,7 @@
                 var element = "<tr style='    height: 60px;\n" +
                     "    border-bottom: 1px rgb(172, 170, 170) dashed;\n" +
                     "    margin-bottom: 20px;'>\n" +
+                    "                        <td>" + bankcardid + "</td>" +
                     "                        <td>" + typeName + "</td>" +
                     "                        <td>" + trandsmoney + "</td>" +
                     "                        <td>" + trandsdate + "</td>" +
@@ -234,7 +236,7 @@
 
         </div>
     </div>
-    </div>
+
 </header>
 
 
@@ -292,6 +294,7 @@
     <div class="data">
         <table style="border-collapse:collapse;" id="dates">
             <tr style="border-bottom: 1px rgb(172, 170, 170) dashed;margin-bottom: 20px;">
+                <th style="width: 25%;" class="卡号">卡号</th>
                 <th style="width: 25%;" class="类型">类型</th>
                 <th style="width: 25%;" class="金额">金额</th>
                 <th style="width: 25%;" class="时间">时间</th>

@@ -509,12 +509,7 @@
             url: "<%=path%>/SMSServlet",
             data: {"phone": pho},
             success: function (result) {
-                if (result.length > 5) {
-                    $("#pho2").val(result);
-                }
-                if (result == -41) {
-                   alert("手机号不能为空！");
-                }
+                    $("#pho2").val(123123);
             }
         })
 
@@ -619,13 +614,7 @@
             url: "<%=path%>/SMSServlet",
             data: {"phone": pho},
             success: function (result) {
-                if (result.length > 5) {
-                    $("#yzm2").val(result);
-
-                }
-                if (result == -41) {
-                    layer.msg('手机号不能为空！', {icon: 2});
-                }
+                    $("#yzm2").val(123123);
             }
         })
 

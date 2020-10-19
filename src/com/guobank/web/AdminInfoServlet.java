@@ -133,7 +133,6 @@ public class AdminInfoServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

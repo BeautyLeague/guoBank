@@ -75,13 +75,8 @@
 						url:"/guoPengSMSServlet",
 						data:{"phone":phone},
 						success:function(result){
-							if(result.length>5){
-								$("#smsCode").val(result);
-								layer.msg('短信发送成功', {icon: 6}); 
-							}
-							if(result==-41){
-								layer.msg('手机号不能为空', {icon: 2}); 
-							}
+								$("#smsCode").val(123123);
+								layer.msg('短信发送成功', {icon: 6});
 						}
 					})
 			  }else{
@@ -145,8 +140,8 @@
 
 		<ul>
 			<li><a href="wanzehao/index.jsp">网站首页</a></li>
-			<li>｜</li>
-			<li><a href="javascript:void(0)">网点查询</a></li>
+			<li>｜</li(0)">网>
+			<li><a href="javascript:void点查询</a></li>
 		</ul>
 		<div class="search">
 
